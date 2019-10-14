@@ -1,0 +1,116 @@
+.nav {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	flex-direction: column;
+
+	&-accent {
+		background-color: $color--secondary;
+		height: $height--accent-mobile;
+		position: relative;
+	}
+
+	&-panel {
+		height: $height--nav-mobile;
+		@include panel-shadow;
+	}
+
+	@include media-breakpoint-up($bp-d) {
+		bottom: 0;
+		right: auto;
+		flex-direction: row;
+
+		&-accent {
+			background-color: $color--secondary;
+			height: auto;
+			width: $width--accent-desktop;
+			position: relative;
+		}
+
+		&-panel {
+			height: auto;
+			width: $width--nav-desktop;
+			@include panel-shadow;
+		}
+	}
+
+	&__logo {
+		@include media-breakpoint-up($bp-d) {
+			height: $height--banner-desktop;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	&__menu {
+		font-size: 16px;
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	&__item {
+		position: relative;
+		display: block;
+
+		a {
+			color: $color--primary;
+			display: block;
+			padding: 1em 3em;
+            line-height: 1.25;
+            transition: 0.2s ease;
+            text-transform: uppercase;
+
+            &:hover {
+                text-decoration: none;
+                background-color: $color--hover--menu;
+
+                &::after {
+                    color: $color--tertiary;
+                }
+            }
+		}
+
+		@include media-breakpoint-up($bp-d) {
+			> a {
+				padding: 1em 2em;
+			}
+        }
+
+        &--dropdown {
+            > a::after {
+                @include fa(solid, f0da);
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 2em;
+                color: $color--field-border;
+                transition: 0.2s ease;
+                text-align: center;
+                padding: 1em 0.75em;
+            }
+        }
+
+		&--active {
+			font-weight: $roboto-bold;
+
+			&::before {
+				content: "";
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				background-color: $color--tertiary;
+				width: 0.5em;
+			}
+		}
+	}
+}

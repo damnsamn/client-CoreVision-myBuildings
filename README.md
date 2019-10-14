@@ -1,7 +1,6 @@
 # Framework Dependencies
-Below are the technologies and dependencies the myBuildings framework will include.
-* Sass 1.23.0
-	* Sass Modules (@use)
+Below are the technologies and dependencies the myBuildings framework will require.
+* Sass SCSS
 * Bootstrap 4.3.1
 * Font Awesome 5.11
 * **Jekyll 4.0.0 (static templating)**

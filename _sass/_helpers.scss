@@ -1,0 +1,38 @@
+/*
+
+Helpers are general, single-function, immutable CSS classes used for quick styling of HTML elements.
+
+They should only be used in cases where they are contextually necessary. If you find yourself
+repeating these over and over when making components or repeating elements, you should instead
+opt to style them within their own component sass file.
+
+*/
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.full-height-width {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.full-width {
+    width: 100% !important;
+}
+
+.full-height {
+    height: 100% !important;
+}

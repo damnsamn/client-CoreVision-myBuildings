@@ -1,0 +1,38 @@
+// Brand colour definitions
+$color--cv-primary: #12354A;
+$color--cv-secondary: #210839;
+$color--cv-tertiary: #6cc7e4;
+$color--cv-highlight: #7b59b9;
+
+// Site colour definitions
+$color--primary: $color--cv-primary;
+$color--secondary: $color--cv-secondary;
+$color--tertiary: $color--cv-tertiary;
+$color--highlight: $color--cv-highlight;
+$color--background: #F7F7F7;
+$color--hover--menu: #E9F7FB;
+$color--hover--table: #F4F7Fb;
+$color--field-border: #C8C8C8;
+
+$width--accent-desktop: 15px;
+$width--nav-desktop: 275px;
+
+$height--accent-mobile: 10px;
+$height--nav-mobile: 75px;
+$height--banner-desktop: 200px;
+$height--banner-mobile: 150px;
+
+$margin--panel-TB: 40px;
+$margin--panel-LR: $margin--panel-TB * 2;
+
+$padding--panel-TB: 24px;
+$padding--panel-LR: 32px;
+
+$box-shadow--panel: 0 0 20px rgba(0,0,0,0.08);
+
+$bp-d: "md";
+
+$roboto-light: 300;
+$roboto-regular: 400;
+$roboto-medium: 500;
+$roboto-bold: 700;

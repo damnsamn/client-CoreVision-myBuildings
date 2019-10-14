@@ -1,0 +1,22 @@
+// Defines global desktop v mobile layout
+
+body {
+	display: flex;
+
+	> .content {
+		flex: 1 0 auto;
+    }
+
+    flex-direction: column;
+    padding-top: $height--accent-mobile + $height--nav-mobile;
+
+    @include media-breakpoint-up($bp-d) {
+        flex-direction: row;
+        padding-top: 0;
+        padding-left: $width--accent-desktop + $width--nav-desktop;
+    }
+}
+
+main {
+    padding: $margin--panel-TB  $margin--panel-LR;
+}

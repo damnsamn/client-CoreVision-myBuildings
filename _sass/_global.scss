@@ -1,0 +1,40 @@
+/*
+
+This file should hold styling that applies to all pages.
+This may include standard font-sizes, cross-browser normalisation, redefinition of defaults, or smaller
+general rules for common elements such as <strong>, <p> etc.
+
+*/
+
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", $font-family-base;
+    background-color: $color--background;
+}
+
+body, p {
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 21px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
