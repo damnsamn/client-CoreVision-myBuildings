@@ -3,7 +3,8 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	right: 0;
+    right: 0;
+    z-index: $zindex-fixed;
 
 	flex-direction: column;
 
@@ -15,7 +16,8 @@
 
 	&-panel {
 		height: $height--nav-mobile;
-		@include panel-shadow;
+        @include panel-shadow;
+        background-color: #fff;
 	}
 
 	@include media-breakpoint-up($bp-d) {

@@ -1,19 +1,15 @@
 .panel {
 	$block: #{&};
-	background-color: #fff;
 	border-radius: 2px;
-    @include panel-shadow;
+	@include panel-shadow;
+    background-color: #fff;
+    padding: $padding--panel-TB $padding--panel-LR;
 
 	&__heading {
-        padding: $padding--panel-TB $padding--panel-LR 16px;
-        margin: 0;
-
-		+ #{$block}__content {
-			padding-top: 0;
-		}
+		margin-bottom: 16px;
 	}
 
 	&__content {
-		padding: $padding--panel-TB $padding--panel-LR;
+
 	}
 }
