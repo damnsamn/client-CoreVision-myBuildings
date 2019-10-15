@@ -11,7 +11,7 @@ eg .col-[your-breakpoint-name]-12
 
 */
 
-$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px );
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1680px );
 $container-max-widths: ( #{$bp-laptop}: 1660px );
 :root {
     @each $mw, $value in $container-max-widths {

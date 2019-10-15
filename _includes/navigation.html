@@ -3,12 +3,21 @@
     <div class="nav-panel">
 
         <div class="nav__logo">
-            <a href="/"><img width="175" src="/assets/images/myBuildings-logo.svg"></a>
+            <a href="{{ site.url | relative_url }}"><img width="175" src="/assets/images/myBuildings-logo.svg"></a>
         </div>
 
         <div class="nav__menu">
             <nav>
                 <ul>
+                    {% assign sorted_pages = site.pages | sort:"order" %}
+                    {% for node in sorted_pages %}
+                    {% if node.title %}
+                    <li class="nav__item {% if page.url == node.url %}nav__item--active{% endif %}">
+                        <a href="{{ node.url | relative_url }}">{{node.title}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
                     <li class="nav__item">
                         <a href="/">Nav Item</a>
                     </li>

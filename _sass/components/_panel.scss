@@ -2,14 +2,35 @@
 	$block: #{&};
 	border-radius: 2px;
 	@include panel-shadow;
-    background-color: #fff;
-    padding: $padding__panel-TB $padding__panel-LR;
+	background-color: #fff;
+	padding: $padding__panel-TB $padding__panel-LR;
+
+	&-col {
+		margin-bottom: $padding__panel-TB;
+
+		@include media-breakpoint-up($bp-laptop) {
+			margin-bottom: $margin__panel-TB;
+		}
+	}
 
 	&__heading {
 		margin-bottom: 16px;
 	}
 
 	&__content {
+	}
 
+	&--blank {
+		padding: 0;
+		box-shadow: none;
+		border-radius: 0;
+        background: transparent;
+        padding-left: 15px;
+        padding-right: 15px;
+
+		@include media-breakpoint-up($bp-desktop) {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 }

@@ -81,3 +81,14 @@ If you have other mixins which are component specific, they belong at the top of
         border-radius: $radius;
     }
 }
+
+// This mixin will scale down the $size by certain factors per breakpoint.
+// Allows text to take up less space on smaller devices.
+@mixin font-size($size) {
+    $rem: 16px;
+    font-size: calc(#{$size} - ((#{$size} - #{$rem}) / 3)) !important;
+
+    @include media-breakpoint-up(md) {
+        font-size: $size !important;
+    }
+}

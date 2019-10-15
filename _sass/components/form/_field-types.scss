@@ -5,7 +5,14 @@
 		.field__input {
 			padding: $padding__field-TB $padding__field-LR;
 		}
-	}
+    }
+
+    &--readonly {
+        .field__readonly {
+			padding: $padding__field-TB 0;
+        }
+
+    }
 
 	&--textarea {
 		.field__input {
@@ -41,7 +48,8 @@
 			margin: 0;
 			font-weight: normal;
 			padding-left: calc(#{$height__checkbox-radio} + 0.75em);
-			line-height: 1.25;
+            line-height: 1.25;
+            cursor: pointer;
 			@include value-style;
 
 			&::before {

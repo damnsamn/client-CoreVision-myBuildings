@@ -107,6 +107,11 @@
 		border: 1px solid $color__field-border;
     }
 
+    &__readonly {
+        @include value-style;
+        border-top: 1px solid $color__field-border;
+    }
+
     &__help {
         font-size: 12px;
         margin-top: 8px;

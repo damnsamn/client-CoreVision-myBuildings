@@ -22,9 +22,21 @@ body {
 }
 
 main.container {
-    padding: $margin__panel-TB 15px;
+	padding: $padding__panel-TB 15px;
+
+	@include media-breakpoint-up($bp-laptop) {
+		padding: $margin__panel-TB 15px;
+	}
 
 	@include media-breakpoint-up($bp-desktop) {
 		padding: $margin__panel-TB $margin__panel-LR;
+	}
+
+	> .row {
+		margin-bottom: -$padding__panel-TB;
+
+		@include media-breakpoint-up($bp-laptop) {
+			margin-bottom: -$margin__panel-TB;
+		}
 	}
 }

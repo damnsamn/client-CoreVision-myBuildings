@@ -40,16 +40,32 @@
 	}
 
 	&__logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        img {
+            height: 45px;
+        }
+
 		@include media-breakpoint-up($bp-laptop) {
-			height: $height__banner-desktop;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
+            height: $height__banner-desktop;
+
+            img {
+                height: auto;
+            }
+        }
 	}
 
 	&__menu {
 		font-size: 16px;
+        display: none;
+
+		@include media-breakpoint-up($bp-laptop) {
+			display: block;
+        }
+
 		ul {
 			margin: 0;
 			padding: 0;
