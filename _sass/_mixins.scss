@@ -1,19 +1,31 @@
 /*
 
-This file should hold all the mixins you'll use throughout the rest of the scss.
+This file should hold the global mixins you'll use throughout the rest of the scss.
+If you have other mixins which are component specific, they belong at the top of that component's .scss file
 
 */
 
+// Media query for targeting IE only
 @mixin ms-only {
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         @content;
     }
 }
 
-@mixin panel-shadow {
-    box-shadow: $box-shadow--panel;
+// Selects elements that are EITHER hovered or focused
+@mixin hover-focus {
+
+    &:hover, &:focus, &:active {
+        @content;
+    }
 }
 
+// Applies the correct box-shadow value for panels
+@mixin panel-shadow {
+    box-shadow: $box-shadow__panel;
+}
+
+// Apply fontawesome to ::before or ::after
 @mixin fa($style: solid, $icon: f100) {
     display: inline-block;
     font-style: normal;
@@ -44,6 +56,7 @@ This file should hold all the mixins you'll use throughout the rest of the scss.
     // content: "\f368"
 }
 
+// Applies darkened gradient to banner
 @mixin banner-gradient {
     background: rgba(0,0,0,0.5);
     background: -moz-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
@@ -53,4 +66,18 @@ This file should hold all the mixins you'll use throughout the rest of the scss.
     background: -ms-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
     background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+}
+
+// Applies a border that doesn't affect document flow, using ::before
+@mixin border($style, $radius:null, $offset:0) {
+    &::before {
+        content: '';
+        position: absolute;
+        top: -#{$offset};
+        right: -#{$offset};
+        left: -#{$offset};
+        bottom: -#{$offset};
+        border: $style;
+        border-radius: $radius;
+    }
 }

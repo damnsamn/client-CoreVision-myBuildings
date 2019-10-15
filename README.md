@@ -7,7 +7,7 @@ Below are the technologies and dependencies the myBuildings framework will requi
 	* Jekyll is used as an analog for any equivalent templating method (myBuildings ASP.NET)
 	* Solely for the development and display of this front-end framework - *this should not be ported over to the actual solution*
 
-# Jekyll Instructions
+## Jekyll Instructions
 To run:
 
 1. Install Jekyll:

@@ -1,9 +1,9 @@
 .banner {
-    height: $height--banner-mobile;
+    height: $height__banner-mobile;
     position: relative;
 
-    @include media-breakpoint-up($bp-d) {
-        height: $height--banner-desktop;
+    @include media-breakpoint-up($bp-laptop) {
+        height: $height__banner-desktop;
     }
 
     &__image {
@@ -34,7 +34,11 @@
         top: 50%;
         transform: translateY(-50%);
         width: 100%;
-        margin: 0 $margin--panel-LR;
+        padding: 0 15px;
+
+        @include media-breakpoint-up($bp-desktop) {
+            padding: 0 $margin__panel-LR;
+        }
     }
 
 }

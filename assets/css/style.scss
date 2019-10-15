@@ -1,24 +1,30 @@
 ---
 ---
-
+// Required Bootstrap
 @import "vendor/bootstrap 4.3.1/functions";
 @import "vendor/bootstrap 4.3.1/variables";
 @import "vendor/bootstrap 4.3.1/mixins";
 @import "vendor/bootstrap 4.3.1/reboot";
 @import "vendor/bootstrap 4.3.1/utilities";
 
-// "vendor/bootstrap 4.3.1/grid" is imported in _overrides.scss
+// Optional Bootstrap
+@import "vendor/bootstrap 4.3.1/input-group";
 
-@import 'overrides';
+
+// "vendor/bootstrap 4.3.1/grid" is imported in _overrides.scss
 
 @import 'variables';
 @import 'mixins';
 @import 'animations';
+@import 'overrides';
 @import 'helpers';
 @import 'global';
 @import 'layout';
 
 @import 'components/banner';
 @import 'components/button';
+@import 'components/form/form';
+@import 'components/form/field-types';
+@import 'components/form/field-states';
 @import 'components/panel';
 @import 'components/navigation';

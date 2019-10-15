@@ -3,22 +3,28 @@
 body {
 	display: flex;
 
-    flex-direction: column;
-    padding-top: $height--accent-mobile + $height--nav-mobile;
+	flex-direction: column;
+	padding-top: $height__accent-mobile + $height__nav-mobile;
 
-    @include media-breakpoint-up($bp-d) {
-        flex-direction: row;
-        padding-top: 0;
-        padding-left: $width--accent-desktop + $width--nav-desktop;
-    }
+	@include media-breakpoint-up($bp-laptop) {
+		flex-direction: row;
+		padding-top: 0;
+		padding-left: $width__accent-desktop + $width__nav-desktop;
+	}
 }
 
 .content {
-    flex: 1 0 auto;
-    overflow: hidden;
+	flex: 1 0 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
+main.container {
+    padding: $margin__panel-TB 15px;
 
-main {
-    padding: $margin--panel-TB  $margin--panel-LR;
+	@include media-breakpoint-up($bp-desktop) {
+		padding: $margin__panel-TB $margin__panel-LR;
+	}
 }

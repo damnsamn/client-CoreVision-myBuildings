@@ -10,17 +10,17 @@
 
 	&-accent {
 		background-color: $color--secondary;
-		height: $height--accent-mobile;
+		height: $height__accent-mobile;
 		position: relative;
 	}
 
 	&-panel {
-		height: $height--nav-mobile;
+		height: $height__nav-mobile;
         @include panel-shadow;
         background-color: #fff;
 	}
 
-	@include media-breakpoint-up($bp-d) {
+	@include media-breakpoint-up($bp-laptop) {
 		bottom: 0;
 		right: auto;
 		flex-direction: row;
@@ -28,20 +28,20 @@
 		&-accent {
 			background-color: $color--secondary;
 			height: auto;
-			width: $width--accent-desktop;
+			width: $width__accent-desktop;
 			position: relative;
 		}
 
 		&-panel {
 			height: auto;
-			width: $width--nav-desktop;
+			width: $width__nav-desktop;
 			@include panel-shadow;
 		}
 	}
 
 	&__logo {
-		@include media-breakpoint-up($bp-d) {
-			height: $height--banner-desktop;
+		@include media-breakpoint-up($bp-laptop) {
+			height: $height__banner-desktop;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -68,9 +68,9 @@
             transition: 0.2s ease;
             text-transform: uppercase;
 
-            &:hover {
+            @include hover-focus {
                 text-decoration: none;
-                background-color: $color--hover--menu;
+                background-color: $color__hover-menu;
 
                 &::after {
                     color: $color--tertiary;
@@ -78,7 +78,7 @@
             }
 		}
 
-		@include media-breakpoint-up($bp-d) {
+		@include media-breakpoint-up($bp-laptop) {
 			> a {
 				padding: 1em 2em;
 			}
@@ -93,7 +93,7 @@
                 top: 50%;
                 transform: translateY(-50%);
                 width: 2em;
-                color: $color--field-border;
+                color: $color__field-border;
                 transition: 0.2s ease;
                 text-align: center;
                 padding: 1em 0.75em;

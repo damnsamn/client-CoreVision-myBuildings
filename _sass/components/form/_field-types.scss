@@ -1,0 +1,139 @@
+.field {
+	&--text,
+	&--select,
+	&--textarea {
+		.field__input {
+			padding: $padding__field-TB $padding__field-LR;
+		}
+	}
+
+	&--textarea {
+		.field__input {
+			height: auto;
+			resize: none;
+		}
+	}
+
+	&--checkbox,
+	&--radio {
+		flex-direction: row;
+		align-items: flex-start;
+		@include value-style;
+
+		.field__input {
+			opacity: 0;
+			height: 0;
+			width: 0;
+
+			&:checked + .field__label {
+				font-weight: $roboto-medium;
+
+				&::before {
+					border-color: $color--primary;
+					border-width: 2px;
+				}
+			}
+		}
+
+		.field__label {
+			display: flex;
+			align-items: flex-start;
+			margin: 0;
+			font-weight: normal;
+			padding-left: calc(#{$height__checkbox-radio} + 0.75em);
+			line-height: 1.25;
+			@include value-style;
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				display: inline-block;
+				height: $height__checkbox-radio;
+				width: $height__checkbox-radio;
+				border: 1px solid $color__field-border;
+			}
+		}
+	}
+
+	&--checkbox {
+		.field__input:checked + .field__label {
+			&::after {
+				content: "";
+				display: inline-block;
+				height: 6px;
+				width: 10px;
+				border-left: 2.5px solid;
+				border-bottom: 2.5px solid;
+				border-color: $color--primary;
+				position: absolute;
+				top: 50%;
+				left: 10px;
+				transform: translate(-50%, -70%) rotate(-45deg);
+			}
+		}
+
+		.field__label::before {
+			border-radius: 1px;
+		}
+	}
+
+	&--radio {
+		.field__input:checked + .field__label {
+			&::after {
+				content: "";
+				display: inline-block;
+				height: 1px;
+				width: 1px;
+				border: 4px solid $color__text;
+				position: absolute;
+				top: 50%;
+				left: $height__checkbox-radio/2 + 0.5px;
+				transform: translate(-50%, -50%);
+				border-radius: 100%;
+			}
+		}
+
+		.field__label::before {
+			border-radius: 100%;
+		}
+	}
+
+	&--select {
+		select {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+
+			&::-ms-expand {
+				display: none;
+			}
+		}
+
+		.field__input {
+			padding-right: calc(15px + 1em);
+		}
+
+		position: relative;
+
+		&::after {
+			content: "";
+			position: relative;
+			display: inline-block;
+			border-top: 0.25em solid;
+			border-right: 0.25em solid transparent;
+			border-bottom: 0;
+			border-radius: 0;
+			border-left: 0.25em solid transparent;
+			left: calc(100% - #{$padding__field-LR});
+			border-radius: 0.25em;
+			bottom: 16px;
+			transform: translate(-100%, -100%);
+			color: $color__text;
+			pointer-events: none;
+			width: 0.25em;
+		}
+	}
+}

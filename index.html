@@ -7,6 +7,193 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 <section class="panel-col col-12">
     <div class="panel">
         <h3 class="panel__heading">Panel Heading</h3>
-        <div class="panel__content row"></div>
+        <div class="panel__content">
+            <form class="form">
+
+
+                <!-- Text Fields -->
+                <!-- Regular text field - with optional help text -->
+                <div class="form__field field--text col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="text-regular">Text - Regular (Help)</label>
+                    <input class="field__input" id="text-regular" type="text">
+                    <span class="field__help">Text field help text</span>
+                </div>
+
+                <!-- Required text field - .field--required -->
+                <div class="form__field field--text field--required col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="text-required">Text - Required</label>
+                    <input class="field__input" id="text-required" type="text" required>
+                </div>
+
+                <!-- Invalid text field - .field--invalid -->
+                <div class="form__field field--text field--required field--invalid col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="text-changed">Text - Invalid</label>
+                    <input class="field__input" id="text-changed" type="text">
+                </div>
+
+                <!-- Disabled text field - .field--disabled -->
+                <div class="form__field field--text field--disabled  col-12 col-sm-6 col-lg-4 col-xl-3col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="text-disabled">Text - Disabled</label>
+                    <input class="field__input" id="text-disabled" type="text" value="Disabled" disabled>
+                </div>
+
+
+
+                <!-- Select Fields -->
+                <!-- Regular select -->
+                <div class="form__field field--select col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="select-regular">Select - Regular</label>
+                    <select class="field__input" id="select-regular">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <!-- Required select -->
+                <div class="form__field field--select field--required col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="select-required">Select - Required</label>
+                    <select class="field__input" id="select-required" required>
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <!-- Invalid select -->
+                <div class="form__field field--select field--required field--invalid col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="select-invalid">Select - Invalid</label>
+                    <select class="field__input" id="select-invalid" required>
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <!-- Disabled select -->
+                <div class="form__field field--select field--disabled col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="select-disabled">Select - Disabled</label>
+                    <select class="field__input" id="select-disabled" disabled>
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+
+
+                <!-- Text Fields with Bootstrap Input-groups -->
+                <!-- Prepend -->
+                <div class="form__field field--text col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="group-prepend">Input-group - Prepend</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input class="field__input" id="group-prepend" type="text" placeholder="Value">
+                    </div>
+                </div>
+
+                <!-- Append -->
+                <div class="form__field field--text col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="group-prepend">Input-group - Append</label>
+                    <div class="input-group">
+                        <input class="field__input" id="group-prepend" type="text" placeholder="Email">
+                        <div class="input-group-append">
+                            <span class="input-group-text">@corevision.com.au</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Append AND Prepend -->
+                <div class="form__field field--text col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="group-prepend">Input-group - Both Ends</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input class="field__input" id="group-prepend" type="text" placeholder="Value">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multiple -->
+                <div class="form__field field--text col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <label class="field__label" for="group-prepend">Input-group - Multiple</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                            <span class="input-group-text">10.</span>
+                        </div>
+                        <input class="field__input" id="group-prepend" type="text" placeholder="Value">
+                        <div class="input-group-append">
+                            <span class="input-group-text">AUD</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Checkboxes & Radios -->
+                <!-- Checkbox Regular -->
+                <div class="form__field field--checkbox col-6 col-sm-3 col-lg">
+                    <input class="field__input field__input" id="checkbox-regular" type="checkbox">
+                    <label class="field__label" for="checkbox-regular">Regular</label>
+                </div>
+
+                <!-- Radio Regular -->
+                <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                    <input class="field__input field__input" id="radio-regular" type="radio">
+                    <label class="field__label" for="radio-regular">Regular</label>
+                </div>
+
+                <!-- Checkbox Required -->
+                <div class="form__field field--checkbox field--required col-6 col-sm-3 col-lg">
+                    <input class="field__input field__input" id="checkbox-required" type="checkbox" required>
+                    <label class="field__label" for="checkbox-required">Required</label>
+                </div>
+
+                <!-- Radio Required -->
+                <div class="form__field field--radio field--required col-6 col-sm-3 col-lg">
+                    <input class="field__input field__input" id="radio-required" type="radio" required>
+                    <label class="field__label" for="radio-required">Required</label>
+                </div>
+
+                <!-- Checkbox Invalid -->
+                <div class="form__field field--checkbox field--required field--invalid col-6 col-sm-3 col-lg">
+                    <input class="field__input field__input" id="checkbox-invalid" type="checkbox" required>
+                    <label class="field__label" for="checkbox-invalid">Invalid</label>
+                </div>
+
+                <!-- Radio Invalid -->
+                <div class="form__field field--radio field--required field--invalid col-6 col-sm-3 col-lg">
+                    <input class="field__input field__input" id="radio-invalid" type="radio" required>
+                    <label class="field__label" for="radio-invalid">Invalid</label>
+                </div>
+
+                <!-- Checkbox Disabled -->
+                <div class="form__field field--checkbox field--disabled col-6 col-sm-3 col-lg">
+                    <input class="field__input field__input" id="checkbox-disabled" type="checkbox" disabled>
+                    <label class="field__label" for="checkbox-disabled">Disabled</label>
+                </div>
+
+                <!-- Radio Disabled -->
+                <div class="form__field field--radio field--disabled col-6 col-sm-3 col-lg">
+                    <input class="field__input field__input" id="radio-disabled" type="radio" disabled>
+                    <label class="field__label" for="radio-disabled">Disabled</label>
+                </div>
+
+
+                <!-- Textarea -->
+                <!-- Regular text field - with optional help text -->
+                <div class="form__field field--textarea col-12">
+                    <label class="field__label" for="text-regular">Textarea</label>
+                    <textarea class="field__input" id="text-regular" rows="4"></textarea>
+                </div>
+
+            </form>
+        </div>
     </div>
 </section>
