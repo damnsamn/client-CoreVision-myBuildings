@@ -89,6 +89,34 @@
 		margin-top: calc(#{$margin__panel-TB} - #{$margin__form-field});
 		margin-bottom: $margin__form-field;
 	}
+
+    // Labelled box around related fields
+    &__fieldset {
+        $block: ".fieldset";
+		margin-bottom: $margin__form-field;
+
+        #{$block}__label {
+            @include label-style;
+            line-height: 1;
+            position: absolute;
+            top: 0;
+            padding: 0 0.5em 0.25em 0;
+            background-color: #fff;
+            // margin-left: 0.5em;
+
+            + #{$block}__box {
+                margin-top: 0.5em;
+            }
+        }
+
+        #{$block}__box {
+            @include make-row();
+            margin: 0;
+            padding-top: $margin__form-field;
+            padding: $margin__form-field calc(#{$margin__form-field} - 15px) 0;
+            border: 1px solid $color__field-border;
+        }
+    }
 }
 
 // Field Elements
@@ -118,6 +146,7 @@
         color: $color__text-light;
     }
 }
+
 
 // Overriding Bootstrap Input-group
 .input-group {
