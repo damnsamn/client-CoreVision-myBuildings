@@ -3,8 +3,8 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-    right: 0;
-    z-index: $zindex-fixed;
+	right: 0;
+	z-index: $zindex-fixed;
 
 	flex-direction: column;
 
@@ -16,8 +16,10 @@
 
 	&-panel {
 		height: $height__nav-mobile;
-        @include panel-shadow;
-        background-color: #fff;
+		@include panel-shadow;
+		background-color: #fff;
+		display: flex;
+		flex-direction: column;
 	}
 
 	@include media-breakpoint-up($bp-laptop) {
@@ -27,48 +29,85 @@
 
 		&-accent {
 			background-color: $color--secondary;
-			height: auto;
+			height: 100vh;
 			width: $width__accent-desktop;
 			position: relative;
 		}
 
 		&-panel {
-			height: auto;
+			height: 100vh;
 			width: $width__nav-desktop;
 			@include panel-shadow;
 		}
 	}
 
 	&__logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
 
-        img {
-            height: 45px;
-        }
+		img {
+			height: 45px;
+		}
 
 		@include media-breakpoint-up($bp-laptop) {
-            height: $height__banner-desktop;
+			height: $height__banner-desktop;
 
-            img {
-                height: auto;
-            }
-        }
+			img {
+				height: auto;
+			}
+		}
 	}
 
 	&__menu {
 		font-size: 16px;
-        display: none;
+		display: none;
 
 		@include media-breakpoint-up($bp-laptop) {
-			display: block;
-        }
+			display: flex;
+			height: 0;
+			flex: 1 1 100%;
+		}
 
 		ul {
 			margin: 0;
 			padding: 0;
+		}
+
+        .simplebar-vertical {
+            margin: 5px 0;
+            width: 10px;
+            z-index: $zindex-fixed;
+
+            .simplebar-scrollbar {
+                width: 5px;
+                right: 0;
+            }
+        }
+
+        .simplebar-scrollbar {
+
+            &::before {
+                border-radius: 2px 0 0 2px;
+                background: $color--primary;
+            }
+
+            &.simplebar-visible::before {
+                opacity: 0.15 !important;
+            }
+        }
+	}
+
+	&__footer {
+		// height: 150px;
+		// background: $color--highlight;
+	}
+
+	@include media-breakpoint-up($bp-laptop) {
+		&__logo,
+		&__footer {
+			flex: 1 0 auto;
 		}
 	}
 
@@ -80,41 +119,41 @@
 			color: $color--primary;
 			display: block;
 			padding: 1em 3em;
-            line-height: 1.25;
-            transition: 0.2s ease;
-            text-transform: uppercase;
+			line-height: 1.25;
+			transition: 0.2s ease;
+			text-transform: uppercase;
 
-            @include hover-focus {
-                text-decoration: none;
-                background-color: $color__hover-menu;
+			@include hover-focus {
+				text-decoration: none;
+				background-color: $color__hover-menu;
 
-                &::after {
-                    color: $color--tertiary;
-                }
-            }
+				&::after {
+					color: $color--tertiary;
+				}
+			}
 		}
 
 		@include media-breakpoint-up($bp-laptop) {
 			> a {
 				padding: 1em 2em;
 			}
-        }
+		}
 
-        &--dropdown {
-            > a::after {
-                @include fa(solid, f0da);
-                display: inline-block;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 2em;
-                color: $color__field-border;
-                transition: 0.2s ease;
-                text-align: center;
-                padding: 1em 0.75em;
-            }
-        }
+		&--dropdown {
+			> a::after {
+				@include fa(solid, f0da);
+				display: inline-block;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 2em;
+				color: $color__field-border;
+				transition: 0.2s ease;
+				text-align: center;
+				padding: 1em 0.75em;
+			}
+		}
 
 		&--active {
 			font-weight: $roboto-bold;
