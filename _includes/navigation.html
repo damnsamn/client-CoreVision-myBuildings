@@ -6,8 +6,12 @@
             <a href="{{ site.url | relative_url }}"><img width="175" src="/assets/images/myBuildings-logo.svg"></a>
         </div>
 
-        <div class="nav__menu" data-simplebar>
-            <nav>
+        <div class="nav__button" tabindex="0">
+            <i class="far fa-bars"></i>
+        </div>
+
+        <div class="nav__menu">
+            <nav data-simplebar>
                 <ul>
                     {% assign sorted_pages = site.pages | sort:"order" %}
                     {% for node in sorted_pages %}
@@ -19,15 +23,21 @@
                     {% endfor %}
 
                     {% for i in (1..25) %}
-                    <li class="nav__item">
+                    <li class="nav__item nav__item--dropdown">
                         <a href="/">Nav Item {{ i }}</a>
                     </li>
                     {% endfor %}
                 </ul>
             </nav>
-        </div>
 
-        <div class="nav__footer"></div>
+            <div class="nav__footer">
+                <h5>Leasing Information</h5>
+                <span class="nav__footer__label">Email</span>
+                <a href="mailto:leasing@mylocus.com.au" class="nav__footer__value">leasing@mylocus.com.au</a>
+                <span class="nav__footer__label">Phone</span>
+                <a href="tel:0893644836" class="nav__footer__value">(08) 9364 4836</a>
+            </div>
+        </div>
     </div>
 
 </div>

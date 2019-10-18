@@ -36,3 +36,7 @@ opt to style them within their own component sass file.
 .full-height {
     height: 100% !important;
 }
+
+.no-scroll {
+    overflow: hidden;
+}

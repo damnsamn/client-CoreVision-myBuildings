@@ -193,19 +193,13 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                     <textarea class="field__input" id="text-regular" rows="4"></textarea>
                 </div>
 
-
-                <!-- Readonly -->
-                <!-- Readonly field - sits alongside other fields -->
-                <div class="form__field field--readonly col-12 col-sm-6">
-                    <label class="field__label" for="field-readonly">Readonly Field</label>
-                    <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
-                </div>
-
                 <!-- Fieldset -->
                 <div class="form__fieldset col-12">
                     <label class="fieldset__label">Fieldset Example</label>
                     <div class="fieldset__box">
 
+                        <!-- Readonly -->
+                        <!-- Readonly field - sits alongside other fields -->
                         <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
                             <label class="field__label" for="field-readonly">Readonly Field</label>
                             <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
@@ -231,19 +225,29 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
             </form>
         </div>
+        <div class="form__actions">
+                <button class="mb-button mb-button--stroke">Back</button>
+                <button class="mb-button">Save</button>
+        </div>
     </div>
 </section>
 
 <section class="panel-col col-12">
     <div class="panel">
-        <h3 class="panel__heading">Panel Heading</h3>
+        <h3 class="panel__heading">Buttons</h3>
         <div class="panel__content">
-        <h3 class="panel__heading">Panel Heading</h3>
-        <h3 class="panel__heading">Panel Heading</h3>
-        <h3 class="panel__heading">Panel Heading</h3>
-        <h3 class="panel__heading">Panel Heading</h3>
-        <h3 class="panel__heading">Panel Heading</h3>
-        <h3 class="panel__heading">Panel Heading</h3>
-    </div>
+
+            <button class="mb-button">Button</button>
+            <a href="/" class="mb-button">Button</a>
+
+            <button class="mb-button mb-button--stroke">Button</button>
+            <a href="/" class="mb-button mb-button--stroke">Button</a>
+
+            <button class="mb-button mb-button--small">Button</button>
+            <a href="/" class="mb-button mb-button--small">Button</a>
+
+            <button class="mb-button mb-button--stroke mb-button--small">Button</button>
+            <a href="/" class="mb-button mb-button--stroke mb-button--small">Button</a>
+        </div>
     </div>
 </section>

@@ -1,0 +1,74 @@
+@mixin button-style($fill-stroke, $text, $bg-border) {
+	@if ($fill-stroke == "fill") {
+		color: $text;
+		background: $bg-border;
+		@include border(2px solid $bg-border);
+
+		@include hover-focus {
+			color: #fff;
+			background: $color--blue;
+            &::before {
+                border-color: $color--blue;
+            }
+		}
+	}
+	@if ($fill-stroke == "stroke") {
+		color: $text;
+		background: #fff;
+		@include border(2px solid $bg-border);
+
+		@include hover-focus {
+			color: $color--blue;
+            background: #fff;
+            &::before {
+                border-color: $color--blue;
+            }
+		}
+	}
+}
+
+.mb-button {
+	$block: #{&};
+	border: none;
+	display: inline-block;
+	background-color: transparent;
+	cursor: pointer;
+	text-decoration: none;
+	text-transform: uppercase;
+	position: relative;
+	line-height: 1;
+	bottom: 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	transition: $transition;
+	padding: 15px 24px;
+	font-size: 14px;
+
+	&,
+	&::before {
+		transition: $transition;
+	}
+
+	@include hover-focus {
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		bottom: 2px;
+	}
+
+	&,
+	&--fill {
+		@include button-style("fill", #fff, $color--primary);
+	}
+	&--stroke {
+		@include button-style("stroke", $color--primary, $color--primary);
+
+		&:not(#{$block}--small) {
+			font-weight: $roboto-medium;
+		}
+	}
+	&--small {
+		padding: 8px 14px;
+		font-size: 12px;
+        &::before {
+            border-width: 1px;
+        }
+	}
+}

@@ -1,10 +1,12 @@
 ---
 ---
 // Required Bootstrap
+// The following bootstrap files are imported in overrides.scss
+// vendor/bootstrap 4.3.1/grid
+// vendor/bootstrap 4.3.1/reboot
 @import "vendor/bootstrap 4.3.1/functions";
 @import "vendor/bootstrap 4.3.1/variables";
 @import "vendor/bootstrap 4.3.1/mixins";
-@import "vendor/bootstrap 4.3.1/reboot";
 @import "vendor/bootstrap 4.3.1/utilities";
 
 // Optional Bootstrap
@@ -14,9 +16,9 @@
 // "vendor/bootstrap 4.3.1/grid" is imported in _overrides.scss
 
 @import 'variables';
+@import 'overrides';
 @import 'mixins';
 @import 'animations';
-@import 'overrides';
 @import 'helpers';
 @import 'global';
 @import 'layout';

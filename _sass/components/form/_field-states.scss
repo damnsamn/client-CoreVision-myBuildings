@@ -1,84 +1,88 @@
 .field {
-    &--disabled {
-        .field__label {
-            color: $color__disabled-text;
-        }
+	&--disabled {
+		&,
+		* {
+			pointer-events: none !important;
+			cursor: default !important;
+		}
 
-        .field__input,
-        .field__label::before {
-            pointer-events: none;
-            color: $color__disabled-text;
-            border-color: $color__disabled-border;
-            background-color: $color__disabled-background;
-        }
+		.field__label {
+			color: $color__disabled-text;
+		}
 
-        &::before {
-            color: $color__disabled-text;
-        }
-    }
+		.field__input,
+		.field__label::before {
+			color: $color__disabled-text;
+			border-color: $color__disabled-border;
+			background-color: $color__disabled-background;
+		}
 
-    &--required {
+		&::before {
+			color: $color__disabled-text;
+		}
+	}
 
-        // .field__input,
-        // .field__label::before {
-        //     border-color: $color--red;
-        // }
+	&--required {
+		// .field__input,
+		// .field__label::before {
+		//     border-color: $color--red;
+		// }
 
-        // .field__input {
-        //     background-color: $color--red-light;
-        // }
-        &.field--checkbox, &.field--radio {
-            &::after {
-                content: '*';
-                font-weight: bold;
-                color: $color--red;
-                margin-left: 0.25em;
-            }
-        }
+		// .field__input {
+		//     background-color: $color--red-light;
+		// }
+		&.field--checkbox,
+		&.field--radio {
+			&::after {
+				content: "*";
+				font-weight: bold;
+				color: $color--red;
+				margin-left: 0.25em;
+			}
+		}
 
-        &:not(.field--checkbox):not(.field--radio) .field__label::after {
-            content: '*';
-            font-weight: bold;
-            color: $color--red;
-            margin-left: 0.25em;
-        }
-    }
+		&:not(.field--checkbox):not(.field--radio) .field__label::after {
+			content: "*";
+			font-weight: bold;
+			color: $color--red;
+			margin-left: 0.25em;
+		}
+	}
 
-    &--invalid {
+	&--invalid {
+		.field__label,
+		&::before {
+			color: $color--red;
+		}
 
-        .field__label,
-        &::before {
-            color: $color--red;
-        }
+		.field__input,
+		.field__label::before {
+			border-color: $color--red;
+			color: $color--red;
+			background-color: $color--red-light;
+		}
 
-        .field__input,
-        .field__label::before {
-            border-color: $color--red;
-            color: $color--red;
-            background-color: $color--red-light;
-        }
+		.field__error {
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			transform: translate(100%, -50%);
+			right: 0;
+			padding: 6px;
+			box-sizing: content-box;
+			background-size: 12px;
+			background-position: center;
 
-        .field__error {
-            display: inline-block;
-            position: absolute;
-            top: 50%;
-            transform: translate(100%, -50%);
-            right: 0;
-            padding: 6px;
-            box-sizing: content-box;
-            background-size: 12px;
-            background-position: center;
+			@include ms-only {
+				top: 0;
+				transform: none;
+			}
+		}
+	}
 
-            @include ms-only {
-                top: 0;
-                transform: none;
-            }
-        }
-    }
-
-    &--changed {
-        .field__input {
-            border-left: 4px solid $color--tertiary;
-        }
-    }
+	&--changed {
+		.field__input {
+			border-left: 4px solid $color--tertiary;
+		}
+	}
 }

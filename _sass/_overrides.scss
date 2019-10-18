@@ -18,4 +18,10 @@ $container-max-widths: ( #{$bp-laptop}: 1660px );
         --max-width-#{$mw}: #{$value};
     }
 }
+$link-color: $color--highlight;
+$link-decoration: underline;
+$link-hover-color: $color--blue;
+$link-hover-decoration: none;
+
 @import "vendor/bootstrap 4.3.1/grid";
+@import "vendor/bootstrap 4.3.1/reboot";

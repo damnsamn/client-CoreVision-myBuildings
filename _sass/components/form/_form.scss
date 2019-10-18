@@ -84,10 +84,19 @@
 	&__actions {
 		@include make-col-ready();
 		@include make-col(12);
-		flex-direction: row-reverse;
-		display: flex;
-		margin-top: calc(#{$margin__panel-TB} - #{$margin__form-field});
-		margin-bottom: $margin__form-field;
+		// flex-direction: row-reverse;
+        display: flex;
+        margin-top: $margin__panel-TB;
+        padding: 0;
+
+        > .mb-button {
+            &:first-child {
+                margin-right: auto;
+            }
+            &:last-child {
+                margin-left: auto;
+            }
+        }
 	}
 
     // Labelled box around related fields
