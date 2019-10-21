@@ -1,3 +1,57 @@
+@mixin nav__item {
+	color: $color--primary;
+	display: block;
+	line-height: 1.25;
+	transition: 0.2s ease;
+	text-transform: uppercase;
+	text-decoration: none;
+
+	@include hover-focus {
+        text-decoration: none;
+        background-color: $color__hover-menu;
+
+        &::after {
+            color: $color--tertiary;
+        }
+    }
+
+    &.hover {
+        text-decoration: none;
+        background-color: $color__hover-menu;
+
+        &::after {
+            color: $color--tertiary;
+        }
+
+    }
+}
+
+@keyframes nav__subnav-open {
+	0% {
+		display: none;
+	}
+	1% {
+		display: block;
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes nav__subnav-close {
+	0% {
+		display: block;
+		transform: translateX(0%);
+	}
+	99% {
+		transform: translateX(-100%);
+	}
+	to {
+		display: none;
+	}
+}
+
 .nav {
 	display: flex;
 	position: fixed;
@@ -5,7 +59,6 @@
 	left: 0;
 	right: 0;
 	z-index: $zindex-fixed;
-
 	flex-direction: column;
 
 	&-accent {
@@ -21,7 +74,7 @@
 		display: flex;
 		flex-direction: column;
 
-		overflow-y: hidden;
+		// overflow-y: hidden;
 	}
 
 	@include media-breakpoint-up($bp-laptop) {
@@ -118,6 +171,33 @@
 			height: 0;
 			max-height: 100%;
 			flex: 1 1 100%;
+			position: relative;
+			padding-top: 1.5em;
+
+			// &,
+			// .simplebar-wrapper,
+			// .simplebar-mask,
+			// .simplebar-offset,
+			// .simplebar-content-wrapper,
+			// .simplebar-content,
+			// ul {
+			// 	overflow: visible auto !important;
+			// }
+
+			// Shadow scroll indicator?
+
+			// &::before {
+			//     content: '';
+			//     display: inline-block;
+			//     position: absolute;
+			//     top: 0;
+			//     bottom: 0;
+			//     left: -50px;
+			//     right: -50px;
+			//     box-shadow: inset 0 10px 15px rgba(0,0,0,0.051);
+			//     pointer-events: none;
+
+			// }
 		}
 
 		@include media-breakpoint-down($bp-tablet) {
@@ -127,8 +207,8 @@
 			top: 85px;
 			transform: translateY(-100%);
 			transition: $transition;
-            z-index: -1;
-            padding-top: 1.5em;
+			z-index: -1;
+			padding-top: 1.5em;
 
 			&.expanded {
 				transform: translateY(0);
@@ -139,6 +219,7 @@
 			nav {
 				max-height: auto;
 				height: 0;
+				padding: 0;
 			}
 		}
 
@@ -170,36 +251,28 @@
 		}
 	}
 
-	&__item {
+	&__item,
+	.subnav__item {
 		position: relative;
 		display: block;
 
 		a {
-			color: $color--primary;
-			display: block;
+			@include nav__item;
 			padding: 1em 3em;
-			line-height: 1.25;
-			transition: 0.2s ease;
-			text-transform: uppercase;
-			text-decoration: none;
-
-			@include hover-focus {
-				text-decoration: none;
-				background-color: $color__hover-menu;
-
-				&::after {
-					color: $color--tertiary;
-				}
-			}
 		}
 
 		@include media-breakpoint-up($bp-laptop) {
 			> a {
 				padding: 1em 2em;
 			}
-		}
+        }
 
-		&--dropdown {
+        // Mobile subnav (per .nav__item--parent)
+        &__subnav {
+            display: none;
+        }
+
+		&--parent {
 			> a::after {
 				@include fa(solid, f0da);
 				display: inline-block;
@@ -212,6 +285,12 @@
 				transition: 0.2s ease;
 				text-align: center;
 				padding: 1em 0.75em;
+			}
+
+			&:hover {
+				.subnav {
+					display: block;
+				}
 			}
 		}
 
@@ -228,6 +307,33 @@
 				background-color: $color--tertiary;
 				width: 0.5em;
 			}
+		}
+	}
+
+    // Desktop subnav panel
+	&__subnav {
+		transform: translateX(-100%);
+		display: none;
+		position: absolute;
+		left: 100%;
+		width: 230px;
+		top: 0;
+		bottom: 0;
+		background: #fff;
+		@include panel-shadow;
+		z-index: -1;
+
+		ul {
+			display: none;
+		}
+
+		&.visible {
+			display: block;
+			animation: nav__subnav-open 0.3s ease both;
+		}
+		&.hidden {
+			display: block;
+			animation: nav__subnav-close 0.3s ease both;
 		}
 	}
 

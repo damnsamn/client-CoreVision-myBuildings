@@ -23,12 +23,30 @@
                     {% endfor %}
 
                     {% for i in (1..25) %}
-                    <li class="nav__item nav__item--dropdown">
-                        <a href="/">Nav Item {{ i }}</a>
+                    <li class="nav__item nav__item--parent">
+                        <a href="/" id="nav-{{ i }}">Nav Item {{ i }}</a>
+                        <ul class="nav__item__subnav">
+                            {% for n in (1..5) %}
+                            <li class="subnav__item">
+                                <a href="/">{{ i }}: Subitem {{ n }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
                     </li>
                     {% endfor %}
                 </ul>
             </nav>
+            <div class="nav__subnav">
+                {% for i in (1..25) %}
+                <ul id="subnav-{{ i }}">
+                    {% for n in (1..5) %}
+                    <li class="subnav__item">
+                        <a href="/">{{ i }}: Subitem {{ n }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
 
             <div class="nav__footer">
                 <h5>Leasing Information</h5>
