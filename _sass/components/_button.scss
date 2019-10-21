@@ -4,12 +4,14 @@
 		background: $bg-border;
 		@include border(2px solid $bg-border);
 
-		@include hover-focus {
-			color: #fff;
-			background: $color--blue;
-            &::before {
-                border-color: $color--blue;
-            }
+		&:not([disabled]):not(.mb-button--disabled) {
+			@include hover-focus {
+				color: #fff;
+				background: $color--blue;
+				&::before {
+					border-color: $color--blue;
+				}
+			}
 		}
 	}
 	@if ($fill-stroke == "stroke") {
@@ -17,12 +19,14 @@
 		background: #fff;
 		@include border(2px solid $bg-border);
 
-		@include hover-focus {
-			color: $color--blue;
-            background: #fff;
-            &::before {
-                border-color: $color--blue;
-            }
+		&:not([disabled]):not(.mb-button--disabled) {
+			@include hover-focus {
+				color: $color--blue;
+				background: #fff;
+				&::before {
+					border-color: $color--blue;
+				}
+			}
 		}
 	}
 }
@@ -41,7 +45,8 @@
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	transition: $transition;
 	padding: 15px 24px;
-	font-size: 14px;
+    font-size: 14px;
+    user-select: none;
 
 	&,
 	&::before {
@@ -67,8 +72,24 @@
 	&--small {
 		padding: 8px 14px;
 		font-size: 12px;
-        &::before {
-            border-width: 1px;
+		&::before {
+			border-width: 1px;
+		}
+	}
+
+	&[disabled],
+	&--disabled {
+		pointer-events: none;
+        cursor: default;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+		&,
+		&#{$block}--fill {
+			@include button-style("fill", $color__disabled-text, $color__disabled-background);
         }
+
+		&#{$block}--stroke {
+			@include button-style("stroke", $color__disabled-text, $color__disabled-border);
+		}
 	}
 }

@@ -177,8 +177,5 @@ function navScrollIndicators() {
             $nav.addClass("more-below")
         else
             $nav.removeClass("more-below")
-
-        console.log(visibleHeight);
-        console.log(Math.round($wrapper.scrollTop()));
     }
 }
