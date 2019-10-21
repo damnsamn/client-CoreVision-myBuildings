@@ -86,14 +86,14 @@
 		@include make-col(12);
 		// flex-direction: row-reverse;
         display: flex;
-        margin-top: $margin__panel-TB;
-        padding: 0;
+        margin-top: $margin__panel-TB - $margin__form-field;
+		margin-bottom: $margin__form-field;
 
         > .mb-button {
-            &:first-child {
+            &.action--left {
                 margin-right: auto;
             }
-            &:last-child {
+            &.action--right {
                 margin-left: auto;
             }
         }

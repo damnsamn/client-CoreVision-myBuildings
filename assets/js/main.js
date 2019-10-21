@@ -66,8 +66,7 @@ function desktopSubNavigation() {
     navItemParentLinks.each(function (i) {
         $(this).on("mouseenter focusin", function () {
             if (desktop) {
-                let index = i + 1;
-                let subnavChild = $(".nav__subnav #subnav-" + index);
+                let subnavChild = $(".nav__subnav #subnav-" + i);
 
                 // Ensure all previously showing subnav children are hidden
                 hideAll();

@@ -22,31 +22,95 @@
                     {% endif %}
                     {% endfor %}
 
-                    {% for i in (1..25) %}
-                    <li class="nav__item nav__item--parent">
-                        <a href="/" id="nav-{{ i }}">Nav Item {{ i }}</a>
+                    <!-- Nav Item - Standard -->
+                    <!--
+                        ○ <li> .nav__item
+                        ├─● <a href>
+                    -->
+                    <li class="nav__item">
+                        <a href="{{ node.url | relative_url }}">Nav - Standard</a>
+                    </li>
+
+
+                    <!-- Nav Item - Active -->
+                    <!--
+                        ○ <li> .nav__item .nav__item--active
+                        ├─● <a href>
+                    -->
+                    <li class="nav__item nav__item--active">
+                        <a href="{{ node.url | relative_url }}">Nav - Active</a>
+                    </li>
+
+
+                    <!-- Nav Item - Parent -->
+                    <!--
+                        ○ <li> .nav__item .nav__item--parent
+                        ├─● <a href>
+                        ├─● <div> .nav__item__toggle
+                        └─○ <ul> .nav__item__subnav
+                        │ └─○ <li> .subnav__item
+                        │ │ └─● <a href>
+                    -->
+                    <li class="nav__item nav__item nav__item--parent">
+                        <a href="{{ node.url | relative_url }}">Nav - Parent</a>
                         <div class="nav__item__toggle"></div>
                         <ul class="nav__item__subnav">
-                            {% for n in (1..5) %}
+                            <!-- Subnav - mobile -->
+                            {% for n in (1..3) %}
                             <li class="subnav__item">
-                                <a href="/">{{ i }}: Subitem {{ n }}</a>
+                                <a href="/">EX1 - Subitem {{ n }}</a>
                             </li>
                             {% endfor %}
                         </ul>
                     </li>
-                    {% endfor %}
+
+
+                    <!-- Nav Item - Active Parent -->
+                    <!--
+                        ○ <li> .nav__item .nav__item--active .nav__item--parent
+                        ├─● <a href>
+                        ├─● <div> .nav__item__toggle
+                        ├─○ <ul> .nav__item__subnav
+                        │ └─○ <li> .subnav__item
+                        │ │ └─● <a href>
+                    -->
+                    <li class="nav__item nav__item nav__item--active nav__item--parent">
+                        <a href="{{ node.url | relative_url }}">Nav - Active Parent</a>
+                        <div class="nav__item__toggle"></div>
+                        <ul class="nav__item__subnav">
+                            <!-- Subnav - mobile -->
+                            {% for n in (1..3) %}
+                            <li class="subnav__item">
+                                <a href="/">EX2 - Subitem {{ n }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
                 </ul>
             </nav>
+
+            <!-- Subnav panel - desktop -->
+            <!--
+                ○ <div> .nav__subnav
+                ├─○ <ul> #subnav-N (where N is index of the corresponding .nav__item--parent(s) above)
+                │ └─○ <li> .subnav__item
+                │ │ └─● <a href>
+            -->
             <div class="nav__subnav">
-                {% for i in (1..25) %}
-                <ul id="subnav-{{ i }}">
-                    {% for n in (1..5) %}
+                <ul id="subnav-0">
+                    {% for n in (1..3) %}
                     <li class="subnav__item">
-                        <a href="/">{{ i }}: Subitem {{ n }}</a>
+                        <a href="/">EX1 - Subitem {{ n }}</a>
                     </li>
                     {% endfor %}
                 </ul>
-                {% endfor %}
+                <ul id="subnav-1">
+                    {% for n in (1..3) %}
+                    <li class="subnav__item">
+                        <a href="/">EX2 -Subitem {{ n }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
 
             <div class="nav__footer">
@@ -58,5 +122,4 @@
             </div>
         </div>
     </div>
-
 </div>

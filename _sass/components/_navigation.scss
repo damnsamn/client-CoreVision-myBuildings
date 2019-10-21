@@ -179,7 +179,7 @@
 				box-shadow: none;
             }
 
-            $color--shadow: rgba(darken($color--tertiary, 20%), 0.15);
+            $color--shadow: rgba(darken($color--tertiary, 25%), 0.125);
 
 			// Shadow scroll indicator
 			&.more-above {
@@ -330,7 +330,8 @@
 				left: 0;
 				bottom: 0;
 				background-color: $color--tertiary;
-				width: 0.5em;
+                width: 0.5em;
+                z-index: 1;
 			}
 		}
 
