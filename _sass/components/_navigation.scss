@@ -7,23 +7,22 @@
 	text-decoration: none;
 
 	@include hover-focus {
-        text-decoration: none;
-        background-color: $color__hover-menu;
+		text-decoration: none;
+		background-color: $color__hover-menu;
 
-        &::after {
-            color: $color--tertiary;
-        }
-    }
+		&::after {
+			color: $color--tertiary;
+		}
+	}
 
-    &.hover {
-        text-decoration: none;
-        background-color: $color__hover-menu;
+	&.hover {
+		text-decoration: none;
+		background-color: $color__hover-menu;
 
-        &::after {
-            color: $color--tertiary;
-        }
-
-    }
+		&::after {
+			color: $color--tertiary;
+		}
+	}
 }
 
 @keyframes nav__subnav-open {
@@ -172,32 +171,34 @@
 			max-height: 100%;
 			flex: 1 1 100%;
 			position: relative;
-			padding-top: 1.5em;
+			padding-top: $padding__panel-TB;
+			overflow-x: hidden;
 
-			// &,
-			// .simplebar-wrapper,
-			// .simplebar-mask,
-			// .simplebar-offset,
-			// .simplebar-content-wrapper,
-			// .simplebar-content,
-			// ul {
-			// 	overflow: visible auto !important;
-			// }
+			&::before,
+			&::after {
+				content: "";
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: -50px;
+				right: -50px;
+				transition: box-shadow 0.5s ease;
+                pointer-events: none;
+                box-shadow: none;
+			}
 
-			// Shadow scroll indicator?
-
-			// &::before {
-			//     content: '';
-			//     display: inline-block;
-			//     position: absolute;
-			//     top: 0;
-			//     bottom: 0;
-			//     left: -50px;
-			//     right: -50px;
-			//     box-shadow: inset 0 10px 15px rgba(0,0,0,0.051);
-			//     pointer-events: none;
-
-			// }
+			// Shadow scroll indicator
+			&.more-above {
+				&::before {
+					box-shadow: inset 0 10px 15px rgba(0, 0, 0, 0.05);
+				}
+			}
+			&.more-below {
+				&::after {
+					box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.05);
+				}
+			}
 		}
 
 		@include media-breakpoint-down($bp-tablet) {
@@ -208,7 +209,6 @@
 			transform: translateY(-100%);
 			transition: $transition;
 			z-index: -1;
-			padding-top: 1.5em;
 
 			&.expanded {
 				transform: translateY(0);
@@ -265,12 +265,12 @@
 			> a {
 				padding: 1em 2em;
 			}
-        }
+		}
 
-        // Mobile subnav (per .nav__item--parent)
-        &__subnav {
-            display: none;
-        }
+		// Mobile subnav (per .nav__item--parent)
+		&__subnav {
+			display: none;
+		}
 
 		&--parent {
 			> a::after {
@@ -310,7 +310,7 @@
 		}
 	}
 
-    // Desktop subnav panel
+	// Desktop subnav panel
 	&__subnav {
 		transform: translateX(-100%);
 		display: none;
@@ -322,6 +322,10 @@
 		background: #fff;
 		@include panel-shadow;
 		z-index: -1;
+
+		@include media-breakpoint-down($bp-tablet) {
+			display: none !important;
+		}
 
 		ul {
 			display: none;

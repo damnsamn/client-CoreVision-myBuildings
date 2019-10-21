@@ -6,6 +6,7 @@ $(document).ready(function () {
 
     responsiveVariables();
     desktopSubNavigation();
+    navScrollIndicators();
 });
 
 function responsiveVariables() {
@@ -133,3 +134,30 @@ function desktopSubNavigation() {
     }
 }
 
+// Show/hide shadows at top/bottom of nav element to indicate more content to scroll to
+function navScrollIndicators() {
+    let $nav = $("nav");
+    let $wrapper = $nav.find(".simplebar-content-wrapper");
+    let $content = $wrapper.children(".simplebar-content");
+    let visibleHeight = Math.round($content.outerHeight(true) - $wrapper.outerHeight(true));
+
+    showIndicators();
+    $wrapper.on("scroll", function () {
+        showIndicators();
+    })
+
+    function showIndicators() {
+        if (Math.round($wrapper.scrollTop()) != 0)
+            $nav.addClass("more-above")
+        else
+            $nav.removeClass("more-above")
+
+        if (Math.round($wrapper.scrollTop()) < visibleHeight)
+            $nav.addClass("more-below")
+        else
+            $nav.removeClass("more-below")
+
+        console.log(visibleHeight);
+        console.log(Math.round($wrapper.scrollTop()));
+    }
+}
