@@ -6,14 +6,16 @@ $(document).ready(function () {
 
     responsiveVariables();
     desktopSubNavigation();
+    mobileSubNavigation();
     navScrollIndicators();
 });
+
+var mobile = desktop = false;
 
 function responsiveVariables() {
     // Below from https://stackoverflow.com/a/31410149
     // Allows us to check whether we're on mobile/desktop based on screen width
 
-    var mobile = desktop = false;
     var resizeTimer, width;
 
     // This should mirror $grid-breakpoints.md from overrides.scss
@@ -49,18 +51,19 @@ function responsiveVariables() {
 }
 
 function desktopSubNavigation() {
+    // Desktop navigation/subnavigation behaviour
     // Manages tabindexes to maintain logic tabbing order
     // Opens/Closes subnav menu based on mouse/focus events
 
     let aList = $(".nav-panel a");
-    let navItemParents = $(".nav__item--parent>a");
+    let navItemParentLinks = $(".nav__item--parent>a");
 
     // Equalise all tab indexes
     aList.each(function () {
         $(this).attr("tabindex", "1");
     });
 
-    navItemParents.each(function (i) {
+    navItemParentLinks.each(function (i) {
         $(this).on("mouseenter focusin", function () {
             if (desktop) {
                 let index = i + 1;
@@ -80,7 +83,7 @@ function desktopSubNavigation() {
                 // Open subnav and display appropriate subnav items
                 openSubnav();
                 subnavChild.show();
-                $(this).addClass("hover");
+                $(this).parent().addClass("nav__item--expanded");
 
                 // Ensure subnav items don't fall off the bottom of the page
                 let padding;
@@ -93,12 +96,12 @@ function desktopSubNavigation() {
         })
     });
 
-    // Open subnav, maintain hover styling for parent
+    // Open subnav, maintain expanded styling for parent
     $(".nav__subnav").on("mouseenter focusin", function () {
         if (desktop) {
-            let hoverEl = $(".nav__item--parent>a.hover");
+            let expandedEl = $(".nav__item--expanded");
             openSubnav();
-            hoverEl.addClass("hover");
+            expandedEl.addClass("nav__item--expanded");
         }
     });
 
@@ -118,11 +121,11 @@ function desktopSubNavigation() {
     });
 
     function openSubnav() {
-        navItemParents.removeClass("hover");
+        navItemParentLinks.parent().removeClass("nav__item--expanded");
         $(".nav__subnav").addClass("visible").removeClass("hidden");
     }
     function closeSubnav() {
-        navItemParents.removeClass("hover");
+        navItemParentLinks.parent().removeClass("nav__item--expanded");
         $(".nav__subnav").removeClass("visible").addClass("hidden");
 
         aList.each(function () {
@@ -134,12 +137,30 @@ function desktopSubNavigation() {
     }
 }
 
+function mobileSubNavigation() {
+    // Mobile navigation/subnavigation behaviour
+    // Opens/Closes each item's subnav on nav__item__toggle click
+
+    let $arrow = $(".nav__item__toggle");
+
+    $arrow.click(function () {
+        if (mobile) {
+            $(this).parent().toggleClass("nav__item--expanded");
+            $(this).next(".nav__item__subnav").stop().slideToggle(function(){
+                $("nav .simplebar-content-wrapper").off("scroll");
+                navScrollIndicators();
+            });
+        }
+    });
+}
+
 // Show/hide shadows at top/bottom of nav element to indicate more content to scroll to
 function navScrollIndicators() {
     let $nav = $("nav");
     let $wrapper = $nav.find(".simplebar-content-wrapper");
     let $content = $wrapper.children(".simplebar-content");
     let visibleHeight = Math.round($content.outerHeight(true) - $wrapper.outerHeight(true));
+    let buffer = 10;
 
     showIndicators();
     $wrapper.on("scroll", function () {
@@ -147,12 +168,12 @@ function navScrollIndicators() {
     })
 
     function showIndicators() {
-        if (Math.round($wrapper.scrollTop()) != 0)
+        if (Math.round($wrapper.scrollTop()) > buffer)
             $nav.addClass("more-above")
         else
             $nav.removeClass("more-above")
 
-        if (Math.round($wrapper.scrollTop()) < visibleHeight)
+        if (Math.round($wrapper.scrollTop()) < visibleHeight - buffer)
             $nav.addClass("more-below")
         else
             $nav.removeClass("more-below")

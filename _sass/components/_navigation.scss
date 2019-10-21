@@ -2,7 +2,7 @@
 	color: $color--primary;
 	display: block;
 	line-height: 1.25;
-	transition: 0.2s ease;
+	transition: $transition;
 	text-transform: uppercase;
 	text-decoration: none;
 
@@ -10,16 +10,7 @@
 		text-decoration: none;
 		background-color: $color__hover-menu;
 
-		&::after {
-			color: $color--tertiary;
-		}
-	}
-
-	&.hover {
-		text-decoration: none;
-		background-color: $color__hover-menu;
-
-		&::after {
+		.nav__item__toggle {
 			color: $color--tertiary;
 		}
 	}
@@ -184,19 +175,21 @@
 				left: -50px;
 				right: -50px;
 				transition: box-shadow 0.5s ease;
-                pointer-events: none;
-                box-shadow: none;
-			}
+				pointer-events: none;
+				box-shadow: none;
+            }
+
+            $color--shadow: rgba(darken($color--tertiary, 20%), 0.15);
 
 			// Shadow scroll indicator
 			&.more-above {
 				&::before {
-					box-shadow: inset 0 10px 15px rgba(0, 0, 0, 0.05);
+					box-shadow: inset 0 10px 15px $color--shadow;
 				}
 			}
 			&.more-below {
 				&::after {
-					box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.05);
+					box-shadow: inset 0 -10px 15px $color--shadow;
 				}
 			}
 		}
@@ -255,6 +248,7 @@
 	.subnav__item {
 		position: relative;
 		display: block;
+		transition: background-color $transition;
 
 		a {
 			@include nav__item;
@@ -270,21 +264,52 @@
 		// Mobile subnav (per .nav__item--parent)
 		&__subnav {
 			display: none;
+
+			.subnav__item {
+				a {
+					font-size: 14px;
+					padding-left: 4.5em;
+					padding-top: 0.8em;
+					padding-bottom: 0.8em;
+				}
+
+				&:last-child a {
+					padding-bottom: 1.5em;
+				}
+			}
 		}
 
 		&--parent {
-			> a::after {
-				@include fa(solid, f0da);
+			> a {
+				position: relative;
+			}
+
+			.nav__item__toggle {
+				&::before {
+					@include fa(solid, f0da);
+					display: inline-block;
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					transition: transform $transition;
+				}
 				display: inline-block;
 				position: absolute;
 				right: 0;
-				top: 50%;
-				transform: translateY(-50%);
-				width: 2em;
+				top: 0;
 				color: $color__field-border;
-				transition: 0.2s ease;
+				transition: color $transition;
 				text-align: center;
-				padding: 1em 0.75em;
+				box-sizing: content-box;
+				height: 1.25em;
+				padding: 1em 1.25em;
+				z-index: 1;
+				cursor: pointer;
+
+				@include media-breakpoint-up($bp-desktop) {
+					pointer-events: none;
+				}
 			}
 
 			&:hover {
@@ -307,6 +332,25 @@
 				background-color: $color--tertiary;
 				width: 0.5em;
 			}
+		}
+
+		&--expanded {
+			text-decoration: none;
+			background-color: $color__hover-menu;
+
+			.nav__item__toggle {
+				color: $color--tertiary;
+
+				@include media-breakpoint-down($bp-tablet) {
+					&::before {
+						transform: translate(-100%, -50%) rotate(90deg);
+					}
+				}
+            }
+
+            & + & {
+                border-top: 2px solid #fff;
+            }
 		}
 	}
 

@@ -25,6 +25,16 @@ If you have other mixins which are component specific, they belong at the top of
     box-shadow: $box-shadow__panel;
 }
 
+// Selector for mixin classes
+@mixin fontawesome {
+	.far,
+	.fas,
+	.fal,
+	.fab {
+		@content;
+	}
+}
+
 // Apply fontawesome to ::before or ::after
 @mixin fa($style: solid, $icon: f100) {
     display: inline-block;
