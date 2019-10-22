@@ -311,7 +311,7 @@
 
 			.nav__item__toggle {
 				&::before {
-					@include fa("solid", f0da);
+					@include fa("solid", "f0da");
 					display: inline-block;
 					position: absolute;
 					left: 50%;

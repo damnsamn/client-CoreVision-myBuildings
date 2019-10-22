@@ -102,3 +102,11 @@ If you have other mixins which are component specific, they belong at the top of
         font-size: $size !important;
     }
 }
+
+// This mixin works in addition to Bootstrap's make-col() mixin, which does not allow for an empty size
+// Equivalent to .col
+@mixin make-col-auto() {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}

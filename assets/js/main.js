@@ -10,7 +10,7 @@ $(document).ready(function () {
     navScrollIndicators();
 });
 
-var mobile = desktop = false;
+var mobile = desktop = desktopxl = false;
 
 function responsiveVariables() {
     // Below from https://stackoverflow.com/a/31410149
@@ -19,7 +19,8 @@ function responsiveVariables() {
     var resizeTimer, width;
 
     // This should mirror $grid-breakpoints.md from overrides.scss
-    var breakpoint = 768;
+    var mdBreakpoint = 768;
+    var xlBreakpoint = 1200;
 
     $(window).resize(function () {
         // clear the timeout
@@ -32,19 +33,21 @@ function responsiveVariables() {
 
     function breakpointChange() {
         width = window.innerWidth;
-        if (!mobile && width < breakpoint) {
-            desktop = false;
+        if (!mobile && width < mdBreakpoint) {
+            desktop = desktopxl = false;
             mobile = true;
-            $(".nav-menu").removeClass("desktop");
-            $(".nav-menu").addClass("mobile");
-            console.log("mobile")
+            console.log("< md")
         }
-        if (!desktop && width >= breakpoint) {
-            mobile = false;
+
+        if (!desktop && width >= mdBreakpoint && width < xlBreakpoint) {
+            mobile = desktopxl = false;
             desktop = true;
-            $(".nav-menu").removeClass("mobile");
-            $(".nav-menu").addClass("desktop");
-            console.log("desktop")
+            console.log('> md, < xl');
+        }
+        if (!desktopxl && width >= xlBreakpoint) {
+            mobile = desktop = false;
+            desktopxl = true;
+            console.log("> xl")
         }
     }
     $(window).resize();
@@ -145,7 +148,7 @@ function mobileSubNavigation() {
     $arrow.click(function () {
         if (mobile) {
             $(this).parent().toggleClass("nav__item--expanded");
-            $(this).next(".nav__item__subnav").stop().slideToggle(function(){
+            $(this).next(".nav__item__subnav").stop().slideToggle(function () {
                 $("nav .simplebar-content-wrapper").off("scroll");
                 navScrollIndicators();
             });
@@ -178,3 +181,43 @@ function navScrollIndicators() {
             $nav.removeClass("more-below")
     }
 }
+
+// $(document).ready(function() {
+//   getRows();
+// });
+
+// $(window).resize(function() {
+// 	equaliseRows();
+// })
+
+
+// function getRows() {
+//   var $columns = $(".comparison-table__column");
+
+//   $columns.each(function(i) {
+//     var $rows =  $(this).find(".comparison-table__row");
+
+//     $rows.each(function(n) {
+//       if (tableRows[n] == null)
+//         tableRows[n] = [$rows[n]];
+//       else
+//         tableRows[n].push($rows[n]);
+//     })
+//   });
+
+//   console.log("getRows() complete")
+//   setTimeout(equaliseRows(), 0);
+// }
+
+// function equaliseRows() {
+//   $(".comparison-table__row").removeAttr("style");
+//   $.each(tableRows, function(n, item) {
+//     var maxHeight = 0;
+
+//     $(item).each(function() {
+//       if ($(this).height() > maxHeight)
+//         maxHeight = $(this).height();
+//     })
+//     $(item).height(maxHeight);
+//   })
+// }
