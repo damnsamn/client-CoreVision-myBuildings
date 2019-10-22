@@ -96,7 +96,7 @@ function desktopSubNavigation() {
     });
 
     // Open subnav, maintain expanded styling for parent
-    $(".nav__subnav").on("mouseenter focusin", function () {
+    $(".nav__subnav.visible").on("mouseenter focusin", function () {
         if (desktop) {
             let expandedEl = $(".nav__item--expanded");
             openSubnav();

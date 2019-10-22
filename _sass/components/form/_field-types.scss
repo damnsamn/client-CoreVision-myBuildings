@@ -1,3 +1,14 @@
+// Override default iOS input styles
+select,
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"]
+ {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
 .field {
 	&--text,
 	&--select,
@@ -5,14 +16,13 @@
 		.field__input {
 			padding: $padding__field-TB $padding__field-LR;
 		}
-    }
+	}
 
-    &--readonly {
-        .field__readonly {
+	&--readonly {
+		.field__readonly {
 			padding: $padding__field-TB 0;
-        }
-
-    }
+		}
+	}
 
 	&--textarea {
 		.field__input {
@@ -30,8 +40,8 @@
 		.field__input {
 			opacity: 0;
 			height: 0;
-            width: 0;
-            position: absolute;
+			width: 0;
+			position: absolute;
 
 			&:checked + .field__label {
 				font-weight: $roboto-medium;
@@ -49,8 +59,8 @@
 			margin: 0;
 			font-weight: normal;
 			padding-left: calc(#{$height__checkbox-radio} + 0.75em);
-            line-height: 1.25;
-            cursor: pointer;
+			line-height: 1.25;
+			cursor: pointer;
 			@include value-style;
 
 			&::before {

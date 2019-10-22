@@ -59,9 +59,11 @@ $box-shadow__field: 0 0 5px rgba(darken($color--tertiary, 25%), 0.25);
 $transition: 0.2s ease;
 
 // Bootstrap breakpoints
-// $bg-m/t/d - mobile/tablet/desktop
+// Tablet - Mobile layout
 $bp-tablet: "sm";
+// Laptop - introduces side-nav, small PC layout
 $bp-laptop: "md";
+// Desktop - introduces full horizontal spacing
 $bp-desktop: "lg";
 
 

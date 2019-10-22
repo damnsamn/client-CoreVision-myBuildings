@@ -144,8 +144,29 @@
 			display: none;
 		}
 
+		@include fontawesome {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: $transition;
+		}
+
+		.fa-times {
+			opacity: 0;
+			font-size: 30px;
+		}
+
 		&.expanded {
 			transform: translateY(-50%) rotate(90deg);
+
+			.fa-bars {
+				opacity: 0;
+			}
+
+			.fa-times {
+				opacity: 1;
+			}
 		}
 	}
 
@@ -177,9 +198,9 @@
 				transition: box-shadow 0.5s ease;
 				pointer-events: none;
 				box-shadow: none;
-            }
+			}
 
-            $color--shadow: rgba(darken($color--tertiary, 25%), 0.125);
+			$color--shadow: rgba(darken($color--tertiary, 25%), 0.125);
 
 			// Shadow scroll indicator
 			&.more-above {
@@ -277,6 +298,10 @@
 					padding-bottom: 1.5em;
 				}
 			}
+
+			@include media-breakpoint-up($bp-laptop) {
+				display: none !important;
+			}
 		}
 
 		&--parent {
@@ -286,7 +311,7 @@
 
 			.nav__item__toggle {
 				&::before {
-					@include fa(solid, f0da);
+					@include fa("solid", f0da);
 					display: inline-block;
 					position: absolute;
 					left: 50%;
@@ -298,7 +323,7 @@
 				position: absolute;
 				right: 0;
 				top: 0;
-				color: $color__field-border;
+				color: $color__disabled-border;
 				transition: color $transition;
 				text-align: center;
 				box-sizing: content-box;
@@ -320,18 +345,21 @@
 		}
 
 		&--active {
-			font-weight: $roboto-bold;
-
+			> a {
+				font-weight: $roboto-bold;
+			}
 			&::before {
 				content: "";
 				display: inline-block;
 				position: absolute;
 				top: 0;
 				left: 0;
-				bottom: 0;
+				box-sizing: content-box;
+				height: 1.25em;
+				padding: 1em 0;
+				width: 0.5em;
 				background-color: $color--tertiary;
-                width: 0.5em;
-                z-index: 1;
+				z-index: 1;
 			}
 		}
 
@@ -347,11 +375,11 @@
 						transform: translate(-100%, -50%) rotate(90deg);
 					}
 				}
-            }
+			}
 
-            & + & {
-                border-top: 2px solid #fff;
-            }
+			& + & {
+				border-top: 2px solid #fff;
+			}
 		}
 	}
 

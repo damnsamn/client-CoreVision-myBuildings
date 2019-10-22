@@ -8,8 +8,17 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
     <div class="panel">
         <h3 class="panel__heading">Panel Heading</h3>
         <div class="panel__content">
+            <!-- Below form.form is defined as a .row within the SCSS, all children should be .cols -->
             <form class="form">
 
+
+                <!-- Text-based Fields - text, textarea, select -->
+                <!--
+                    ├─○ <div> .form__field .field--[TYPE] .field--[MODIFIER] [COL]
+                    │ ├─● <label for="[ID]"> .field__label
+                    │ ├─● <input id="[ID]" type="[TYPE]" [DISABLED] [REQUIRED]> .field__input
+                    │ └─● <span> .field__help (OPTIONAL)
+                -->
 
                 <!-- Text Fields -->
                 <!-- Regular text field - with optional help text -->
@@ -83,6 +92,16 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
 
                 <!-- Text Fields with Bootstrap Input-groups -->
+                <!--
+                    ├─○ <div> .form__field .field--[TYPE] .field--[MODIFIER] [COL]
+                    │ ├─● <label for="[ID]"> .field__label
+                    │ └─○ <div> .input-group
+                    │   ├─○ <div> .input-group-prepend (OPTIONAL)
+                    │   │ └─● <span> .input-group-text
+                    │   ├─● <input id="[ID]" type="[TYPE]" [DISABLED] [REQUIRED]> .field__input
+                    │   └─○ <div> .input-group-append (OPTIONAL)
+                    │     └─● <span> .input-group-text
+                -->
                 <!-- Prepend -->
                 <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
                     <label class="field__label" for="group-prepend">Input-group - Prepend</label>
@@ -137,6 +156,14 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
 
                 <!-- Checkboxes & Radios -->
+                <!-- Note, <label> and <input> MUST be swapped around. Input first, followed by label -->
+                <!--
+                    ├─○ <div> .form__field .field--[TYPE] .field--[MODIFIER] [COL]
+                    │ ├─● <input id="[ID]" type="[TYPE]" [DISABLED] [REQUIRED]> .field__input
+                    │ ├─● <label for="[ID]"> .field__label
+                    │ └─● <span> .field__help (OPTIONAL)
+                -->
+
                 <!-- Checkbox Regular -->
                 <div class="form__field field--checkbox col-6 col-sm-3 col-lg">
                     <input class="field__input field__input" id="checkbox-regular" type="checkbox">
@@ -198,8 +225,12 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                     <label class="fieldset__label">Fieldset Example</label>
                     <div class="fieldset__box">
 
-                        <!-- Readonly -->
-                        <!-- Readonly field - sits alongside other fields -->
+                        <!-- Readonly fields - can sit alongside other editable fields -->
+                        <!--
+                            ├─○ <div> .form__field .field--readonly [COL]
+                            │ ├─● <label for="[ID]"> .field__label
+                            │ └─● <span id="[ID]"> .field__readonly
+                        -->
                         <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
                             <label class="field__label" for="field-readonly">Readonly Field</label>
                             <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
@@ -224,8 +255,8 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 </div>
 
                 <div class="form__actions">
-                        <button class="mb-button mb-button--stroke action--left">Back</button>
-                        <button class="mb-button action--right">Save</button>
+                    <button class="mb-button mb-button--stroke action--left">Back</button>
+                    <button class="mb-button action--right">Save</button>
                 </div>
 
             </form>
@@ -238,29 +269,29 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         <h3 class="panel__heading">Buttons</h3>
         <div class="panel__content">
 
-                <button class="mb-button">Button</button>
-                <a href="/" class="mb-button">Button</a>
+            <button class="mb-button">Button</button>
+            <a href="/" class="mb-button">Button</a>
 
-                <button class="mb-button mb-button--stroke">Button</button>
-                <a href="/" class="mb-button mb-button--stroke">Button</a>
+            <button class="mb-button mb-button--stroke">Button</button>
+            <a href="/" class="mb-button mb-button--stroke">Button</a>
 
-                <button class="mb-button mb-button--small">Button</button>
-                <a href="/" class="mb-button mb-button--small">Button</a>
+            <button class="mb-button mb-button--small">Button</button>
+            <a href="/" class="mb-button mb-button--small">Button</a>
 
-                <button class="mb-button mb-button--stroke mb-button--small">Button</button>
-                <a href="/" class="mb-button mb-button--stroke mb-button--small">Button</a>
+            <button class="mb-button mb-button--stroke mb-button--small">Button</button>
+            <a href="/" class="mb-button mb-button--stroke mb-button--small">Button</a>
 
-                <button class="mb-button mb-button--disabled" disabled>Button</button>
-                <a href="/" class="mb-button mb-button--disabled">Button</a>
+            <button class="mb-button mb-button--disabled" disabled>Button</button>
+            <a href="/" class="mb-button mb-button--disabled">Button</a>
 
-                <button class="mb-button mb-button--stroke mb-button--disabled" disabled>Button</button>
-                <a href="/" class="mb-button mb-button--stroke mb-button--disabled">Button</a>
+            <button class="mb-button mb-button--stroke mb-button--disabled" disabled>Button</button>
+            <a href="/" class="mb-button mb-button--stroke mb-button--disabled">Button</a>
 
-                <button class="mb-button mb-button--small mb-button--disabled" disabled>Button</button>
-                <a href="/" class="mb-button mb-button--small mb-button--disabled">Button</a>
+            <button class="mb-button mb-button--small mb-button--disabled" disabled>Button</button>
+            <a href="/" class="mb-button mb-button--small mb-button--disabled">Button</a>
 
-                <button class="mb-button mb-button--stroke mb-button--small mb-button--disabled" disabled>Button</button>
-                <a href="/" class="mb-button mb-button--stroke mb-button--small mb-button--disabled">Button</a>
+            <button class="mb-button mb-button--stroke mb-button--small mb-button--disabled" disabled>Button</button>
+            <a href="/" class="mb-button mb-button--stroke mb-button--small mb-button--disabled">Button</a>
         </div>
     </div>
 </section>

@@ -8,6 +8,7 @@
 
         <div class="nav__button" tabindex="0">
             <i class="far fa-bars"></i>
+            <i class="fal fa-times"></i>
         </div>
 
         <div class="nav__menu">
@@ -24,8 +25,8 @@
 
                     <!-- Nav Item - Standard -->
                     <!--
-                        ○ <li> .nav__item
-                        ├─● <a href>
+                        ├─○ <li> .nav__item
+                        │ └─● <a href>
                     -->
                     <li class="nav__item">
                         <a href="{{ node.url | relative_url }}">Nav - Standard</a>
@@ -35,7 +36,7 @@
                     <!-- Nav Item - Active -->
                     <!--
                         ○ <li> .nav__item .nav__item--active
-                        ├─● <a href>
+                        └─● <a href>
                     -->
                     <li class="nav__item nav__item--active">
                         <a href="{{ node.url | relative_url }}">Nav - Active</a>
@@ -44,12 +45,12 @@
 
                     <!-- Nav Item - Parent -->
                     <!--
-                        ○ <li> .nav__item .nav__item--parent
-                        ├─● <a href>
-                        ├─● <div> .nav__item__toggle
-                        └─○ <ul> .nav__item__subnav
-                        │ └─○ <li> .subnav__item
-                        │ │ └─● <a href>
+                        ├─○ <li> .nav__item .nav__item--parent
+                        │ ├─● <a href>
+                        │ ├─● <div> .nav__item__toggle
+                        │ └─○ <ul> .nav__item__subnav
+                        │   └─○ <li> .subnav__item
+                        │   │ └─● <a href>
                     -->
                     <li class="nav__item nav__item nav__item--parent">
                         <a href="{{ node.url | relative_url }}">Nav - Parent</a>
@@ -67,12 +68,12 @@
 
                     <!-- Nav Item - Active Parent -->
                     <!--
-                        ○ <li> .nav__item .nav__item--active .nav__item--parent
-                        ├─● <a href>
-                        ├─● <div> .nav__item__toggle
-                        ├─○ <ul> .nav__item__subnav
-                        │ └─○ <li> .subnav__item
-                        │ │ └─● <a href>
+                        ├─○ <li> .nav__item .nav__item--active .nav__item--parent
+                        │ ├─● <a href>
+                        │ ├─● <div> .nav__item__toggle
+                        │ └─○ <ul> .nav__item__subnav
+                        │   └─○ <li> .subnav__item
+                        │   │ └─● <a href>
                     -->
                     <li class="nav__item nav__item nav__item--active nav__item--parent">
                         <a href="{{ node.url | relative_url }}">Nav - Active Parent</a>
@@ -91,10 +92,10 @@
 
             <!-- Subnav panel - desktop -->
             <!--
-                ○ <div> .nav__subnav
-                ├─○ <ul> #subnav-N (where N is index of the corresponding .nav__item--parent(s) above)
-                │ └─○ <li> .subnav__item
-                │ │ └─● <a href>
+                ├─○ <div> .nav__subnav
+                │ ├─○ <ul> #subnav-N (where N is index of the corresponding .nav__item--parent(s) above)
+                │ │ └─○ <li> .subnav__item
+                │ │ │ └─● <a href>
             -->
             <div class="nav__subnav">
                 <ul id="subnav-0">
