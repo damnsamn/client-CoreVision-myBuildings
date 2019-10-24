@@ -14,7 +14,7 @@
         <div class="nav__menu">
             <nav data-simplebar>
                 <ul>
-                    {% assign sorted_pages = site.pages | sort:"order" %}
+                    {% assign sorted_pages = site.pages %}
                     {% for node in sorted_pages %}
                     {% if node.title %}
                     <li class="nav__item {% if page.url == node.url %}nav__item--active{% endif %}">

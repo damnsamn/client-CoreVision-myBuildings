@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Changelog for Kendo UI Professional v2019.3.1023 (October 23, 2019)</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: .75em/1.5 Tahoma, sans-serif;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-size: normal;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: normal;
+
+            margin: 1.2em 0 .3em;
+            padding-bottom: .2em;
+        }
+
+        .breaking {
+            background-color: #e10c01;
+            color: #fff;
+            border-radius: 3px;
+            padding: 3px 4px;
+            display: inline-block;
+            font-size: 11px;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        #page {
+            width: 50em;
+            margin: 0 auto 2em;
+            border-radius: 0 0 1em 1em;
+            box-shadow: 0 0 10px #ccc;
+            padding: 1em 2em 2em;
+        }
+
+        .poBoxIcon {
+            float: left;
+            font-size: 2em;
+            margin: 1.2em .5em 0 0;
+        }
+
+        .poTopLine {
+            border-top: 2px solid #e1e1e1;
+            margin: 17px 0 40px 0;
+        }
+    </style>
+
+    <base href="http://www.telerik.com/support/whats-new/kendo-ui-web/release-history">
+</head>
+<body>
+    <div id="page">
+        <h1 class="title">Release notes</h1>
+
+        <h1>Components</h1>
+        <div class="tClear poTopLine">
+            <div class="poBoxIconText">
+                
+                <p><strong>What's fixed</strong></p>
+<ul>
+<li>Invalid animation value in kendo.common-material.css (<a href="https://github.com/telerik/kendo-ui-core/issues/4450">#4450</a>)</li>
+</ul>
+            </div>
+        </div>
+
+
+        <div class="tClear poTopLine">
+            <h2>Calendar</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Calendar - Calling setOptions will break multiple selection support (<a href="https://github.com/telerik/kendo-ui-core/issues/5222">#5222</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>ComboBox</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Change event is not triggered, if text() method is used, and when Clear button is clicked to clear the selection (<a href="https://github.com/telerik/kendo-ui-core/issues/5237">#5237</a>)</li>
+<li>Click on associated Label with ComboBox, Multiselect and MultiColumnComboBox does not focus the input (<a href="https://github.com/telerik/kendo-ui-core/issues/4472">#4472</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>DatePicker</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>DatePicker calendar is not refreshed after clearing value in picker (<a href="https://github.com/telerik/kendo-ui-core/issues/5223">#5223</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>DateTimePicker</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>DatePicker calendar is not refreshed after clearing value in picker (<a href="https://github.com/telerik/kendo-ui-core/issues/5223">#5223</a>)</li>
+<li>The popup.appendTo option is missing for the TimeView popup (<a href="https://github.com/telerik/kendo-ui-core/issues/5204">#5204</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Draggable</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Difficulty grouping a grid with a touch and mouse device (<a href="https://github.com/telerik/kendo-ui-core/issues/4911">#4911</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Editor</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Editor adds an empty paragraph on pasting text in nested table (<a href="https://github.com/telerik/kendo-ui-core/issues/5272">#5272</a>)</li>
+<li>Tooltip property does not change title of Editor's Format tool (<a href="https://github.com/telerik/kendo-ui-core/issues/4281">#4281</a>)</li>
+<li>Overlapping buttons in RTL Editor with resizable toolbar (<a href="https://github.com/telerik/kendo-ui-core/issues/3375">#3375</a>)</li>
+<li>Not aligned tools in inline Editor toolbar in RTL</li>
+<li>Displaced inline Editor toolbar drag handle and overflow button</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Grid</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Grid should measure group and hierarchy columns' widths when showing and hiding other columns</li>
+<li>Aggregates are not calculated correctly when dataSource.inPlaceSort is enabled (<a href="https://github.com/telerik/kendo-ui-core/issues/5243">#5243</a>)</li>
+<li>Grid editing in InCell edit mode does not accept new values on mobile devices (<a href="https://github.com/telerik/kendo-ui-core/issues/5193">#5193</a>)</li>
+<li>Grid.pageable.alwaysVisible=false make the pager appear by default and disappear when it's not needed. (<a href="https://github.com/telerik/kendo-ui-core/issues/5138">#5138</a>)</li>
+<li>Difficulty grouping a grid with a touch and mouse device (<a href="https://github.com/telerik/kendo-ui-core/issues/4911">#4911</a>)</li>
+<li>Wrong column is auto-resized after auto-resize and columns reorder is performed (<a href="https://github.com/telerik/kendo-ui-core/issues/2885">#2885</a>)</li>
+<li>autoFitColumn() does not calculate properly the width of the first Grid header to be collapsed in Safari (<a href="https://github.com/telerik/kendo-ui-core/issues/2815">#2815</a>)</li>
+<li>autoFitColumn() does not calculate widths properly on IPad when there are icons in the header (<a href="https://github.com/telerik/kendo-ui-core/issues/2392">#2392</a>)</li>
+<li>Sortable settings are missing from the MVC wrapper (<a href="https://github.com/telerik/kendo-ui-core/issues/5267">#5267</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Map</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Map layer show method attaches the same event handlers multiple times (<a href="https://github.com/telerik/kendo-ui-core/issues/5210">#5210</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>MobileListView</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Mobile ListView it does not scroll in  iOS13 (<a href="https://github.com/telerik/kendo-ui-core/issues/5276">#5276</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>MultiColumnComboBox</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Click on associated Label with ComboBox, Multiselect and MultiColumnComboBox does not focus the input (<a href="https://github.com/telerik/kendo-ui-core/issues/4472">#4472</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>MultiSelect</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>MultiSelect selected tags cannot be removed through tag's delete button in iOS 13 Safari (<a href="https://github.com/telerik/kendo-ui-core/issues/5342">#5342</a>)</li>
+<li>MultiSelect with autoBind false replaces its value with the one set in its options (<a href="https://github.com/telerik/kendo-ui-core/issues/5291">#5291</a>)</li>
+<li>Readonly state is not removed from Kendo MultiSelect on calling the readonly method (<a href="https://github.com/telerik/kendo-ui-core/issues/5290">#5290</a>)</li>
+<li>Click on associated Label with ComboBox, Multiselect and MultiColumnComboBox does not focus the input (<a href="https://github.com/telerik/kendo-ui-core/issues/4472">#4472</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>PDFViewer</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Memory Leak in Kendo PDFViewer when loading files. (<a href="https://github.com/telerik/kendo-ui-core/issues/5337">#5337</a>)</li>
+<li>PDFViewer download does not work in iOS 13 (<a href="https://github.com/telerik/kendo-ui-core/issues/5336">#5336</a>)</li>
+<li>Wrong scroll position of PDF file content on paging through PDFViewer's Pager and jQuery 3.4.1 (<a href="https://github.com/telerik/kendo-ui-core/issues/5322">#5322</a>)</li>
+<li>Search dialog throws an error with jQuery 3.4.x (<a href="https://github.com/telerik/kendo-ui-core/issues/5280">#5280</a>)</li>
+<li>Unable to download PDFViewer's PDF file on iOS (<a href="https://github.com/telerik/kendo-ui-core/issues/5268">#5268</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>PivotGrid</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>PivotGrid Configurator messages should not be draggable (<a href="https://github.com/telerik/kendo-ui-core/issues/5181">#5181</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>QRCode</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>QRCode appears squashed when drawn as canvas (<a href="https://github.com/telerik/kendo-ui-core/issues/5298">#5298</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Scheduler</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Scheduler cannot be scrolled in iOS 13 with Chrome (<a href="https://github.com/telerik/kendo-ui-core/issues/5297">#5297</a>)</li>
+<li>Scheduler moveStart event does not trigger on mobile devices (<a href="https://github.com/telerik/kendo-ui-core/issues/5274">#5274</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Scroller</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Mobile Application with nativeScrolling does not scroll on device with iOS 13.1 (<a href="https://github.com/telerik/kendo-ui-core/issues/5289">#5289</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Spreadsheet</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Spreadsheet ColumnHeaderMenu does not open on frozen column header right-click (<a href="https://github.com/telerik/kendo-ui-core/issues/5332">#5332</a>)</li>
+<li>Databound Spreadsheet loses data on inserting a header row (<a href="https://github.com/telerik/kendo-ui-core/issues/5301">#5301</a>)</li>
+<li>Spreadsheet Text and Background custom color popups are cropped (<a href="https://github.com/telerik/kendo-ui-core/issues/5270">#5270</a>)</li>
+<li>Spreadsheet does not alert the user when trying to sort Range with merged cells (<a href="https://github.com/telerik/kendo-ui-core/issues/5250">#5250</a>)</li>
+<li>Flickering custom cell editor for Spreadsheet column with configured filtering / sorting and SASS themes in Chrome and FF (<a href="https://github.com/telerik/kendo-ui-core/issues/4815">#4815</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>TreeList</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Treelist horizontal scroll disappears when no items available (<a href="https://github.com/telerik/kendo-ui-core/issues/5220">#5220</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Upload</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Smaller than expected height of not async Upload in Office365 theme (<a href="https://github.com/telerik/kendo-ui-core/issues/5344">#5344</a>)</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Window</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Window animation duration option is not applied correctly (<a href="https://github.com/telerik/kendo-ui-core/issues/5269">#5269</a>)</li>
+<li>Window title method does not remove the wrapper padding (<a href="https://github.com/telerik/kendo-ui-core/issues/5260">#5260</a>)</li>
+</ul>
+        </div>
+    </div>
+</body>
+</html>
