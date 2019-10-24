@@ -10,11 +10,10 @@ $(document).ready(function () {
     navScrollIndicators();
 });
 
-var mobile = desktop = desktopxl = false;
-
+// Below from https://stackoverflow.com/a/31410149
+// Allows us to check whether we're on mobile/desktop based on screen width
+var mobile = laptop = desktop = false;
 function responsiveVariables() {
-    // Below from https://stackoverflow.com/a/31410149
-    // Allows us to check whether we're on mobile/desktop based on screen width
 
     var resizeTimer, width;
 
@@ -34,29 +33,29 @@ function responsiveVariables() {
     function breakpointChange() {
         width = window.innerWidth;
         if (!mobile && width < mdBreakpoint) {
-            desktop = desktopxl = false;
+            laptop = desktop = false;
             mobile = true;
-            console.log("< md")
+            console.log("mobile/tablet")
         }
 
-        if (!desktop && width >= mdBreakpoint && width < xlBreakpoint) {
-            mobile = desktopxl = false;
-            desktop = true;
-            console.log('> md, < xl');
-        }
-        if (!desktopxl && width >= xlBreakpoint) {
+        if (!laptop && width >= mdBreakpoint && width < xlBreakpoint) {
             mobile = desktop = false;
-            desktopxl = true;
-            console.log("> xl")
+            laptop = true;
+            console.log('laptop');
+        }
+        if (!desktop && width >= xlBreakpoint) {
+            mobile = laptop = false;
+            desktop = true;
+            console.log("desktop")
         }
     }
     $(window).resize();
 }
 
+// Desktop navigation/subnavigation behaviour
+// Manages tabindexes to maintain logic tabbing order
+// Opens/Closes subnav menu based on mouse/focus events
 function desktopSubNavigation() {
-    // Desktop navigation/subnavigation behaviour
-    // Manages tabindexes to maintain logic tabbing order
-    // Opens/Closes subnav menu based on mouse/focus events
 
     let aList = $(".nav-panel a");
     let navItemParentLinks = $(".nav__item--parent>a");
@@ -68,7 +67,7 @@ function desktopSubNavigation() {
 
     navItemParentLinks.each(function (i) {
         $(this).on("mouseenter focusin", function () {
-            if (desktop) {
+            if (!mobile) {
                 let subnavChild = $(".nav__subnav #subnav-" + i);
 
                 // Ensure all previously showing subnav children are hidden
@@ -100,7 +99,7 @@ function desktopSubNavigation() {
 
     // Open subnav, maintain expanded styling for parent
     $(".nav__subnav.visible").on("mouseenter focusin", function () {
-        if (desktop) {
+        if (!mobile) {
             let expandedEl = $(".nav__item--expanded");
             openSubnav();
             expandedEl.addClass("nav__item--expanded");
@@ -109,16 +108,16 @@ function desktopSubNavigation() {
 
     // Only close subnav if mouse or focus moves away from main link or subnav items
     $(".nav-panel a").on("mouseenter focusin", function () {
-        if (desktop && !$(this).parent().is(".nav__item--parent, .subnav__item")) {
+        if (!mobile && !$(this).parent().is(".nav__item--parent, .subnav__item")) {
             closeSubnav();
         }
     });
     $(".nav__footer").on("mouseenter focusin", function () {
-        if (desktop)
+        if (!mobile)
             closeSubnav();
     });
     $(".nav__menu").on("mouseleave", function () {
-        if (desktop)
+        if (!mobile)
             closeSubnav();
     });
 
@@ -182,42 +181,60 @@ function navScrollIndicators() {
     }
 }
 
-// $(document).ready(function() {
-//   getRows();
-// });
+// Tables to be handled by Kendo UI
+// function tableEqualise() {
 
-// $(window).resize(function() {
-// 	equaliseRows();
-// })
+//     $(".table").each(function () {
+//         let $table = $(this);
+//         let colSelector = ".table__col";
+//         let rowSelector = ".table__header, .table__row";
+
+//         let $fixedRows = $table.find(".table__fixed").find(rowSelector);
+//         let $scrollRows = $table.find(".table__scroll").find(rowSelector);
+//         let rows = [];
 
 
-// function getRows() {
-//   var $columns = $(".comparison-table__column");
+//         $fixedRows.each(function (i) {
+//             if (rows[i] == null)
+//                 rows[i] = [$(this).children()];
+//             else
+//                 rows[i].push($(this).children());
+//         });
 
-//   $columns.each(function(i) {
-//     var $rows =  $(this).find(".comparison-table__row");
+//         $scrollRows.each(function (i) {
+//             if (rows[i] == null)
+//             $(this).children().each(function() {
+//                 rows[i].push(this));
+//             else
+//                 rows[i].push($(this).children());
+//         });
 
-//     $rows.each(function(n) {
-//       if (tableRows[n] == null)
-//         tableRows[n] = [$rows[n]];
-//       else
-//         tableRows[n].push($rows[n]);
-//     })
-//   });
+//         console.table(rows);
 
-//   console.log("getRows() complete")
-//   setTimeout(equaliseRows(), 0);
-// }
+//         let cols = [];
 
-// function equaliseRows() {
-//   $(".comparison-table__row").removeAttr("style");
-//   $.each(tableRows, function(n, item) {
-//     var maxHeight = 0;
+//         $.each(rows, function () {
+//             // [div.table__row, div.table__row]
+//             $.each(this, function (i) {
+//                 // div.table__row
+//                 let children = [];
+//                 $(this).children().each(function (n) {
+//                     if (cols[n] == null)
+//                     cols[n] = [this];
+//                     else
+//                     cols[n].push(this);
+//                 })
+//                 // console.table(children);
 
-//     $(item).each(function() {
-//       if ($(this).height() > maxHeight)
-//         maxHeight = $(this).height();
-//     })
-//     $(item).height(maxHeight);
-//   })
+//                 // if (cols[i] == null)
+//                 //     cols[i] = [children[i]];
+//                 // else
+//                 //     cols[i].push(children[i]);
+
+//             })
+//         })
+//         // console.table(cols);
+
+
+//     });
 // }
