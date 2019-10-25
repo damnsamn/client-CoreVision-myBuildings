@@ -1,0 +1,63 @@
+.linkbox {
+	$block: #{&};
+	height: 100%;
+	display: block;
+	text-decoration: none;
+
+	&__group {
+		align-items: stretch;
+	}
+
+	&__heading {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	&__icon {
+		color: $color--tertiary;
+		transition: $transition;
+		font-size: 30px;
+		margin-right: 0.6em;
+	}
+
+	&--single {
+		transition: $transition;
+		#{$block}__heading {
+			padding-bottom: 0.8em;
+			padding-right: 1em;
+			border-bottom: 2.5px solid $color--tertiary;
+			transition: $transition;
+			position: relative;
+			width: 100%;
+
+			&::after {
+				@include fa("solid", "f061");
+				position: absolute;
+				font-size: 24px;
+				top: 0.2em;
+				// transform: translateY(-50%);
+				color: $color--tertiary;
+				transition: $transition;
+				right: 0;
+			}
+		}
+
+		@include hover-focus {
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+			#{$block}__icon {
+				color: $color--highlight;
+			}
+			#{$block}__heading {
+				border-color: $color--highlight;
+
+				&::after {
+					color: $color--highlight;
+				}
+			}
+		}
+	}
+
+	&--list {
+	}
+}
