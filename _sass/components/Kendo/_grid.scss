@@ -16,12 +16,17 @@
 	$border-radius: 3px;
 	$border-1px: 1.25px;
 
+	border: none;
 	font-family: $font-family--global;
-	border: $border-1px solid $color__field-border;
 	color: $color__text;
-	border-radius: $border-radius;
 	font-size: 14px;
 	margin-bottom: $margin__form-field;
+
+	> table {
+		border: $border-1px solid $color__field-border;
+		border-radius: $border-radius;
+    }
+
 
 	& &-header .k-header,
 	td[role="gridcell"] {
@@ -34,17 +39,17 @@
 		background-color: #fff;
 		line-height: 1.25;
 		vertical-align: top;
-    }
+	}
 
-	.k-grid-content {
-		background-color: $color--grey-light;
-		border-radius: 0 0 $border-radius $border-radius;
+    .k-grid-content,
+    .k-grid-header + tbody {
+        background-color: $color--grey-light;
+        border-radius: 0 0 $border-radius $border-radius;
     }
 
 	.k-grid-header {
 		border-radius: $border-radius $border-radius 0 0;
 		border: none;
-		border-bottom: $border-1px solid $color__field-border;
 		background-color: $color__background;
 
 		.k-grid-header-wrap {
@@ -55,10 +60,18 @@
 			font-weight: $roboto-bold;
 			border-left: none;
 			border: none;
+			border-bottom: $border-1px solid $color__field-border;
 
-			&,
+			&:first-child {
+				border-radius: $border-radius 0 0 0;
+			}
+			&:last-child {
+				border-radius: 0 $border-radius 0 0;
+			}
+
 			.k-link {
 				line-height: 1.5;
+				min-height: auto;
 			}
 
 			.k-link {
@@ -82,6 +95,7 @@
 				}
 			}
 
+			// Sorting
 			&[data-role="columnsorter"] {
 				.k-link {
 					.k-icon {
@@ -141,4 +155,150 @@
 			}
 		}
 	}
+
+	// Pagination
+	.k-pager-numbers-wrap {
+		margin: 0;
+	}
+	.k-grid-pager {
+		border: none;
+		background: none;
+		color: $color__text;
+		padding: 10px 0 0;
+		align-items: flex-start;
+
+		.k-pager-nav {
+			@include button-style("stroke", $color--primary, $color--primary);
+
+			&,
+			&::before {
+				transition: $transition;
+			}
+
+			&::before {
+				border-width: 1px !important;
+				border-radius: 2px;
+			}
+			border: none;
+			border-radius: 2px;
+			font-size: 12px;
+			padding: 0;
+			width: 30px;
+			height: 30px;
+			position: relative;
+			bottom: 0;
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+			margin: 0 5px 0 0;
+			font-weight: $roboto-medium;
+
+			@include hover-focus {
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+				bottom: 1px;
+			}
+			&.k-pager-first,
+			&.k-pager-last {
+				display: none;
+			}
+
+			&.k-pager-first {
+				.k-icon::before {
+					@include fa("solid", "f048");
+					font-size: 9px;
+				}
+			}
+			&:nth-child(2) {
+				.k-icon::before {
+					@include fa("solid", "f104");
+					font-size: 13px;
+				}
+			}
+			&:nth-child(4) {
+				.k-icon::before {
+					@include fa("solid", "f105");
+					font-size: 13px;
+				}
+			}
+			&.k-pager-last {
+				.k-icon::before {
+					@include fa("solid", "f051");
+					font-size: 9px;
+				}
+			}
+		}
+
+		.k-pager-numbers > li {
+			> span,
+			a {
+				@extend .k-pager-nav;
+
+				&.k-state-selected {
+					@include button-style("fill", #fff, $color--primary);
+					font-weight: $roboto-bold;
+				}
+			}
+		}
+
+		.k-state-disabled {
+			@include button-style("stroke", $color__disabled-text, $color__disabled-border);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+			bottom: 0 !important;
+			background: $color__disabled-background;
+		}
+	}
+
+	.k-pager-sizes {
+		&,
+		span:not(.k-icon) {
+			font-family: $font-family--global;
+		}
+
+		flex-direction: column;
+		font-size: 14px;
+		font-weight: $roboto-medium;
+		margin: -0.25em 0 0 auto;
+        align-items: stretch;
+        transition: $transition;
+		&:focus-within {
+			color: $color--blue;
+		}
+
+		.k-widget {
+			font-size: 14px;
+            font-weight: $roboto-regular;
+            color: $color__text;
+			flex: 1 0 auto;
+			width: auto;
+			order: 2;
+			margin: 0.25em 0 0;
+
+			.k-dropdown-wrap {
+				border: 1px solid $color__field-border;
+				border-radius: 0;
+
+				&.k-state-focused {
+					color: $color__text;
+					background-color: #fff;
+					border-color: $color--blue;
+					box-shadow: $box-shadow__field;
+				}
+			}
+		}
+	}
+
+	// // Helper classes for table height, where $n is the number of rows that should be visible.
+	// @for $n from 1 through 20 {
+	// 	&.rows-#{$n} {
+	// 		// #{$block}__content {
+	// 		$em: 14px;
+	// 		$line-height-header: 1.5;
+	// 		$line-height-row: 1.25;
+	// 		$height-header: calc(#{$line-height-header + "em"} + 15px * 2 + 1px);
+	// 		$height-row: calc(#{$line-height-row + "em"} + 15px * 2 + 1px);
+
+	//         height: calc(#{$height-header} + #{$n} * #{$height-row});
+	// 		.k-grid-content, .k-grid-header + tbody {
+	// 			height: calc(#{$n} * #{$height-row});
+	// 		}
+	// 	}
+	// }
 }

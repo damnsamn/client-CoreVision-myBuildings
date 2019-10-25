@@ -23,9 +23,6 @@
 @import 'global';
 @import 'layout';
 
-// Kendo overrides
-@import "components/Kendo/grid";
-
 @import 'components/banner';
 @import 'components/button';
 @import 'components/form/form';
@@ -34,3 +31,6 @@
 @import 'components/panel';
 @import 'components/navigation';
 @import 'components/table';
+
+// Kendo overrides
+@import "components/kendo/grid";
