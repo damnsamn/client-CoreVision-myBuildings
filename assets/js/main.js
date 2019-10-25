@@ -9,6 +9,7 @@ $(document).ready(function () {
     mobileSubNavigation();
     navScrollIndicators();
 });
+overrideKendoDefaults();
 
 // Below from https://stackoverflow.com/a/31410149
 // Allows us to check whether we're on mobile/desktop based on screen width
@@ -179,6 +180,10 @@ function navScrollIndicators() {
         else
             $nav.removeClass("more-below")
     }
+}
+
+function overrideKendoDefaults() {
+    kendo.ui.Grid.fn.options.sortable = true;
 }
 
 // Tables to be handled by Kendo UI

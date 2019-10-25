@@ -11,7 +11,7 @@ html * {
 }
 
 body {
-	font-family: "Roboto", $font-family-base;
+	font-family: $font-family--global;
 	background-color: $color__background;
 }
 
@@ -53,6 +53,6 @@ h6 {
 
 
 ::selection {
-    background-color: $color--highlight;
-    color: #fff;
+    background-color: $color--highlight !important;
+    color: #fff !important;
 }

@@ -5,14 +5,15 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 ---
 <section class="panel-col col-12">
     <div class="panel">
-        <h4 class="panel__heading">Kendo Grid Examples</h4>
+        <h3 class="panel__heading">Kendo Grid Examples</h3>
         <div class="panel__content">
             <div id="ordersGrid"></div>
         </div>
     </div>
 </section>
 
-<script>var orderData = [
+<script>
+    var orderData = [
         { OrderID: 1, OrderDate: "2017-11-06T12:00:00", Freight: 12.34, ShipCity: "Antwerp", ShipCountry: "Belgium" },
         { OrderID: 2, OrderDate: "2019-03-02T12:00:00", Freight: 23.45, ShipCity: "Singapore", ShipCountry: "Singapore" },
         { OrderID: 3, OrderDate: "2019-06-26T12:00:00", Freight: 34.56, ShipCity: "Shanghai", ShipCountry: "China" },
@@ -45,7 +46,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 fields: {
                     OrderID: { type: "number" },
                     Freight: { type: "number" },
-                    OrderDate: { type: "date" },
+                    OrderDate: { type: "string" },
                     ShipCountry: { type: "string" },
                     ShipCity: { type: "string" }
                 }
@@ -53,12 +54,34 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         },
         pageSize: 10,
         sort: {
-            field: "OrderDate",
+            field: "OrderID",
             dir: "desc"
         }
     });
 
     $("#ordersGrid").kendoGrid({
-        dataSource: gridDataSource
+        dataSource: gridDataSource,
+        sortable: {
+            mode: "single",
+            allowUnsort: false
+        },
+        columns: [{
+            field: "OrderID",
+            title: "Order ID",
+        }, {
+            field: "Freight",
+            title: "Freight",
+        }, {
+            field: "OrderDate",
+            title: "Order Date",
+        }, {
+            field: "ShipCountry",
+            title: "Ship Country",
+            width: 150
+        }, {
+            field: "ShipCity",
+            title: "Ship City",
+            width: 150
+        }]
     });
 </script>
