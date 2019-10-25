@@ -127,12 +127,14 @@ function desktopSubNavigation() {
         $(".nav__subnav").addClass("visible").removeClass("hidden");
     }
     function closeSubnav() {
-        navItemParentLinks.parent().removeClass("nav__item--expanded");
-        $(".nav__subnav").removeClass("visible").addClass("hidden");
+        if ($(".nav__subnav").hasClass("visible")) {
+            navItemParentLinks.parent().removeClass("nav__item--expanded");
+            $(".nav__subnav").removeClass("visible").addClass("hidden");
 
-        aList.each(function () {
-            $(this).attr("tabindex", "1");
-        });
+            aList.each(function () {
+                $(this).attr("tabindex", "1");
+            });
+        }
     }
     function hideAll() {
         $(".nav__subnav").find("ul").removeAttr("style");
