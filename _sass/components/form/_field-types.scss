@@ -14,7 +14,8 @@ input[type="submit"]
 	&--select,
 	&--textarea {
 		.field__input {
-			padding: $padding__field-TB $padding__field-LR;
+            padding: $padding__field-TB $padding__field-LR;
+            background-color: #fff;
 		}
 	}
 

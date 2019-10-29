@@ -1,0 +1,41 @@
+.footer {
+	padding: 30px 0;
+	border-top: 1px solid $color__disabled-border;
+	margin: 0 15px;
+
+	@include media-breakpoint-up($bp-desktop) {
+		margin: 0 $margin__panel-LR;
+	}
+
+	&__items {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+        flex-wrap: wrap;
+		margin: -10px -20px;
+	}
+
+	&__item {
+		font-size: 14px;
+		margin: 10px 20px;
+        color: $color__disabled-text;
+        line-height: 1;
+        flex-shrink: 0;
+
+		a {
+			color: inherit;
+
+			@include hover-focus {
+				color: inherit;
+			}
+		}
+	}
+
+	&__logo {
+		img {
+			position: relative;
+			bottom: 8px;
+			margin-left: 0.5em;
+		}
+	}
+}
