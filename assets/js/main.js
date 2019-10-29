@@ -150,7 +150,7 @@ function mobileSubNavigation() {
     $arrow.click(function () {
         if (mobile) {
             $(this).parent().toggleClass("nav__item--expanded");
-            $(this).next(".nav__item__subnav").stop().slideToggle(function () {
+            $(this).next(".nav__item__subnav").stop().slideToggle(200, function () {
                 $("nav .simplebar-content-wrapper").off("scroll");
                 navScrollIndicators();
             });

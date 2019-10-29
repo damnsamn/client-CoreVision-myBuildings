@@ -318,6 +318,7 @@
 					top: 50%;
 					transform: translate(-50%, -50%);
 					transition: transform $transition;
+                    font-size: 20px;
 				}
 				display: inline-block;
 				position: absolute;
@@ -328,7 +329,7 @@
 				text-align: center;
 				box-sizing: content-box;
 				height: 1.25em;
-				padding: 1em 1.25em;
+				padding: 1em 1.5em;
 				z-index: 1;
 				cursor: pointer;
 

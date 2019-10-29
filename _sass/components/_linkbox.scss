@@ -14,7 +14,8 @@
 	&__heading {
 		display: inline-flex;
 		align-items: center;
-		padding-bottom: 0.8em;
+		padding-bottom: 0.5em;
+		margin-bottom: 0.6em;
 		border-bottom: $border-bottom #fff;
 	}
 
@@ -89,10 +90,12 @@
 			position: relative;
 			display: block;
 			color: $color__text;
-			text-decoration: none;
+            text-decoration: none;
+            transition: $transition;
 
 			&::before {
 				@include fa("solid", "f061");
+                transition: $transition;
 				font-size: 1em;
 				color: $color--tertiary;
 				position: absolute;
@@ -102,8 +105,10 @@
 			}
 
 			@include hover-focus {
-				border-color: $color--highlight;
-				color: $color__text;
+                border-color: $color--highlight;
+                // font-weight: $roboto-medium;
+                text-shadow: 0 0 0 $color--highlight;
+				color: $color--highlight;
 				&::before {
 					color: $color--highlight;
 				}
