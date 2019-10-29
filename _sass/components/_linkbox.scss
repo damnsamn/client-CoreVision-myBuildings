@@ -1,7 +1,10 @@
 .linkbox {
 	$block: #{&};
+	$border-bottom: 2.5px solid;
+
 	height: 100%;
 	display: block;
+	flex-grow: 1;
 	text-decoration: none;
 
 	&__group {
@@ -11,6 +14,8 @@
 	&__heading {
 		display: inline-flex;
 		align-items: center;
+		padding-bottom: 0.8em;
+		border-bottom: $border-bottom #fff;
 	}
 
 	&__icon {
@@ -20,12 +25,23 @@
 		margin-right: 0.6em;
 	}
 
+	&__text {
+		color: $color__text;
+		line-height: 1.25;
+
+		p {
+			@include font-size(18px);
+			@include media-breakpoint-down($bp-tablet) {
+				font-weight: 14px;
+			}
+		}
+	}
+
 	&--single {
 		transition: $transition;
 		#{$block}__heading {
-			padding-bottom: 0.8em;
 			padding-right: 1em;
-			border-bottom: 2.5px solid $color--tertiary;
+			border-color: $color--tertiary;
 			transition: $transition;
 			position: relative;
 			width: 100%;
@@ -58,6 +74,89 @@
 		}
 	}
 
-	// &--list {
-	// }
+	&__list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	&__link {
+		a {
+			@include font-size(18px);
+			padding: 1em 0;
+			padding-left: 2.25em;
+			border-bottom: $border-bottom $color--tertiary;
+			position: relative;
+			display: block;
+			color: $color__text;
+			text-decoration: none;
+
+			&::before {
+				@include fa("solid", "f061");
+				font-size: 1em;
+				color: $color--tertiary;
+				position: absolute;
+				left: 0.5em;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			@include hover-focus {
+				border-color: $color--highlight;
+				color: $color__text;
+				&::before {
+					color: $color--highlight;
+				}
+			}
+		}
+		&:first-child a {
+			margin-top: -1em;
+		}
+	}
+
+	// Horizontal Scrolling Functionality (mobile screens)
+	&__group {
+		display: flex;
+		flex: 1 0 auto;
+		margin: -15px;
+
+		[class*="col"] {
+			padding: 15px;
+		}
+		.simplebar-content {
+			display: flex;
+			flex-wrap: nowrap;
+		}
+
+		.simplebar-horizontal {
+			margin: 0 $margin__panel-LR;
+			transform: translateY(50%);
+			bottom: 15px + $padding__panel-TB/2;
+
+			@include media-breakpoint-up($bp-laptop) {
+				bottom: 15px + $margin__panel-TB/2;
+			}
+
+			.simplebar-scrollbar {
+				opacity: 0.3;
+			}
+		}
+
+		@include media-breakpoint-down($bp-desktop) {
+			margin: -15px #{-$margin__panel-LR};
+			padding: 0;
+
+			[class*="col"] {
+				display: flex;
+				flex-grow: 1;
+				min-width: 75%;
+				&:first-child {
+					padding-left: $margin__panel-LR;
+				}
+				&:last-child {
+					padding-right: $margin__panel-LR;
+				}
+			}
+		}
+	}
 }

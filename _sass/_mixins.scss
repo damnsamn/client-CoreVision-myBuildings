@@ -94,11 +94,20 @@ If you have other mixins which are component specific, they belong at the top of
 
 // This mixin will scale down the $size by certain factors per breakpoint.
 // Allows text to take up less space on smaller devices.
+// Take difference between $size and $rem, divide that by value
 @mixin font-size($size) {
     $rem: 16px;
     font-size: calc(#{$size} - ((#{$size} - #{$rem}) / 3)) !important;
 
     @include media-breakpoint-up(md) {
+        font-size: calc(#{$size} - ((#{$size} - #{$rem}) / 2)) !important;
+    }
+
+    @include media-breakpoint-up(xl) {
+        font-size: calc(#{$size} - ((#{$size} - #{$rem}) / 1.5)) !important;
+    }
+
+    @include media-breakpoint-up(xxl) {
         font-size: $size !important;
     }
 }
@@ -109,4 +118,14 @@ If you have other mixins which are component specific, they belong at the top of
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
+}
+
+@mixin container-padding {
+    padding-left: 15px;
+
+    @each $mw, $value in $container-max-widths {
+        @include media-breakpoint-up($mw) {
+            padding-left: calc((100vw - #{$value}) / 2 + 15px + #{$offset});
+        }
+    }
 }
