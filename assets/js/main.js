@@ -9,7 +9,6 @@ $(document).ready(function () {
     mobileSubNavigation();
     navScrollIndicators();
 });
-overrideKendoDefaults();
 
 // Below from https://stackoverflow.com/a/31410149
 // Allows us to check whether we're on mobile/desktop based on screen width
@@ -183,65 +182,3 @@ function navScrollIndicators() {
             $nav.removeClass("more-below")
     }
 }
-
-function overrideKendoDefaults() {
-    kendo.ui.Grid.fn.options.sortable = true;
-}
-
-// Tables to be handled by Kendo UI
-// function tableEqualise() {
-
-//     $(".table").each(function () {
-//         let $table = $(this);
-//         let colSelector = ".table__col";
-//         let rowSelector = ".table__header, .table__row";
-
-//         let $fixedRows = $table.find(".table__fixed").find(rowSelector);
-//         let $scrollRows = $table.find(".table__scroll").find(rowSelector);
-//         let rows = [];
-
-
-//         $fixedRows.each(function (i) {
-//             if (rows[i] == null)
-//                 rows[i] = [$(this).children()];
-//             else
-//                 rows[i].push($(this).children());
-//         });
-
-//         $scrollRows.each(function (i) {
-//             if (rows[i] == null)
-//             $(this).children().each(function() {
-//                 rows[i].push(this));
-//             else
-//                 rows[i].push($(this).children());
-//         });
-
-//         console.table(rows);
-
-//         let cols = [];
-
-//         $.each(rows, function () {
-//             // [div.table__row, div.table__row]
-//             $.each(this, function (i) {
-//                 // div.table__row
-//                 let children = [];
-//                 $(this).children().each(function (n) {
-//                     if (cols[n] == null)
-//                     cols[n] = [this];
-//                     else
-//                     cols[n].push(this);
-//                 })
-//                 // console.table(children);
-
-//                 // if (cols[i] == null)
-//                 //     cols[i] = [children[i]];
-//                 // else
-//                 //     cols[i].push(children[i]);
-
-//             })
-//         })
-//         // console.table(cols);
-
-
-//     });
-// }
