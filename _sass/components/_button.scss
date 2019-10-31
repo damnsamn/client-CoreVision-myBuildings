@@ -1,13 +1,13 @@
-@mixin button-style($fill-stroke, $text, $bg-border) {
+@mixin button-style($fill-stroke, $text, $bg-border, $important: '') {
 	@if ($fill-stroke == "fill") {
-		color: $text;
-		background: $bg-border;
+		color: $text #{$important};
+		background: $bg-border #{$important};
 		@include border(2px solid $bg-border);
 
-		&:not([disabled]):not(.mb-button--disabled):not(.k-state-disabled) {
+		&:not([disabled]):not(.mb-button--disabled):not(.disabled) {
 			@include hover-focus {
-				color: #fff;
-				background: $color--blue;
+				color: #fff #{$important};
+				background: $color--blue #{$important};
 				&::before {
 					border-color: $color--blue;
 				}
@@ -19,7 +19,7 @@
 		background: #fff;
 		@include border(2px solid $bg-border);
 
-		&:not([disabled]):not(.mb-button--disabled):not(.k-state-disabled) {
+		&:not([disabled]):not(.mb-button--disabled):not(.disabled) {
 			@include hover-focus {
 				color: $color--blue;
 				background: #fff;
@@ -77,7 +77,7 @@
 		@include hover-focus {
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 			bottom: 1px;
-        }
+		}
 
 		&::before {
 			border-width: 1px;
@@ -85,7 +85,8 @@
 	}
 
 	&[disabled],
-	&--disabled {
+	&--disabled,
+	&.disabled {
 		pointer-events: none;
 		cursor: default;
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
