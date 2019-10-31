@@ -72,24 +72,28 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 itemsPerPage: "No. per page"
             },
         },
-        scrollable: false,
+        // scrollable: false,
         columns: [{
             field: "OrderID",
             title: "Order ID",
+            locked: true,
+            width: 350,
         }, {
             field: "Freight",
             title: "Freight",
+            width: 350,
         }, {
             field: "OrderDate",
             title: "Order Date",
+            width: 350,
         }, {
             field: "ShipCountry",
             title: "Ship Country",
-            width: 150
+            width: 350,
         }, {
             field: "ShipCity",
             title: "Ship City",
-            width: 150
+            width: 350,
         }]
     });
 </script>

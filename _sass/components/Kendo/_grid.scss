@@ -13,8 +13,9 @@
 			}
 		}
 	}
+	$block: #{&};
 	$border-radius: 3px;
-	$border-1px: 1.25px;
+	$border-width: 1.25px;
 
 	border: none;
 	font-family: $font-family--global;
@@ -22,11 +23,44 @@
 	font-size: 14px;
 	margin-bottom: $margin__form-field;
 
+	// scrollable: false
 	> table {
-		border: $border-1px solid $color__field-border;
+		border: $border-width solid $color__field-border;
 		border-radius: $border-radius;
-    }
+		#{$block}-header {
+			border: none;
+		}
+	} //
 
+	// scrollable: true
+	& {
+		border: 1px solid $color__field-border;
+        border-radius: $border-radius $border-radius 0 0;
+
+		&-header {
+			border-radius: $border-radius $border-radius 0 0;
+            border-bottom: 1px solid $color__field-border;
+			.k-header {
+				border-left: none;
+				border: none;
+			}
+        }
+
+        #{$block}-pager {
+            border-top: 1px solid $color__field-border;
+            background: #fff;
+            margin: 0 -1px -1px -1px;
+
+        }
+		// #{$block}-content {
+		// 	border-right-color: $color__field-border;
+		// 	border-right-width: 1px;
+		// }
+		// #{$block}-content-locked {
+		// 	border-left-color: $color__field-border;
+		// 	border-left-width: 1px;
+		// }
+	} //
 
 	& &-header .k-header,
 	td[role="gridcell"] {
@@ -35,21 +69,20 @@
 
 	td {
 		border: none;
-		border-bottom: $border-1px solid $color__table-row-border;
+		border-bottom: $border-width solid $color__table-row-border;
 		background-color: #fff;
 		line-height: 1.25;
 		vertical-align: top;
 	}
 
-    .k-grid-content,
-    .k-grid-header + tbody {
-        background-color: $color--grey-light;
-        border-radius: 0 0 $border-radius $border-radius;
-    }
+	.k-grid-content,
+	.k-grid-header + tbody {
+		background-color: $color--grey-light;
+		border-radius: 0 0 $border-radius $border-radius;
+	}
 
 	.k-grid-header {
 		border-radius: $border-radius $border-radius 0 0;
-		border: none;
 		background-color: $color__background;
 
 		.k-grid-header-wrap {
@@ -57,10 +90,9 @@
 		}
 
 		.k-header {
-			font-weight: $roboto-bold;
 			border-left: none;
 			border: none;
-			border-bottom: $border-1px solid $color__field-border;
+			border-bottom: $border-width solid $color__field-border;
 
 			&:first-child {
 				border-radius: $border-radius 0 0 0;
@@ -84,7 +116,7 @@
 				&::before {
 					content: "";
 					display: inline-block;
-					width: $border-1px;
+					width: $border-width;
 					height: 36px;
 					background: $color__field-border;
 					opacity: 0.5;
@@ -97,8 +129,9 @@
 
 			// Sorting
 			&[data-role="columnsorter"] {
-                cursor: pointer;
+				cursor: pointer;
 				.k-link {
+					padding-right: 1em;
 					.k-icon {
 						display: none;
 					}
