@@ -1,0 +1,232 @@
+table.mb-datatable {
+	$border-radius: 3px;
+
+	$table-border: 1px solid $color__field-border;
+	$row-border: 1px solid $color__table-row-border;
+
+	overflow: hidden;
+	font-size: 14px;
+
+	// Header styling
+	thead {
+		border-radius: $border-radius $border-radius 0 0;
+		background-color: $color__background;
+		th {
+			border: $table-border;
+			border-width: 1px 0 1px 0;
+			position: relative;
+			overflow: hidden;
+
+			&:first-child {
+				border-top-left-radius: $border-radius;
+				border-left-width: 1px;
+			}
+			&:not(:only-child) {
+				&:last-child {
+					border-top-right-radius: $border-radius;
+					border-right-width: 1px;
+				}
+
+				&:not(:first-child)::before {
+					content: "";
+					display: inline-block;
+					width: 1px;
+					height: 70%;
+					background: $color__field-border;
+					opacity: 0.5;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+
+			// Sorting Icons
+			padding-right: 1em;
+			i {
+				display: none;
+
+				&::before {
+					@include fa("solid", "f106");
+					line-height: 0.5;
+					padding-bottom: 0.85em;
+				}
+				&::after {
+					@include fa("solid", "f107");
+					line-height: 0.5;
+					padding-top: 0.85em;
+				}
+				&::before,
+				&::after {
+					position: absolute;
+					font-size: 16px;
+					right: 0.5em;
+					top: 50%;
+					transform: translateY(-50%);
+					color: $color__field-border;
+					pointer-events: none;
+				}
+			}
+
+			&.sorting {
+				&,
+				&_asc,
+				&_desc {
+					background-image: none;
+					i {
+						display: inline-block;
+					}
+				}
+
+				&_asc i::before {
+					color: $color--blue;
+				}
+
+				&_desc i::after {
+					color: $color--red;
+				}
+			}
+
+			@include hover-focus {
+				&.sorting {
+					i::before,
+					&_desc i::before {
+						color: $color--blue;
+						opacity: 0.3;
+					}
+					i::after,
+					&_asc i::after {
+						color: $color--red;
+						opacity: 0.3;
+					}
+				}
+			}
+		}
+	}
+
+	// Global styling per-cell
+	thead,
+	tbody {
+		th,
+		td {
+			white-space: nowrap;
+			padding: 15px;
+		}
+	}
+
+	// Row cells
+	tbody {
+		th,
+		td {
+			border-top: $row-border;
+
+			&:first-child {
+				border-left: $table-border;
+			}
+
+			&:last-child:not(:only-child) {
+				border-right: $table-border;
+			}
+		}
+
+		tr:first-child {
+			th,
+			td {
+				border-top: none;
+			}
+		}
+
+		tr:last-child {
+			th,
+			td {
+                border-bottom: $table-border;
+                &:first-child {
+                    border-bottom-left-radius: $border-radius;
+                }
+                &:last-child {
+                    border-bottom-right-radius: $border-radius;
+                }
+			}
+		}
+	}
+
+	.datatable-hover {
+		background: $color__hover-table;
+	}
+}
+
+// Their HTML markup for non-scrolling, scrolling and FixedColumn scrolling datatables is different for each setting.
+// Below are overrides to make them all display consistently.
+
+.mb-datatable,
+.dataTables_scrollBody {
+	border: none !important;
+}
+
+.dataTables_wrapper {
+	margin-bottom: $margin__form-field;
+}
+
+.dataTables_scrollBody thead th::before,
+.DTFC_ScrollWrapper thead th:nth-child(2)::before {
+	content: none !important;
+}
+
+// Vanilla scrolling
+.dataTables_scroll {
+	border: 1px solid $color__field-border;
+	border-radius: 3px;
+	overflow: hidden;
+
+	th,
+	td {
+		border-right: none !important;
+		border-left: none !important;
+	}
+
+	thead {
+		th,
+		td {
+			border-top: none !important;
+		}
+	}
+
+	tbody {
+		th,
+		td {
+			border-bottom: none !important;
+		}
+	}
+}
+
+// FixedColumns scrolling
+.DTFC_LeftHeadWrapper {
+	border-top-left-radius: $border-radius;
+	th {
+		border-bottom-width: 0.5px !important;
+	}
+}
+.DTFC_LeftBodyWrapper {
+	border-bottom-left-radius: $border-radius;
+
+	.DTFC_LeftBodyLiner {
+		overflow: hidden;
+
+		thead {
+			opacity: 0;
+		}
+	}
+}
+
+.DTFC_LeftHeadWrapper,
+.DTFC_LeftBodyWrapper {
+	border-left: 1px solid $color__field-border;
+	border-right: 1px solid $color__field-border;
+
+	td,
+	th {
+		border-right: none !important;
+		border-left: none !important;
+		border-top-width: 1px !important;
+	}
+}

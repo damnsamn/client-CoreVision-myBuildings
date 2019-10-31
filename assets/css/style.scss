@@ -25,6 +25,7 @@
 
 @import 'components/banner';
 @import 'components/button';
+@import 'components/datatables/datatables';
 @import 'components/footer';
 @import 'components/form/form';
 @import 'components/form/field-types';
@@ -32,8 +33,7 @@
 @import 'components/linkbox';
 @import 'components/panel';
 @import 'components/navigation';
-@import 'components/table';
 
 // Kendo overrides
-@import "components/kendo/grid";
-@import "components/kendo/grid-pagination";
+// @import "components/kendo/grid";
+// @import "components/kendo/grid-pagination";

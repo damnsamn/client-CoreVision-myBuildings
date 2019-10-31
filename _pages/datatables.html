@@ -7,7 +7,9 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
     <div class="panel">
         <h3 class="panel__heading">DataTables Examples</h3>
         <div class="panel__content">
-            <table id="dataTable" class="hover row-border" style="width:100%"></table>
+            <table id="dataTable" class="mb-datatable" style="width:100%"></table>
+            <table id="dataTable2" class="mb-datatable" style="width:100%"></table>
+            <table id="dataTable3" class="mb-datatable" style="width:100%"></table>
         </div>
     </div>
 </section>
@@ -52,26 +54,33 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         ["Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675"]
     ];
 
-    $(document).ready(function () {
+    var columns = [
+        { title: "Name <i></i>" },
+        { title: "Position <i></i>" },
+        { title: "Office <i></i>" },
+        { title: "Extn. <i></i>", orderable: false },
+        { title: "Start date <i></i>" },
+        { title: "Salary <i></i>" }
+    ];
 
-        $('#dataTable').DataTable({
-            data: data,
-            columns: [
-                { title: "Name" },
-                { title: "Position" },
-                { title: "Office" },
-                { title: "Extn." },
-                { title: "Start date" },
-                { title: "Salary" }
-            ],
-            // autoWidth: false,
-            scrollX: true,
-            fixedColumns: {
-                leftColumns: 1,
-                // heightMatch: 'sem'
-            },
-            // scrollCollapse: true
-        });
+    $('#dataTable').DataTable({
+        data: data,
+        columns: columns,
+    });
 
+    $('#dataTable2').DataTable({
+        data: data,
+        columns: columns,
+        scrollX: true,
+    });
+
+    $('#dataTable3').DataTable({
+        data: data,
+        columns: columns,
+        scrollX: true,
+        fixedColumns: {
+            leftColumns: 1,
+        },
+        dom: "tpl"
     });
 </script>

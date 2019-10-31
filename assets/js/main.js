@@ -8,6 +8,7 @@ $(document).ready(function () {
     desktopSubNavigation();
     mobileSubNavigation();
     navScrollIndicators();
+    customDataTablesHover();
 });
 
 // Below from https://stackoverflow.com/a/31410149
@@ -181,4 +182,24 @@ function navScrollIndicators() {
         else
             $nav.removeClass("more-below")
     }
+}
+
+function customDataTablesHover() {
+    let hoverClass = "datatable-hover";
+    let $hoveredRow = $();
+
+    $(".mb-datatable tbody tr").mouseenter(function () {
+        let $table = $(this).parents(".dataTables_wrapper");
+        let index = $(this).parent().children().index(this);
+        $hoveredRow = $()
+
+        $table.find("tbody").each(function () {
+            $hoveredRow.push($(this).children(":eq(" + index + ")")[0]);
+        });
+        $hoveredRow.addClass(hoverClass);
+    }).mouseleave(function() {
+        $hoveredRow.removeClass(hoverClass);
+        $hoveredRow = $();
+    });
+
 }
