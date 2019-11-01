@@ -3,10 +3,17 @@
 		background: none;
 		color: $color__text;
 		padding: 10px 0 0;
+		display: flex;
 		align-items: flex-start;
 
+		> span {
+			display: flex;
+		}
+
+        // Excuse all the !importants, we're overriding the DataTables defaults a lot here.
+        // Opting to use !importants rather than get crazy with our specificity.
 		.paginate_button {
-			@include button-style("stroke", $color--primary, $color--primary);
+			@include button-style("stroke", $color--primary, $color--primary, !important);
 			border: none !important;
 			border-radius: 2px;
 			font-size: 12px;
@@ -18,6 +25,8 @@
 			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 			margin: 0 5px 0 0;
 			font-weight: $roboto-medium;
+			display: inline-block;
+            padding: 0.5em;
 
 			&,
 			&::before {
@@ -49,13 +58,17 @@
 					color: inherit;
 				}
 			}
+			&.current {
+				@include button-style("fill", #fff, $color--primary, !important);
+				font-weight: $roboto-bold;
+			}
 			&.disabled {
 				@include button-style("stroke", $color__disabled-text, $color__disabled-border, !important);
 				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
 				bottom: 0 !important;
-                background: $color__disabled-background;
+				background: $color__disabled-background !important;
 				&:hover {
-                    background: $color__disabled-background;
+					background: $color__disabled-background !important;
 				}
 			}
 

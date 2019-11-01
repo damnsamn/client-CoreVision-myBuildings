@@ -15,14 +15,14 @@
 		}
 	}
 	@if ($fill-stroke == "stroke") {
-		color: $text;
-		background: #fff;
+		color: $text #{$important};
+		background: #fff #{$important};
 		@include border(2px solid $bg-border);
 
 		&:not([disabled]):not(.mb-button--disabled):not(.disabled) {
 			@include hover-focus {
-				color: $color--blue;
-				background: #fff;
+				color: $color--blue #{$important};
+				background: #fff #{$important};
 				&::before {
 					border-color: $color--blue;
 				}

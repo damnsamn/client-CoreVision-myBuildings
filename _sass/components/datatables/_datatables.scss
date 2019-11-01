@@ -1,9 +1,6 @@
 table.mb-datatable {
 	$border-radius: 3px;
 
-	$table-border: 1px solid $color__field-border;
-	$row-border: 1px solid $color__table-row-border;
-
 	overflow: hidden;
 	font-size: 14px;
 
@@ -12,7 +9,7 @@ table.mb-datatable {
 		border-radius: $border-radius $border-radius 0 0;
 		background-color: $color__background;
 		th {
-			border: $table-border;
+			border: $border__table;
 			border-width: 1px 0 1px 0;
 			position: relative;
 			overflow: hidden;
@@ -118,14 +115,14 @@ table.mb-datatable {
 	tbody {
 		th,
 		td {
-			border-top: $row-border;
+			border-top: $border__table-row;
 
 			&:first-child {
-				border-left: $table-border;
+				border-left: $border__table;
 			}
 
 			&:last-child:not(:only-child) {
-				border-right: $table-border;
+				border-right: $border__table;
 			}
 		}
 
@@ -139,13 +136,13 @@ table.mb-datatable {
 		tr:last-child {
 			th,
 			td {
-                border-bottom: $table-border;
-                &:first-child {
-                    border-bottom-left-radius: $border-radius;
-                }
-                &:last-child {
-                    border-bottom-right-radius: $border-radius;
-                }
+				border-bottom: $border__table;
+				&:first-child {
+					border-bottom-left-radius: $border-radius;
+				}
+				&:last-child {
+					border-bottom-right-radius: $border-radius;
+				}
 			}
 		}
 	}
@@ -174,7 +171,7 @@ table.mb-datatable {
 
 // Vanilla scrolling
 .dataTables_scroll {
-	border: 1px solid $color__field-border;
+	border: $border__table;
 	border-radius: 3px;
 	overflow: hidden;
 
@@ -220,8 +217,27 @@ table.mb-datatable {
 
 .DTFC_LeftHeadWrapper,
 .DTFC_LeftBodyWrapper {
-	border-left: 1px solid $color__field-border;
-	border-right: 1px solid $color__field-border;
+	border-left: $border__table;
+
+	@include media-breakpoint-down(xl) {
+		border-right: $border__table;
+		position: relative;
+
+		&::after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			width: 1px;
+			top: 0;
+			bottom: 0;
+			right: 2px;
+			background: $border-color__table;
+		}
+	}
+
+	tr:last-child td {
+		border-bottom: none !important;
+	}
 
 	td,
 	th {
