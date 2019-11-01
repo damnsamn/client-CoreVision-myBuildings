@@ -1,11 +1,11 @@
 # Framework Dependencies
 Below are the technologies and dependencies the myBuildings framework will require. Version numbers are those used in this front-end package. Any upgrades should be done with caution, and according to the appropriate documentation.
 * Sass/SCSS
-* Bootstrap 4.3.1
-* Kendo UI (JQuery) 2019.3.1023
-    * Using the Diversus commercial license
-* Font Awesome 5.11
-* **Jekyll 4.0.0 (static templating)**
+* Bootstrap v4.3.1
+* jQuery DataTables v1.10.20
+    * FixedColumns v3.3.0 extension
+* Font Awesome v5.11
+* **Jekyll v4.0.0 (static templating)**
 	* Jekyll is used as an analog for any equivalent templating method (myBuildings ASP.NET)
 	* Solely for the development and display of this front-end framework - *this should not be ported over to the actual solution*
 

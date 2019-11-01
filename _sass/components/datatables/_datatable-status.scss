@@ -1,0 +1,19 @@
+.datatable__status {
+    padding: 6px 15px;
+    border-radius: 100px;
+    cursor: default;
+
+    &, &--grey {
+        background-color: $color--grey;
+    }
+
+	&--green {
+        background-color: $color--green-light;
+	}
+	&--orange {
+        background-color: $color--orange-light;
+	}
+	&--red {
+        background-color: $color--red-light;
+	}
+}

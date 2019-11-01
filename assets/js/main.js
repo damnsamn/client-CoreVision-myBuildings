@@ -11,6 +11,34 @@ $(document).ready(function () {
     customDataTablesHover();
 });
 
+// Overriding DataTables default options
+$.extend(true, $.fn.dataTable.defaults, {
+    scrollX: true,
+    dom: "tp",
+    language: {
+        "lengthMenu":
+            "<div class='form__field field--select field--small'>" +
+            "<label class='field__label' for='" + $(this).id + "-pageLength'>No. Per Page</label>" +
+            "_MENU_</div>"
+    },
+    initComplete: function () {
+        let $table = $(this).parents(".dataTables_wrapper");
+        $table.addClass("biggo");
+        $(this).addClass("smalo");
+        $table.find(".dataTables_length select").addClass("field__input");
+        $table.find("thead th").append("<i></i>");
+
+        let dataTable = $(this).DataTable();
+        setTimeout(function () {
+            dataTable.columns.adjust();
+        }, 0);
+
+        console.log($(this).attr("id"))
+
+    },
+    "lengthMenu": [10, 20, 50]
+});
+
 // Below from https://stackoverflow.com/a/31410149
 // Allows us to check whether we're on mobile/desktop based on screen width
 var mobile = laptop = desktop = false;
@@ -141,9 +169,9 @@ function desktopSubNavigation() {
     }
 }
 
+// Mobile navigation/subnavigation behaviour
+// Opens/Closes each item's subnav on nav__item__toggle click
 function mobileSubNavigation() {
-    // Mobile navigation/subnavigation behaviour
-    // Opens/Closes each item's subnav on nav__item__toggle click
 
     let $arrow = $(".nav__item__toggle");
 
@@ -184,6 +212,8 @@ function navScrollIndicators() {
     }
 }
 
+// Custom hover classes for DataTables
+// Adds hover class to entire row, as well as corresponding row in FixedColumns wrapper.
 function customDataTablesHover() {
     let hoverClass = "datatable-hover";
     let $hoveredRow = $();
@@ -197,7 +227,7 @@ function customDataTablesHover() {
             $hoveredRow.push($(this).children(":eq(" + index + ")")[0]);
         });
         $hoveredRow.addClass(hoverClass);
-    }).mouseleave(function() {
+    }).mouseleave(function () {
         $hoveredRow.removeClass(hoverClass);
         $hoveredRow = $();
     });

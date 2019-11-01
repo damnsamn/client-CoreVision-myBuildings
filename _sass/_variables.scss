@@ -18,11 +18,12 @@ $color--orange: #E6AF1D;
 $color--orange-light: #FCF3DD;
 $color--green: #078610;
 $color--green-light: #E0F6E2;
+$color--grey: #F7F7F7;
 $color--grey-light: #FBFBFB;
 
 $color__text: #333333;
 $color__text-light: #757575;
-$color__background: #F7F7F7;
+$color__background: $color--grey;
 $color__hover-menu: #E9F7FB;
 $color__hover-table: #F4FBFD;
 $color__table-row-border: #E9E9E9;

@@ -74,7 +74,6 @@
 }
 
 .form {
-	@include make-row();
 
 	&__field {
 		display: flex;
