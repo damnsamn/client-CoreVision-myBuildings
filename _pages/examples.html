@@ -7,6 +7,17 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
 <div class="col-12">
     <div class="linkbox__group row" data-simplebar>
+
+        <!-- Linkbox - List -->
+        <!--
+            ├─○ <section> .panel-col .col-xl-4
+            │ └─○ <div> .linkbox .panel .panel--round
+            │   ├─● <h4> .linkbox__heading
+            │   │ └─● <i> .linkbox__icon [FONTAWESOME]
+            │   └─○ <ul> .linkbox__list
+            │     ├─○ <li> .linkbox__link
+            │     │ └─● <a> .linkbox__link
+        -->
         <section class="panel-col col-xl-4">
             <div class="linkbox panel panel--round">
                 <h4 class="linkbox__heading"><i class="linkbox__icon far fa-toolbox"></i>Work Requests</h4>
@@ -18,6 +29,15 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
             </div>
         </section>
 
+        <!-- Linkbox - Single -->
+        <!--
+            ├─○ <section> .panel-col .col-xl-4
+            │ └─○ <div> .linkbox .linkbox--single .panel .panel--round
+            │   ├─● <h4> .linkbox__heading
+            │   │ └─● <i> .linkbox__icon [FONTAWESOME]
+            │   └─○ <div> .linkbox__text
+            │     ├─● <p>
+        -->
         <section class="panel-col col-xl-4">
             <a href="/" class="linkbox linkbox--single panel panel--round">
                 <h4 class="linkbox__heading"><i class="linkbox__icon far fa-id-badge"></i>Work Requests</h4>
@@ -40,13 +60,19 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
     </div>
 </div>
 
-
+<!-- Panel sections -->
+<!--
+    ├─○ <section> .panel-col [COL]
+    │ └─○ <div> .panel
+    │   ├─● <h3> .panel__heading
+    │   └─○ <div> .panel__content
+-->
 <section class="panel-col col-12">
     <div class="panel">
         <h3 class="panel__heading">Input Field Examples</h3>
         <div class="panel__content">
             <!-- Below form.form is defined as a .row within the SCSS, all children should be .cols -->
-            <form class="form">
+            <form class="row">
 
 
                 <!-- Text-based Fields - text, textarea, select -->
