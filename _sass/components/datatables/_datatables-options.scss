@@ -1,17 +1,44 @@
 .dataTables_wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	> .dataTables_scroll,
+	> .DTFC_ScrollWrapper {
+		width: 100%;
+
+		+ * {
+			margin-left: 0;
+		}
+
+		~ * {
+			padding-top: 10px;
+		}
+	}
+
+	> * {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	// Pagination
 	.dataTables_paginate {
 		background: none;
 		color: $color__text;
-		padding: 10px 0 0;
 		display: flex;
 		align-items: flex-start;
+		float: none;
 
 		> span {
 			display: flex;
 		}
 
-        // Excuse all the !importants, we're overriding the DataTables defaults a lot here.
-        // Opting to use !importants rather than get crazy with our specificity.
+		// Excuse all the !importants, we're overriding the DataTables defaults a lot here.
+		// Opting to use !importants rather than get crazy with our specificity.
 		.paginate_button {
 			@include button-style("stroke", $color--primary, $color--primary, !important);
 			border: none !important;
@@ -26,7 +53,7 @@
 			margin: 0 5px 0 0;
 			font-weight: $roboto-medium;
 			display: inline-block;
-            padding: 0.5em;
+			padding: 0.5em;
 
 			&,
 			&::before {
@@ -68,6 +95,7 @@
 				bottom: 0 !important;
 				background: $color__disabled-background !important;
 				&:hover {
+					color: $color__disabled-text !important;
 					background: $color__disabled-background !important;
 				}
 			}
@@ -90,6 +118,18 @@
 				@include fa("solid", "f051");
 				font-size: 9px;
 			}
+		}
+	}
+
+	// pageLength picker
+	.dataTables_length {
+		> label,
+		.form__field {
+			margin: 0;
+		}
+
+		> label {
+			display: inline-block;
 		}
 	}
 }

@@ -155,5 +155,18 @@ input[type="submit"]
 			pointer-events: none;
 			width: 0.25em;
 		}
-	}
+    }
+
+    &--small {
+        .field__label {
+            font-size: 14px;
+            line-height: 1;
+            margin-bottom: 0.5em;
+        }
+
+        .field__input {
+            font-size: 12px;
+            padding: 0.666em 1em;
+        }
+    }
 }
