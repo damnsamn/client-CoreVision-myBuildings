@@ -1,9 +1,5 @@
 $(document).ready(function () {
-    $(".nav__button").click(function () {
-        $("html").toggleClass("no-scroll");
-        $(this).toggleClass("expanded").siblings(".nav__menu").toggleClass("expanded");
-    });
-
+    tabbingBehaviour();
     responsiveVariables();
     desktopSubNavigation();
     mobileSubNavigation();
@@ -173,6 +169,11 @@ function desktopSubNavigation() {
 // Opens/Closes each item's subnav on nav__item__toggle click
 function mobileSubNavigation() {
 
+    $(".nav__button").click(function () {
+        $("html").toggleClass("no-scroll");
+        $(this).toggleClass("expanded").siblings(".nav__menu").toggleClass("expanded");
+    });
+
     let $arrow = $(".nav__item__toggle");
 
     $arrow.click(function () {
@@ -232,4 +233,26 @@ function customDataTablesHover() {
         $hoveredRow = $();
     });
 
+}
+
+// Add class to <body> when user is tabbing
+function tabbingBehaviour() {
+
+    function handleFirstTab(e) {
+        if (e.keyCode === 9) {
+            document.body.classList.add('user-is-tabbing');
+
+            window.removeEventListener('keydown', handleFirstTab);
+            window.addEventListener('mousedown', handleMouseDownOnce);
+        }
+    }
+
+    function handleMouseDownOnce() {
+        document.body.classList.remove('user-is-tabbing');
+
+        window.removeEventListener('mousedown', handleMouseDownOnce);
+        window.addEventListener('keydown', handleFirstTab);
+    }
+
+    window.addEventListener('keydown', handleFirstTab);
 }

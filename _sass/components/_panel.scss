@@ -4,6 +4,12 @@
 	@include panel-shadow;
 	background-color: #fff;
 	padding: $padding__panel-TB $padding__panel-LR;
+	display: flex;
+	flex-wrap: wrap;
+
+	> * {
+		flex: 1 0 100%;
+	}
 
 	&-col {
 		margin-bottom: $padding__panel-TB;
@@ -15,11 +21,87 @@
 
 	&__heading {
 		margin-bottom: 16px;
+		flex: 1 1 auto;
 	}
 
 	&__content {
+		width: 100%;
 		> *:last-child {
 			margin-bottom: 0;
+		}
+	}
+
+	&__dropdown {
+		flex: 0 0 auto;
+		position: relative;
+		align-self: flex-start;
+
+		&.show #{$block}__ellipsis::before {
+			opacity: 1;
+		}
+
+		.dropdown-menu {
+			top: -100% !important;
+			padding: 36px 0 16px;
+			margin: 0;
+			font-size: 14px;
+			border-radius: 3px;
+			border: 1px solid $color__field-border;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+			.dropdown-item {
+				padding: 0 16px;
+				margin-top: 1em;
+				text-decoration: none;
+				background: none;
+
+				&:first-child {
+					margin: 0;
+				}
+
+				@include hover-focus {
+					color: $color--highlight;
+					text-decoration: underline;
+					background: none;
+				}
+			}
+		}
+	}
+
+	&__ellipsis {
+		padding: 16px;
+		font-size: 26px;
+		appearance: none;
+		border: none;
+		display: inline-block;
+		background-color: transparent;
+		line-height: 0;
+		position: relative;
+		z-index: $zindex-popover;
+		width: 2.25em;
+		height: 1.5em;
+		position: relative;
+
+		&::before {
+			@include fa("regular", "f141");
+			color: $color--primary;
+			opacity: 0.5;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: $transition;
+		}
+
+		@include hover-focus {
+			&::before {
+				opacity: 1;
+			}
+		}
+
+		&::after {
+			content: none;
+			display: none;
 		}
 	}
 
@@ -40,4 +122,10 @@
 	&--round {
 		border-radius: 10px;
 	}
+}
+
+body:not(.user-is-tabbing) {
+    .panel__ellipsis:focus {
+        outline: none;
+    }
 }
