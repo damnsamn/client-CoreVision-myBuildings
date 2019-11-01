@@ -1,6 +1,6 @@
 ---
-layout: default
 title: DataTables
+navOrder: 3
 bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 ---
 <section class="panel-col col-12">
@@ -81,7 +81,16 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         fixedColumns: {
             leftColumns: 1,
         },
-        dom: "tpl"
+        dom: "tpl",
+        language: {
+            "lengthMenu":
+            "<div class='form__field field--select field--small'>" +
+                "<label class='field__label' for='" + $(this).id + "-pageLength'>No. Per Page</label>" +
+                "_MENU_</div>"
+        },
+        initComplete: function() {
+            $(".dataTables_length select").addClass("field__input")
+        }
     });
 
 </script>

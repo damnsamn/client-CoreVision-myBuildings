@@ -1,333 +1,50 @@
 ---
-layout: default
-title: Examples
+title: Home / Login
+navOrder: 1
 bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 ---
 
-<div class="col-12">
-    <div class="linkbox__group row" data-simplebar>
-        <section class="panel-col col-xl-4">
-            <div class="linkbox panel panel--round">
-                <h4 class="linkbox__heading"><i class="linkbox__icon far fa-toolbox"></i>Work Requests</h4>
-                <ul class="linkbox__list">
-                    <li class="linkbox__link"><a href="/">Submit a new work request</a></li>
-                    <li class="linkbox__link"><a href="/">Submit a new work request</a></li>
-                    <li class="linkbox__link"><a href="/">Submit a new work request</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="panel-col col-xl-4">
-            <a href="/" class="linkbox linkbox--single panel panel--round">
-                <h4 class="linkbox__heading"><i class="linkbox__icon far fa-id-badge"></i>Work Requests</h4>
-                <div class="linkbox__text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, iusto delectus? Nemo, maxime.</p>
-                    <p>Vitae iste a sapiente, nisi impedit labore. Dignissimos magnam eos soluta itaque maxime ad fuga sunt tenetur!</p>
-                </div>
-            </a>
-        </section>
-
-        <section class="panel-col col-xl-4">
-            <a href="/" class="linkbox linkbox--single panel panel--round">
-                <h4 class="linkbox__heading"><i class="linkbox__icon far fa-id-badge"></i>Work Requests</h4>
-                <div class="linkbox__text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, iusto delectus? Nemo, maxime.</p>
-                    <p>Vitae iste a sapiente, nisi impedit labore. Dignissimos magnam eos soluta itaque maxime ad fuga sunt tenetur!</p>
-                </div>
-            </a>
-        </section>
-    </div>
-</div>
-
-
-<section class="panel-col col-12">
+<section class="panel-col col-12 col-xxl-3">
     <div class="panel">
-        <h3 class="panel__heading">Input Field Examples</h3>
+        <h4 class="panel__heading">Login to myBuildings</h4>
         <div class="panel__content">
-            <!-- Below form.form is defined as a .row within the SCSS, all children should be .cols -->
             <form class="form">
-
-
-                <!-- Text-based Fields - text, textarea, select -->
-                <!--
-                    ├─○ <div> .form__field .field--[TYPE] .field--[MODIFIER] [COL]
-                    │ ├─● <label for="[ID]"> .field__label
-                    │ ├─● <input id="[ID]" type="[TYPE]" [DISABLED] [REQUIRED]> .field__input
-                    │ └─● <span> .field__help (OPTIONAL)
-                -->
-
-                <!-- Text Fields -->
-                <!-- Regular text field - with optional help text -->
-                <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="text-regular">Text - Regular (Help)</label>
-                    <input class="field__input" id="text-regular" type="text">
-                    <span class="field__help">Text field help text</span>
+                <div class="form__field field--text col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-12">
+                    <label class="field__label" for="email">Email</label>
+                    <input class="field__input" id="email" type="email">
                 </div>
-
-                <!-- Required text field - .field--required -->
-                <div class="form__field field--text field--required col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="text-required">Text - Required</label>
-                    <input class="field__input" id="text-required" type="text" required>
+                <div class="form__field field--text col-12 col-sm-6 col-md-12 col-lg-6 col-xxl-12">
+                    <label class="field__label" for="password">Password</label>
+                    <input class="field__input" id="password" type="password">
                 </div>
-
-                <!-- Invalid text field - .field--invalid -->
-                <div class="form__field field--text field--required field--invalid col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="text-changed">Text - Invalid</label>
-                    <input class="field__input" id="text-changed" type="text">
-                </div>
-
-                <!-- Disabled text field - .field--disabled -->
-                <div class="form__field field--text field--disabled  col-12 col-sm-6 col-xl-4 col-xxl-3col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="text-disabled">Text - Disabled</label>
-                    <input class="field__input" id="text-disabled" type="text" value="Disabled" disabled>
-                </div>
-
-
-
-                <!-- Select Fields -->
-                <!-- Regular select -->
-                <div class="form__field field--select col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="select-regular">Select - Regular</label>
-                    <select class="field__input" id="select-regular">
-                        <option value="value-1">Value 1</option>
-                        <option value="value-2">Value 2</option>
-                        <option value="value-3">Value 3</option>
-                    </select>
-                </div>
-
-                <!-- Required select -->
-                <div class="form__field field--select field--required col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="select-required">Select - Required</label>
-                    <select class="field__input" id="select-required" required>
-                        <option value="value-1">Value 1</option>
-                        <option value="value-2">Value 2</option>
-                        <option value="value-3">Value 3</option>
-                    </select>
-                </div>
-
-                <!-- Invalid select -->
-                <div class="form__field field--select field--required field--invalid col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="select-invalid">Select - Invalid</label>
-                    <select class="field__input" id="select-invalid" required>
-                        <option value="value-1">Value 1</option>
-                        <option value="value-2">Value 2</option>
-                        <option value="value-3">Value 3</option>
-                    </select>
-                </div>
-
-                <!-- Disabled select -->
-                <div class="form__field field--select field--disabled col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="select-disabled">Select - Disabled</label>
-                    <select class="field__input" id="select-disabled" disabled>
-                        <option value="value-1">Value 1</option>
-                        <option value="value-2">Value 2</option>
-                        <option value="value-3">Value 3</option>
-                    </select>
-                </div>
-
-
-
-                <!-- Text Fields with Bootstrap Input-groups -->
-                <!--
-                    ├─○ <div> .form__field .field--[TYPE] .field--[MODIFIER] [COL]
-                    │ ├─● <label for="[ID]"> .field__label
-                    │ └─○ <div> .input-group
-                    │   ├─○ <div> .input-group-prepend (OPTIONAL)
-                    │   │ └─● <span> .input-group-text
-                    │   ├─● <input id="[ID]" type="[TYPE]" [DISABLED] [REQUIRED]> .field__input
-                    │   └─○ <div> .input-group-append (OPTIONAL)
-                    │     └─● <span> .input-group-text
-                -->
-                <!-- Prepend -->
-                <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="group-prepend">Input-group - Prepend</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                        </div>
-                        <input class="field__input" id="group-prepend" type="text" placeholder="Value">
-                    </div>
-                </div>
-
-                <!-- Append -->
-                <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="group-prepend">Input-group - Append</label>
-                    <div class="input-group">
-                        <input class="field__input" id="group-prepend" type="text" placeholder="Email">
-                        <div class="input-group-append">
-                            <span class="input-group-text">@corevision.com.au</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Append AND Prepend -->
-                <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="group-prepend">Input-group - Both Ends</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                        </div>
-                        <input class="field__input" id="group-prepend" type="text" placeholder="Value">
-                        <div class="input-group-append">
-                            <span class="input-group-text">.00</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Multiple -->
-                <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="group-prepend">Input-group - Multiple</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                            <span class="input-group-text">10.</span>
-                        </div>
-                        <input class="field__input" id="group-prepend" type="text" placeholder="Value">
-                        <div class="input-group-append">
-                            <span class="input-group-text">AUD</span>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!-- Checkboxes & Radios -->
-                <!-- Note, <label> and <input> MUST be swapped around. Input first, followed by label -->
-                <!--
-                    ├─○ <div> .form__field .field--[TYPE] .field--[MODIFIER] [COL]
-                    │ ├─● <input id="[ID]" type="[TYPE]" [DISABLED] [REQUIRED]> .field__input
-                    │ ├─● <label for="[ID]"> .field__label
-                    │ └─● <span> .field__help (OPTIONAL)
-                -->
-
-                <!-- Checkbox Regular -->
-                <div class="form__field field--checkbox col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="checkbox-regular" type="checkbox">
-                    <label class="field__label" for="checkbox-regular">Regular</label>
-                </div>
-
-                <!-- Radio Regular -->
-                <div class="form__field field--radio col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="radio-regular" type="radio">
-                    <label class="field__label" for="radio-regular">Regular</label>
-                </div>
-
-                <!-- Checkbox Required -->
-                <div class="form__field field--checkbox field--required col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="checkbox-required" type="checkbox" required>
-                    <label class="field__label" for="checkbox-required">Required</label>
-                </div>
-
-                <!-- Radio Required -->
-                <div class="form__field field--radio field--required col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="radio-required" type="radio" required>
-                    <label class="field__label" for="radio-required">Required</label>
-                </div>
-
-                <!-- Checkbox Invalid -->
-                <div class="form__field field--checkbox field--required field--invalid col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="checkbox-invalid" type="checkbox" required>
-                    <label class="field__label" for="checkbox-invalid">Invalid</label>
-                </div>
-
-                <!-- Radio Invalid -->
-                <div class="form__field field--radio field--required field--invalid col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="radio-invalid" type="radio" required>
-                    <label class="field__label" for="radio-invalid">Invalid</label>
-                </div>
-
-                <!-- Checkbox Disabled -->
-                <div class="form__field field--checkbox field--disabled col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="checkbox-disabled" type="checkbox" disabled>
-                    <label class="field__label" for="checkbox-disabled">Disabled</label>
-                </div>
-
-                <!-- Radio Disabled -->
-                <div class="form__field field--radio field--disabled col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="radio-disabled" type="radio" disabled>
-                    <label class="field__label" for="radio-disabled">Disabled</label>
-                </div>
-
-
-                <!-- Textarea -->
-                <!-- Regular text field - with optional help text -->
-                <div class="form__field field--textarea col-12">
-                    <label class="field__label" for="text-regular">Textarea</label>
-                    <textarea class="field__input" id="text-regular" rows="4"></textarea>
-                </div>
-
-                <!-- Fieldset -->
-                <div class="form__fieldset col-12">
-                    <label class="fieldset__label">Fieldset Example</label>
-                    <div class="fieldset__box">
-
-                        <!-- Readonly fields - can sit alongside other editable fields -->
-                        <!--
-                            ├─○ <div> .form__field .field--readonly [COL]
-                            │ ├─● <label for="[ID]"> .field__label
-                            │ └─● <span id="[ID]"> .field__readonly
-                        -->
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
-                        </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
-                        </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
-                        </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
-                        </div>
-
-                    </div>
+                <div class="form__field field--checkbox col-12">
+                    <input class="field__input" id="remember" type="checkbox">
+                    <label class="field__label" for="remember">Remember me</label>
                 </div>
 
                 <div class="form__actions">
-                    <button class="mb-button mb-button--stroke action--left">Back</button>
-                    <button class="mb-button action--right">Save</button>
+                        <button class="mb-button action--right">Login</button>
                 </div>
-
             </form>
         </div>
     </div>
 </section>
 
-<section class="panel-col col-12">
-    <div class="panel">
-        <h3 class="panel__heading">Buttons</h3>
+<section class="panel-col col-12 col-xxl-9">
+    <div class="panel panel--blank">
+        <h3 class="panel__heading">Welcome to the Iconic ML7</h3>
         <div class="panel__content">
-
-            <button class="mb-button">Button</button>
-            <a href="/" class="mb-button">Button</a>
-
-            <button class="mb-button mb-button--stroke">Button</button>
-            <a href="/" class="mb-button mb-button--stroke">Button</a>
-
-            <button class="mb-button mb-button--small">Button</button>
-            <a href="/" class="mb-button mb-button--small">Button</a>
-
-            <button class="mb-button mb-button--stroke mb-button--small">Button</button>
-            <a href="/" class="mb-button mb-button--stroke mb-button--small">Button</a>
-
-            <button class="mb-button mb-button--disabled" disabled>Button</button>
-            <a href="/" class="mb-button mb-button--disabled">Button</a>
-
-            <button class="mb-button mb-button--stroke mb-button--disabled" disabled>Button</button>
-            <a href="/" class="mb-button mb-button--stroke mb-button--disabled">Button</a>
-
-            <button class="mb-button mb-button--small mb-button--disabled" disabled>Button</button>
-            <a href="/" class="mb-button mb-button--small mb-button--disabled">Button</a>
-
-            <button class="mb-button mb-button--stroke mb-button--small mb-button--disabled" disabled>Button</button>
-            <a href="/" class="mb-button mb-button--stroke mb-button--small mb-button--disabled">Button</a>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <p>Spirit of history. Modern drive. ML7 is Australia's leading commercial hub for industry ground-breakers and trailblazers.</p>
+                    <p>Built in 1972, ML7 was recently renovated to include an atrium, new community spaces and public-facing cafe. Architecturally designed with elegance in mind, Locus One marries sleek and stylish form with practical features and functionality including well-appointed end-of-trip facilities and gym.</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <p>The Locus One Concierge and Building Management team are here to help and have insider knowledge on the best places to eat, drink, stay and play nearby.</p>
+                    <p>Whether you've worked in this neighbourhood for years or have recently made the move, we bet there's something you've never noticed before. The office is not just the few rooms you work in Monday to Friday — it spills out of the front doors of the building and stretches into the streets and businesses that surround us.</p>
+                    <p>Go ahead and explore new areas. Get in touch with your community.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
