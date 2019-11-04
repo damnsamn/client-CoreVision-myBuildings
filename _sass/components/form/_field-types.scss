@@ -3,8 +3,7 @@ select,
 textarea,
 input[type="text"],
 input[type="button"],
-input[type="submit"]
- {
+input[type="submit"] {
 	-webkit-appearance: none;
 	border-radius: 0;
 }
@@ -12,10 +11,12 @@ input[type="submit"]
 .field {
 	&--text,
 	&--select,
+	&--date,
 	&--textarea {
 		.field__input {
-            padding: $padding__field-TB $padding__field-LR;
-            background-color: #fff;
+			padding: $padding__field-TB $padding__field-LR;
+			background-color: #fff;
+			width: 100%;
 		}
 	}
 
@@ -155,18 +156,44 @@ input[type="submit"]
 			pointer-events: none;
 			width: 0.25em;
 		}
-    }
+	}
 
-    &--small {
-        .field__label {
-            font-size: 14px;
-            line-height: 1;
-            margin-bottom: 0.5em;
-        }
+	&--date {
+		.field__input {
+			&::before {
+				@include fa("regular", "f073");
+				font-size: 1.1em;
+				margin-right: 0.5em;
+				color: $color__field-border;
+				transition: $transition;
+			}
 
-        .field__input {
-            font-size: 12px;
-            padding: 0.666em 1em;
-        }
-    }
+			&:focus {
+				&::before {
+					color: $color--blue;
+					opacity: 0.8;
+				}
+			}
+		}
+
+		&:focus-within {
+			.field__input::before {
+				color: $color--blue;
+				opacity: 0.8;
+			}
+		}
+	}
+
+	&--small {
+		.field__label {
+			font-size: 14px;
+			line-height: 1;
+			margin-bottom: 0.5em;
+		}
+
+		.field__input {
+			font-size: 12px;
+			padding: 0.666em 1em;
+		}
+	}
 }
