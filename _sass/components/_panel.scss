@@ -26,6 +26,7 @@
 
 	&__content {
 		width: 100%;
+		max-width: 100%;
 		> *:last-child {
 			margin-bottom: 0;
 		}
@@ -125,7 +126,7 @@
 }
 
 body:not(.user-is-tabbing) {
-    .panel__ellipsis:focus {
-        outline: none;
-    }
+	.panel__ellipsis:focus {
+		outline: none;
+	}
 }
