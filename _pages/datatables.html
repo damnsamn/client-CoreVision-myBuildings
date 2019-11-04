@@ -5,6 +5,89 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 ---
 <section class="panel-col col-12">
     <div class="panel">
+        <h3 class="panel__heading">Dummy Filters</h3>
+        <div class="panel__content">
+            <form class="row">
+
+                <div class="form__field field--text col-12 col-xl-6">
+                    <label class="field__label" for="filter-search">Keyword Search</label>
+                    <input class="field__input" id="filter-search" type="text">
+                </div>
+
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-3">
+                    <label class="field__label" for="filter-region">Region</label>
+                    <select class="field__input" id="filter-region">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-3">
+                    <label class="field__label" for="filter-building">Building</label>
+                    <select class="field__input" id="filter-building">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+                <div class="form__field field--select col-12 col-sm-6 col-xl-4 col-xxl-2">
+                    <label class="field__label" for="filter-scheduled">Scheduled / Adhoc</label>
+                    <select class="field__input" id="filter-scheduled">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+                <div class="form__field field--select col-12 col-sm-6 col-xl-4 col-xxl-2">
+                    <label class="field__label" for="filter-status">Status</label>
+                    <select class="field__input" id="filter-status">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+                <div class="form__field field--select col-12 col-sm-6 col-xl-4 col-xxl-2">
+                    <label class="field__label" for="filter-type">Type</label>
+                    <select class="field__input" id="filter-type">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+                <div class="form__field field--select col-12 col-sm-6 col-xl-4 col-xxl-2">
+                    <label class="field__label" for="filter-priority">Priority</label>
+                    <select class="field__input" id="filter-priority">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+                <div class="form__field field--select col-12 col-sm-6 col-xl-4 col-xxl-2">
+                    <label class="field__label" for="filter-age">Age</label>
+                    <select class="field__input" id="filter-age">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+                <div class="form__field field--select col-12 col-sm-6 col-xl-4 col-xxl-2">
+                    <label class="field__label" for="filter-completion">Expected Completion</label>
+                    <select class="field__input" id="filter-completion">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <a class="form__link ml-auto" href="#">Advanced Search</a>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="panel-col col-12">
+    <div class="panel">
         <h3 class="panel__heading">DataTables Examples</h3>
         <div class="panel__content">
             <h4>H-Scrolling - Entire Table</h4>
@@ -67,25 +150,25 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         ["Bradley Greer", "Software Engineer", "London", "2558", "2012/10/13", "$132,000"]
     ];
 
-var columns = [
-    { title: "Date" },
-    { title: "Code"},
-    { title: "Priority" },
-    { title: "Tenancy"},
-    { title: "Area/Level" },
-    { title: "Category" },
-    { title: "Type" },
-    { title: "Status" }
-];
+    var columns = [
+        { title: "Date" },
+        { title: "Code" },
+        { title: "Priority" },
+        { title: "Tenancy" },
+        { title: "Area/Level" },
+        { title: "Category" },
+        { title: "Type" },
+        { title: "Status" }
+    ];
 
-var columns2 = [
-    { title: "Name" },
-    { title: "Position" },
-    { title: "Office" },
-    { title: "Extn.", orderable: false },
-    { title: "Start date" },
-    { title: "Salary" }
-];
+    var columns2 = [
+        { title: "Name" },
+        { title: "Position" },
+        { title: "Office" },
+        { title: "Extn.", orderable: false },
+        { title: "Start date" },
+        { title: "Salary" }
+    ];
     $(document).ready(function () {
 
         $('#dataTable').DataTable({

@@ -127,6 +127,15 @@
             border: 1px solid $color__field-border;
         }
     }
+
+    // If links need to display in forms without .col definitions, apply padding to make it fit with other .cols
+    &__link {
+
+        &:not([class*="col"]) {
+            padding: 0 $grid-gutter-width/2;
+        }
+
+    }
 }
 
 // Field Elements

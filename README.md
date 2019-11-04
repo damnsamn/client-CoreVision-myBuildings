@@ -1,11 +1,11 @@
 # Framework Dependencies
 Below are the technologies and dependencies the myBuildings framework will require. Version numbers are those used in this front-end package. Any upgrades should be done with caution, and according to the appropriate documentation.
-* Sass/SCSS
-* Bootstrap v4.3.1
-* jQuery DataTables v1.10.20
+* [Sass/SCSS](https://sass-lang.com/)
+* [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/) v4.3.1
+* [jQuery DataTables](https://datatables.net/) v1.10.20
     * FixedColumns v3.3.0 extension
-* Font Awesome v5.11
-* **Jekyll v4.0.0 (static templating)**
+* [Font Awesome](https://fontawesome.com/icons?d=gallery) v5.11
+* **[Jekyll](https://jekyllrb.com/) v4.0.0 (static templating)**
 	* Jekyll is used as an analog for any equivalent templating method (myBuildings ASP.NET)
 	* Solely for the development and display of this front-end framework - *this should not be ported over to the actual solution*
 
