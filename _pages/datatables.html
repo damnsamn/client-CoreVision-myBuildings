@@ -87,11 +87,11 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
     <div class="panel">
         <h3 class="panel__heading">DataTables Examples</h3>
         <div class="panel__content">
-            <h4>H-Scrolling - Entire Table</h4>
+            <h4>Whole Table Scrolls</h4>
             <table id="dataTable" class="mb-datatable" style="width:100%"></table>
-            <h4>H-Scrolling - Fixed Column</h4>
+            <h4>Fixed Left Column</h4>
             <table id="dataTable2" class="mb-datatable" style="width:100%"></table>
-            <h4>No Pagination</h4>
+            <h4>Fixed Right Column</h4>
             <table id="dataTable3" class="mb-datatable" style="width:100%"></table>
         </div>
     </div>
@@ -99,52 +99,41 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
 <script>
     var data = [
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--grey'>New</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--red'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>New</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>On Hold</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--grey'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--red'>Awaiting Invoice</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>Awaiting Approval</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--grey'>New</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--red'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>New</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>On Hold</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--grey'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--red'>Awaiting Invoice</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>Awaiting Approval</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--grey'>New</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--red'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>New</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>On Hold</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--grey'>In Progress</span>"],
-        ["17 Jan", "CL001-1900001", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--red'>Awaiting Invoice</span>"],
-        ["17 Jan", "CL001-1900002", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>Awaiting Approval</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--grey'>New</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--red'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>New</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>On Hold</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--grey'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--red'>Awaiting Invoice</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>Awaiting Approval</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--grey'>New</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--red'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>New</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>On Hold</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--grey'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--red'>Awaiting Invoice</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>Awaiting Approval</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--grey'>New</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--red'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>New</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--orange'>On Hold</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--grey'>In Progress</span>"],
+        ["CL001-1900001", "17 Jan", "Low", "Unit 001", "Ground Floor", "Common", "Cleaning", "<span class='datatable__status datatable__status--red'>Awaiting Invoice</span>"],
+        ["CL001-1900002", "17 Jan", "Medium", "Unit 002", "First Floor", "Tenancy Works", "Air Conditioning", "<span class='datatable__status datatable__status--green'>Awaiting Approval</span>"],
     ]
 
     var data2 = [
-        ["Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800"],
-        ["Garrett Winters", "Accountant", "Tokyo", "8422", "2011/07/25", "$170,750"],
-        ["Ashton Cox", "Junior Technical Author", "San Francisco", "1562", "2009/01/12", "$86,000"],
-        ["Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "6224", "2012/03/29", "$433,060"],
-        ["Airi Satou", "Accountant", "Tokyo", "5407", "2008/11/28", "$162,700"],
-        ["Brielle Williamson", "Integration Specialist", "New York", "4804", "2012/12/02", "$372,000"],
-        ["Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "2012/08/06", "$137,500"],
-        ["Rhona Davidson", "Integration Specialist", "Tokyo", "6200", "2010/10/14", "$327,900"],
-        ["Colleen Hurst", "Javascript Developer", "San Francisco", "2360", "2009/09/15", "$205,500"],
-        ["Sonya Frost", "Software Engineer", "Edinburgh", "1667", "2008/12/13", "$103,600"],
-        ["Jena Gaines", "Office Manager", "London", "3814", "2008/12/19", "$90,560"],
-        ["Quinn Flynn", "Support Lead", "Edinburgh", "9497", "2013/03/03", "$342,000"],
-        ["Charde Marshall", "Regional Director", "San Francisco", "6741", "2008/10/16", "$470,600"],
-        ["Haley Kennedy", "Senior Marketing Designer", "London", "3597", "2012/12/18", "$313,500"],
-        ["Tatyana Fitzpatrick", "Regional Director", "London", "1965", "2010/03/17", "$385,750"],
-        ["Michael Silva", "Marketing Designer", "London", "1581", "2012/11/27", "$198,500"],
-        ["Paul Byrd", "Chief Financial Officer (CFO)", "New York", "3059", "2010/06/09", "$725,000"],
-        ["Gloria Little", "Systems Administrator", "New York", "1721", "2009/04/10", "$237,500"],
-        ["Bradley Greer", "Software Engineer", "London", "2558", "2012/10/13", "$132,000"]
+        ["Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800", "<a href='#' class='datatable__row-button row-button--edit'>Edit</a> <a href='#' class='datatable__row-button row-button--delete'>Delete</a>"],
+        ["Garrett Winters", "Accountant", "Tokyo", "8422", "2011/07/25", "$170,750", "<a href='#' class='datatable__row-button row-button--edit'>Edit</a> <a href='#' class='datatable__row-button row-button--delete'>Delete</a>"],
+        ["Ashton Cox", "Junior Technical Author", "San Francisco", "1562", "2009/01/12", "$86,000", "<a href='#' class='datatable__row-button row-button--edit'>Edit</a> <a href='#' class='datatable__row-button row-button--delete'>Delete</a>"],
+        ["Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "6224", "2012/03/29", "$433,060", "<a href='#' class='datatable__row-button row-button--edit'>Edit</a> <a href='#' class='datatable__row-button row-button--delete'>Delete</a>"],
+        ["Airi Satou", "Accountant", "Tokyo", "5407", "2008/11/28", "$162,700", "<a href='#' class='datatable__row-button row-button--edit'>Edit</a> <a href='#' class='datatable__row-button row-button--delete'>Delete</a>"],
+        ["Brielle Williamson", "Integration Specialist", "New York", "4804", "2012/12/02", "$372,000", "<a href='#' class='datatable__row-button row-button--edit'>Edit</a> <a href='#' class='datatable__row-button row-button--delete'>Delete</a>"],
+        ["Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "2012/08/06", "$137,500", "<a href='#' class='datatable__row-button row-button--edit'>Edit</a> <a href='#' class='datatable__row-button row-button--delete'>Delete</a>"],
+        ["Rhona Davidson", "Integration Specialist", "Tokyo", "6200", "2010/10/14", "$327,900", "<a href='#' class='datatable__row-button row-button--edit'>Edit</a> <a href='#' class='datatable__row-button row-button--delete'>Delete</a>"]
     ];
 
     var columns = [
@@ -164,7 +153,8 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         { title: "Office" },
         { title: "Extn.", orderable: false },
         { title: "Start date" },
-        { title: "Salary" }
+        { title: "Salary" },
+        { title: "Action", orderable: false, className: "text-center" }
     ];
     $(document).ready(function () {
 
@@ -185,7 +175,10 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         $('#dataTable3').DataTable({
             data: data2,
             columns: columns2,
-            paging: false
+            fixedColumns: {
+                leftColumns: 0,
+                rightColumns: 1,
+            }
         });
     });
 

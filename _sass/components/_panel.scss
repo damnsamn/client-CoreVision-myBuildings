@@ -4,7 +4,7 @@
 	display: inline-block;
 	background-color: transparent;
 	line-height: 0;
-    position: relative;
+	position: relative;
 }
 
 .panel {
@@ -12,9 +12,9 @@
 	border-radius: 2px;
 	@include panel-shadow;
 	background-color: #fff;
-	padding: $padding__panel-TB $padding__panel-LR;
 	display: flex;
 	flex-wrap: wrap;
+	padding: $padding__panel-TB $padding__panel-LR;
 
 	> * {
 		flex: 1 0 100%;
@@ -49,10 +49,10 @@
 	&__button {
 		flex: 0 0 auto;
 		z-index: $zindex-dropdown;
-        position: relative;
-        margin-right: -16px;
+		position: relative;
+		margin-right: -16px;
 
-        // @
+		// @
 		// align-self: flex-start;
 
 		&.show #{$block}__ellipsis::before {
@@ -92,8 +92,8 @@
 		padding: 16px;
 		font-size: 26px;
 		width: 2.25em;
-        height: 1.5em;
-        z-index: $zindex-popover + 1;
+		height: 1.5em;
+		z-index: $zindex-popover + 1;
 
 		&::before {
 			@include fa("regular", "f141");

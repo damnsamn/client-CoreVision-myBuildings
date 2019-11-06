@@ -30,7 +30,7 @@ $.extend(true, $.fn.dataTable.defaults, {
             dataTable.columns.adjust();
         }, 0);
 
-        console.log($(this).attr("id"))
+        console.log($(this).attr("id"));
 
     },
     "lengthMenu": [10, 20, 50]
@@ -218,7 +218,7 @@ function navScrollIndicators() {
 function enablePanelToggle() {
     $(".panel__toggle").click(function () {
         $(this).toggleClass("closed");
-        $(this).parent().next().slideToggle(300, function () {
+        $(this).parent().next().stop().slideToggle(300, function () {
             $(this).toggleClass("closed");
         });
     })
@@ -230,7 +230,7 @@ function customDataTablesHover() {
     let hoverClass = "datatable-hover";
     let $hoveredRow = $();
 
-    $(".mb-datatable tbody tr").mouseenter(function () {
+    $(".mb-datatable").on("mouseenter", "tbody tr", function () {
         let $table = $(this).parents(".dataTables_wrapper");
         let index = $(this).parent().children().index(this);
         $hoveredRow = $()
@@ -239,7 +239,7 @@ function customDataTablesHover() {
             $hoveredRow.push($(this).children(":eq(" + index + ")")[0]);
         });
         $hoveredRow.addClass(hoverClass);
-    }).mouseleave(function () {
+    }).on("mouseleave", "tbody tr", function () {
         $hoveredRow.removeClass(hoverClass);
         $hoveredRow = $();
     });

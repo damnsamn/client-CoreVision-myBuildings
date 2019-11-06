@@ -69,7 +69,7 @@ table.mb-datatable {
 				&,
 				&_asc,
 				&_desc {
-                    padding-right: 1.75em;
+					padding-right: 1.75em;
 					background-image: none;
 					i {
 						display: inline-block;
@@ -98,16 +98,18 @@ table.mb-datatable {
 						opacity: 0.3;
 					}
 				}
-            }
+			}
 
-            .dataTables_sizing + i {
-                &, &::before, &::after {
-                    height: 0px;
-                    position: absolute;
-                    overflow: hidden;
-                    padding: 0;
-                }
-            }
+			.dataTables_sizing + i {
+				&,
+				&::before,
+				&::after {
+					height: 0px;
+					position: absolute;
+					overflow: hidden;
+					padding: 0;
+				}
+			}
 		}
 	}
 
@@ -162,7 +164,7 @@ table.mb-datatable {
 	}
 }
 
-// Their HTML markup for non-scrolling, scrolling and FixedColumn scrolling datatables is different for each setting.
+// The HTML markup for non-scrolling, scrolling and FixedColumn scrolling datatables is different for each setting.
 // Below are overrides to make them all display consistently.
 
 .mb-datatable,
@@ -207,16 +209,16 @@ table.mb-datatable {
 }
 
 // FixedColumns scrolling
-.DTFC_LeftHeadWrapper {
-	border-top-left-radius: $border-radius;
+.DTFC_LeftHeadWrapper,
+.DTFC_RightHeadWrapper {
 	th {
 		border-bottom-width: 0.5px !important;
 	}
 }
-.DTFC_LeftBodyWrapper {
-	border-bottom-left-radius: $border-radius;
-
-	.DTFC_LeftBodyLiner {
+.DTFC_LeftBodyWrapper,
+.DTFC_RightBodyWrapper {
+	.DTFC_LeftBodyLiner,
+	.DTFC_RightBodyLiner {
 		overflow: hidden;
 
 		thead {
@@ -226,23 +228,11 @@ table.mb-datatable {
 }
 
 .DTFC_LeftHeadWrapper,
-.DTFC_LeftBodyWrapper {
-	border-left: $border__table;
-
+.DTFC_LeftBodyWrapper,
+.DTFC_RightHeadWrapper,
+.DTFC_RightBodyWrapper {
 	@include media-breakpoint-down(xl) {
-		border-right: $border__table;
 		position: relative;
-
-		// &::after {
-		// 	content: "";
-		// 	display: inline-block;
-		// 	position: absolute;
-		// 	width: 1px;
-		// 	top: 0;
-		// 	bottom: 0;
-		// 	right: 2px;
-		// 	background: $border-color__table;
-		// }
 	}
 
 	tr:last-child td {
@@ -254,5 +244,35 @@ table.mb-datatable {
 		border-right: none !important;
 		border-left: none !important;
 		border-top-width: 1px !important;
+	}
+}
+
+.DTFC_LeftHeadWrapper {
+	border-top-left-radius: $border-radius;
+}
+.DTFC_LeftBodyWrapper {
+	border-bottom-left-radius: $border-radius;
+}
+.DTFC_LeftHeadWrapper,
+.DTFC_LeftBodyWrapper {
+	border-left: $border__table;
+
+	@include media-breakpoint-down(xl) {
+		border-right: $border__table;
+	}
+}
+
+.DTFC_RightHeadWrapper {
+	border-top-right-radius: $border-radius;
+}
+.DTFC_RightBodyWrapper {
+	border-bottom-right-radius: $border-radius;
+}
+.DTFC_RightHeadWrapper,
+.DTFC_RightBodyWrapper {
+	border-right: $border__table;
+
+	@include media-breakpoint-down(xl) {
+		border-left: $border__table;
 	}
 }
