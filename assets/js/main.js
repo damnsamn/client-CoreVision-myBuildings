@@ -5,6 +5,7 @@ $(document).ready(function () {
     mobileSubNavigation();
     navScrollIndicators();
     customDataTablesHover();
+    enablePanelToggle();
 });
 
 // Overriding DataTables default options
@@ -211,6 +212,16 @@ function navScrollIndicators() {
         else
             $nav.removeClass("more-below")
     }
+}
+
+// Adds optional toggle functionality for panels
+function enablePanelToggle() {
+    $(".panel__toggle").click(function () {
+        $(this).toggleClass("closed");
+        $(this).parent().next().slideToggle(300, function () {
+            $(this).toggleClass("closed");
+        });
+    })
 }
 
 // Custom hover classes for DataTables

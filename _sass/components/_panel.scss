@@ -1,3 +1,12 @@
+@mixin panel-button() {
+	appearance: none;
+	border: none;
+	display: inline-block;
+	background-color: transparent;
+	line-height: 0;
+    position: relative;
+}
+
 .panel {
 	$block: #{&};
 	border-radius: 2px;
@@ -20,22 +29,31 @@
 	}
 
 	&__heading {
-		margin-bottom: 16px;
 		flex: 1 1 auto;
+		margin: 0;
 	}
 
 	&__content {
 		width: 100%;
 		max-width: 100%;
+		margin-top: 16px;
 		> *:last-child {
 			margin-bottom: 0;
 		}
+
+		&.closed {
+			display: none;
+		}
 	}
 
-	&__dropdown {
+	&__button {
 		flex: 0 0 auto;
-		position: relative;
-		align-self: flex-start;
+		z-index: $zindex-dropdown;
+        position: relative;
+        margin-right: -16px;
+
+        // @
+		// align-self: flex-start;
 
 		&.show #{$block}__ellipsis::before {
 			opacity: 1;
@@ -70,18 +88,12 @@
 	}
 
 	&__ellipsis {
+		@include panel-button;
 		padding: 16px;
 		font-size: 26px;
-		appearance: none;
-		border: none;
-		display: inline-block;
-		background-color: transparent;
-		line-height: 0;
-		position: relative;
-		z-index: $zindex-popover;
 		width: 2.25em;
-		height: 1.5em;
-		position: relative;
+        height: 1.5em;
+        z-index: $zindex-popover + 1;
 
 		&::before {
 			@include fa("regular", "f141");
@@ -106,6 +118,20 @@
 		}
 	}
 
+	&__toggle {
+		@include panel-button;
+		font-size: 21px;
+		height: 100%;
+		padding: 0 18px;
+		&::before {
+			@include fa("solid", "f077");
+			transition: 0.3s ease;
+		}
+		&.closed::before {
+			transform: rotate(180deg);
+		}
+	}
+
 	&--blank {
 		padding: 0;
 		box-shadow: none;
@@ -126,7 +152,10 @@
 }
 
 body:not(.user-is-tabbing) {
-	.panel__ellipsis:focus {
-		outline: none;
+	.panel__ellipsis,
+	.panel__toggle {
+		&:focus {
+			outline: none;
+		}
 	}
 }
