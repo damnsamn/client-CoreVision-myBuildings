@@ -1,0 +1,114 @@
+@mixin arrow-top($px) {
+	border-top: $px solid;
+	border-right: $px solid transparent;
+	border-bottom: 0;
+	border-left: $px solid transparent;
+}
+
+@mixin arrow-right($px) {
+	border-top: $px solid transparent;
+	border-right: $px solid;
+	border-bottom: $px solid transparent;
+	border-left: 0;
+}
+
+@mixin arrow-bottom($px) {
+	border-top: 0;
+	border-right: $px solid transparent;
+	border-bottom: $px solid;
+	border-left: $px solid transparent;
+}
+
+@mixin arrow-left($px) {
+	border-top: $px solid transparent;
+	border-right: 0;
+	border-bottom: $px solid transparent;
+	border-left: $px solid;
+}
+
+@mixin tooltip-arrow($size, $position: top) {
+	@if $position == top {
+		&::before {
+			@include arrow-top($size);
+		}
+
+		&::after {
+            transform: translateY(-2px);
+			@include arrow-top($size);
+		}
+	} @else if $position == right {
+		&::before {
+			@include arrow-right($size);
+		}
+
+		&::after {
+            transform: translateX(2px);
+			@include arrow-right($size);
+		}
+	} @else if $position == bottom {
+		&::before {
+			@include arrow-bottom($size);
+		}
+
+		&::after {
+            transform: translateY(2px);
+			@include arrow-bottom($size);
+		}
+	} @else if $position == left {
+		&::before {
+			@include arrow-left($size);
+		}
+
+		&::after {
+            transform: translateX(-2px);
+			@include arrow-left($size);
+		}
+	}
+}
+
+.tooltip {
+    $arrow-size: 6px;
+    pointer-events: none;
+
+	.tooltip-inner {
+		background: #fff;
+		padding: 6px 10px !important;
+		font-size: 13px;
+		font-weight: $roboto-medium;
+		max-width: 250px;
+		color: $color--primary;
+		font-family: $font-family--global;
+		border: 1px solid $color--primary;
+        border-radius: 0;
+        box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+	}
+
+	.arrow {
+		border-color: $color--primary;
+		border: none;
+		margin: 0;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			display: inline-block;
+			border-radius: 0;
+			color: $color--primary;
+		}
+
+		&::after {
+			color: #fff;
+		}
+	}
+
+	&.show {
+		opacity: 1;
+	}
+
+	@each $direction in (top, left, right, bottom) {
+		&.bs-tooltip-#{$direction} .arrow {
+			@include tooltip-arrow($arrow-size, $direction);
+		}
+	}
+}

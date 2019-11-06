@@ -5,6 +5,7 @@ $(document).ready(function () {
     mobileSubNavigation();
     navScrollIndicators();
     customDataTablesHover();
+    datatableStatusTooltips();
     enablePanelToggle();
 });
 
@@ -244,6 +245,34 @@ function customDataTablesHover() {
         $hoveredRow = $();
     });
 
+}
+
+// Initialises tooltips for datatable status indicators
+function datatableStatusTooltips() {
+
+    function tooltipTitle() {
+        if ($(this).hasClass("datatable__status--grey"))
+            return "No expected completion date";
+        else if ($(this).hasClass("datatable__status--green"))
+            return "Expected completion date has not passed";
+        else if ($(this).hasClass("datatable__status--orange"))
+            return "Expected completion date is today";
+        else if ($(this).hasClass("datatable__status--red"))
+            return "Expected completion date has passed";
+        else return "";
+    }
+
+    $(".mb-datatable").tooltip({
+        selector: ".datatable__status",
+        title: tooltipTitle,
+        delay: {"show": 300, "hide": 100},
+        boundary: "viewport"
+    });
+
+    // debugger;
+    $(".panel__heading").tooltip({
+        title: "hat"
+    });
 }
 
 // Add class to <body> when user is tabbing

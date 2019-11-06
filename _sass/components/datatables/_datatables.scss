@@ -176,8 +176,7 @@ table.mb-datatable {
 	margin-bottom: $margin__form-field;
 }
 
-.dataTables_scrollBody thead th::before,
-.DTFC_ScrollWrapper thead th:nth-child(2)::before {
+.dataTables_scrollBody thead th::before,{
 	content: none !important;
 }
 

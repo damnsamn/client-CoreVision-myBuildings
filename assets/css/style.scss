@@ -12,6 +12,7 @@
 // Optional Bootstrap
 @import "vendor/bootstrap-4.3.1/input-group";
 @import "vendor/bootstrap-4.3.1/dropdown";
+@import "vendor/bootstrap-4.3.1/tooltip";
 
 
 // "vendor/bootstrap-4.3.1/grid" is imported in _overrides.scss
@@ -37,6 +38,7 @@
 @import 'components/linkbox';
 @import 'components/panel';
 @import 'components/navigation';
+@import 'components/tooltip';
 
 // Kendo overrides
 // @import "components/kendo/grid";
