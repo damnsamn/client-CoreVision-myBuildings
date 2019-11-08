@@ -12,6 +12,12 @@ If you have other mixins which are component specific, they belong at the top of
     }
 }
 
+@mixin body-not-tabbing {
+    body:not(.user-is-tabbing) {
+        @content;
+    }
+}
+
 // Selects elements that are EITHER hovered or focused
 @mixin hover-focus {
 

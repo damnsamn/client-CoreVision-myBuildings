@@ -268,11 +268,6 @@ function datatableStatusTooltips() {
         delay: {"show": 300, "hide": 100},
         boundary: "viewport"
     });
-
-    // debugger;
-    $(".panel__heading").tooltip({
-        title: "hat"
-    });
 }
 
 // Add class to <body> when user is tabbing

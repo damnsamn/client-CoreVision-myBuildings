@@ -28,11 +28,15 @@ tr:not(.datatable-hover) {
 	}
 }
 
-@mixin row-button($fa-style, $fa-code, $color: $color--primary) {
+@mixin row-button($fa-style, $fa-code, $color: $color--primary, $hover-color: $color--blue) {
     color: $color;
 	&::before {
 		@include fa($fa-style, $fa-code);
-	}
+    }
+
+    @include hover-focus {
+        color: $hover-color;
+    }
 }
 .row-button {
 	&--edit {

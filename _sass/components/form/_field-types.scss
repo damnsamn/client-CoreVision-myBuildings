@@ -48,11 +48,11 @@
 // Override default iOS input styles
 select,
 textarea,
-input[type="text"],
-input[type="button"],
-input[type="submit"] {
+input,
+button {
 	-webkit-appearance: none;
-	border-radius: 0;
+    border-radius: 0;
+    border: none;
 }
 
 .field {

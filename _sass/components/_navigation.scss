@@ -225,7 +225,7 @@
 
 			&,
 			&::before {
-                transition: 0.3s ease;
+				transition: 0.3s ease;
 			}
 
 			&::before {
@@ -237,18 +237,18 @@
 				left: 0;
 				right: 0;
 				background: #000;
-                transform: translateY(100%);
-                pointer-events: none;
-                opacity: 0;
+				transform: translateY(100%);
+				pointer-events: none;
+				opacity: 0;
 			}
 
 			&.expanded {
-					transform: translateY(0);
+				transform: translateY(0);
 
-                &::before {
-                    top: 100%;
-                    opacity: 0.8;
-                }
+				&::before {
+					top: 100%;
+					opacity: 0.8;
+				}
 			}
 		}
 		@include media-breakpoint-up($bp-laptop) {
@@ -457,6 +457,17 @@
 			display: inline-block;
 			margin-right: auto;
 			font-size: 14px;
+		}
+	}
+}
+
+// Chrome seems to cache where your focus is on the page, and re-focus to that position when you revisit the same page. This made navigation items behave weirdly, loading one page would auto-focus some other nav-item on load.
+// Below will disabled default outline for nav items unless the user is tabbing
+@include body-not-tabbing {
+	.nav__item,
+	.subnav__item {
+		&:focus {
+			outline: none;
 		}
 	}
 }
