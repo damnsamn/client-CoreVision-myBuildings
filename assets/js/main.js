@@ -12,7 +12,8 @@ $(document).ready(function () {
 // Overriding DataTables default options
 $.extend(true, $.fn.dataTable.defaults, {
     scrollX: true,
-    dom: "tp",
+    dom: "tpB",
+    buttons: [],
     language: {
         "lengthMenu":
             "<div class='form__field field--select field--small'>" +
@@ -21,8 +22,6 @@ $.extend(true, $.fn.dataTable.defaults, {
     },
     initComplete: function () {
         let $table = $(this).parents(".dataTables_wrapper");
-        $table.addClass("biggo");
-        $(this).addClass("smalo");
         $table.find(".dataTables_length select").addClass("field__input");
         $table.find("thead th").append("<i></i>");
 

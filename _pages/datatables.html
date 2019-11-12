@@ -179,11 +179,16 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 leftColumns: 0,
                 rightColumns: 1,
             },
-            dom: "tpB",
             buttons: [
                 'copy',
-                'excel',
-                'pdf'
+                'csv',
+                'print',
+                {
+                    text: 'Do Something',
+                    action: function (dt) {
+                        alert('Something done!');
+                    }
+                }
             ],
         });
     });
