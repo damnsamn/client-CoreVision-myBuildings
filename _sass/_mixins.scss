@@ -135,3 +135,35 @@ If you have other mixins which are component specific, they belong at the top of
         }
     }
 }
+
+// Mixin to apply styles of h1 through h6
+@mixin h($n) {
+    @if $n == 1 or $n == 2 or $n == 3 or $n == 4 {
+	color: $color--primary;
+    }
+
+    @if $n == 2 {
+        font-size: 36px;
+    }
+
+
+    @if $n == 3 {
+        @include font-size(26px);
+    }
+
+
+    @if $n == 4 {
+        @include font-size(21px);
+    }
+
+
+    @if $n == 5 {
+        @include font-size(18px);
+    }
+
+
+    @if $n == 6 {
+        @include font-size(16px);
+    }
+
+}
