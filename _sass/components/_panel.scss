@@ -60,7 +60,7 @@
 		}
 
 		.dropdown-menu {
-			top: -100% !important;
+			top: -8px !important;
 			padding: 36px 0 16px;
 			margin: 0;
 			font-size: 14px;
@@ -89,7 +89,8 @@
 
 	&__ellipsis {
 		@include panel-button;
-		padding: 16px;
+        padding: 24px 16px;
+        margin: -8px 0;
 		font-size: 26px;
 		width: 2.25em;
 		height: 1.5em;
@@ -148,6 +149,68 @@
 
 	&--round {
 		border-radius: 10px;
+	}
+
+	&--closed {
+		#{$block}__content {
+			display: none;
+		}
+		#{$block}__toggle::before {
+			transform: rotate(180deg);
+		}
+
+		@each $br, $px in $grid-breakpoints {
+			&-#{$br}-down {
+				#{$block}__content {
+					display: none;
+				}
+				#{$block}__toggle::before {
+					transform: rotate(180deg);
+				}
+
+				@include media-breakpoint-up($br) {
+					#{$block}__content {
+						display: block !important;
+					}
+					#{$block}__toggle {
+						display: none;
+					}
+					#{$block}__toggle::before {
+						transform: rotate(0deg) !important;
+					}
+				}
+			}
+		}
+	}
+
+	&--open {
+		#{$block}__content {
+			display: block;
+			height: auto;
+		}
+		#{$block}__toggle::before {
+			transform: rotate(0deg);
+		}
+	}
+
+	&--closing {
+		#{$block}__toggle::before {
+			transform: rotate(180deg) !important;
+		}
+	}
+	&--opening {
+		#{$block}__toggle::before {
+			transform: rotate(0deg) !important;
+		}
+	}
+
+	&--open,
+	&--closed {
+		&:not(#{$block}--opening):not(#{$block}--closing) {
+			#{$block}__content {
+				height: auto !important;
+			}
+		}
 	}
 }
 

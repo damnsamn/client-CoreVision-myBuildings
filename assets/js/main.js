@@ -227,9 +227,21 @@ function navScrollIndicators() {
 // Adds optional toggle functionality for panels
 function enablePanelToggle() {
     $(".panel__toggle").click(function () {
-        $(this).toggleClass("closed");
-        $(this).parent().next().stop().slideToggle(300, function () {
-            $(this).toggleClass("closed");
+        $panel = $(this).parents(".panel");
+        $content = $(this).parent().next();
+
+        if ($panel.hasClass("panel--opening") || $panel.hasClass("panel--closing"))
+            $panel.toggleClass("panel--opening").toggleClass("panel--closing");
+        else if ($content.is(":visible"))
+            $panel.addClass("panel--closing");
+        else
+            $panel.addClass("panel--opening");
+
+        $content.stop().slideToggle(300, function () {
+            if ($panel.hasClass("panel--opening"))
+                $panel.removeClass("panel--opening").addClass("panel--open").removeClass("panel--closed");
+            if ($panel.hasClass("panel--closing"))
+                $panel.removeClass("panel--closing").addClass("panel--closed").removeClass("panel--open");
         });
     })
 }

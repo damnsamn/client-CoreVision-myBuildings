@@ -443,9 +443,13 @@
 		// background: $color--highlight;
 		// display: none;
 		flex: 1 0 auto;
-        padding: $padding__panel-LR;
+        padding: $padding__panel-LR $padding__panel-LR $padding__panel-LR*2 $padding__panel-LR;
         display: flex;
         flex-wrap: wrap;
+
+        @include media-breakpoint-up($bp-laptop) {
+        padding: $padding__panel-LR;
+        }
 
 		&__label {
             flex: 1 0 100%;
@@ -464,9 +468,14 @@
 		}
 
 		> .action-link {
+            font-size: 16px;
 			position: relative;
             margin: -15px auto;
             padding: 15px;
+
+            @include media-breakpoint-up($bp-laptop) {
+                font-size: 14px;
+            }
 		}
 	}
 }
