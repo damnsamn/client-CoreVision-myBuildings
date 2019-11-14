@@ -1,6 +1,5 @@
 .linkbox {
 	$block: #{&};
-	$border-bottom: 2.5px solid;
 
 	height: 100%;
 	display: block;
@@ -16,7 +15,7 @@
 		align-items: center;
 		padding-bottom: 0.5em;
 		margin-bottom: 0.6em;
-		border-bottom: $border-bottom #fff;
+		border-bottom: $border-width__panel-link-header #fff;
 	}
 
 	&__icon {
@@ -86,17 +85,17 @@
 			@include font-size(18px);
 			padding: 1em 0;
 			padding-left: 2.25em;
-			border-bottom: $border-bottom $color--tertiary;
+			border-bottom: $border-width__panel-link-header $color--tertiary;
 			position: relative;
 			display: block;
 			color: $color__text;
-            text-decoration: none;
-            line-height: 1.25;
-            transition: $transition;
+			text-decoration: none;
+			line-height: 1.25;
+			transition: $transition;
 
 			&::before {
 				@include fa("solid", "f061");
-                transition: $transition;
+				transition: $transition;
 				font-size: 1em;
 				color: $color--tertiary;
 				position: absolute;
@@ -106,9 +105,9 @@
 			}
 
 			@include hover-focus {
-                border-color: $color--highlight;
-                // font-weight: $roboto-medium;
-                text-shadow: 0 0 0 $color--highlight;
+				border-color: $color--highlight;
+				// font-weight: $roboto-medium;
+				text-shadow: 0 0 0 $color--highlight;
 				color: $color--highlight;
 				&::before {
 					color: $color--highlight;

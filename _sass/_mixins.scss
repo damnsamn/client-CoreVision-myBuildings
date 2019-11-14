@@ -41,6 +41,11 @@ If you have other mixins which are component specific, they belong at the top of
 	}
 }
 
+// Set max-height based on $n number of lines
+@mixin max-lines($n, $line-height) {
+    max-height: calc(1em * #{$line-height} * #{$n});
+}
+
 // Apply fontawesome to ::before or ::after
 @mixin fa($style: solid, $icon: f100) {
     display: inline-block;

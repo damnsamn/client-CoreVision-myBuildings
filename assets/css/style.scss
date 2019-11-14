@@ -25,6 +25,8 @@
 @import 'layout';
 
 // myBuildings components
+@import 'components/panel';
+
 @import 'components/banner';
 @import 'components/button';
 @import 'components/datatables/datatables';
@@ -36,6 +38,6 @@
 @import 'components/form/field-types';
 @import 'components/form/field-states';
 @import 'components/linkbox';
-@import 'components/panel';
+@import 'components/news-event';
 @import 'components/navigation';
 @import 'components/tooltip';
