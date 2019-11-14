@@ -51,11 +51,13 @@ textarea,
 input,
 button {
 	-webkit-appearance: none;
-    border-radius: 0;
-    border: none;
+	border-radius: 0;
+	border: none;
 }
 
 .field {
+	$block: #{&};
+
 	&--text,
 	&--select,
 	&--date,
@@ -228,8 +230,16 @@ button {
 		}
 
 		.field__input {
+			height: auto;
 			font-size: 12px;
-			padding: 0.666em 1em;
+            padding: 0.666em 1em;
+            line-height: 1;
+		}
+
+		&#{$block}--select {
+			&::after {
+				bottom: 0.5em;
+			}
 		}
 	}
 }

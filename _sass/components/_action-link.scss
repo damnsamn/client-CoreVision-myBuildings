@@ -1,0 +1,46 @@
+// Action links are a type of button, but don't look at all similar to our exising .mb-button. These are used mostly in DataTables, but also act as our Logout button.
+// Characterised by a coloured icon-label pairing
+
+@mixin action-link($fa-style, $fa-code, $color: $color--primary, $hover-color: $color--blue) {
+    color: $color;
+	&::before {
+		@include fa($fa-style, $fa-code);
+    }
+
+    @include hover-focus {
+        color: $hover-color;
+    }
+}
+
+.action-link {
+	font-weight: $roboto-medium;
+    text-transform: uppercase;
+    font-size: 14px;
+	text-decoration: none;
+
+	&::before {
+		font-size: 1.2em;
+		margin-right: 0.4em;
+		vertical-align: middle;
+	}
+
+	& + & {
+		margin-left: 1.25em;
+	}
+
+	@include hover-focus {
+        opacity: 1;
+    }
+
+
+	&--logout {
+        font-weight: $roboto-bold;
+		@include action-link("solid", "f2f5");
+	}
+	&--edit {
+		@include action-link("solid", "f044");
+	}
+	&--delete {
+		@include action-link("regular", "f057", $color--red);
+	}
+}
