@@ -1,8 +1,9 @@
-@mixin button-style($fill-stroke, $text, $bg-border, $important: '') {
+@mixin button-style($fill-stroke, $text, $bg-border, $important: '', $radius: 1px) {
 	@if ($fill-stroke == "fill") {
 		color: $text #{$important};
 		background: $bg-border #{$important};
-		@include border(2px solid $bg-border);
+        border-radius: $radius+1;
+		@include border(2px solid $bg-border, $radius+1);
 
 		&:not([disabled]):not(.mb-button--disabled):not(.disabled) {
 			@include hover-focus {
@@ -17,12 +18,13 @@
 	@if ($fill-stroke == "stroke") {
 		color: $text #{$important};
 		background: #fff #{$important};
-		@include border(2px solid $bg-border);
+        border-radius: $radius;
+		@include border(2px solid $bg-border, $radius);
 
 		&:not([disabled]):not(.mb-button--disabled):not(.disabled) {
 			@include hover-focus {
 				color: $color--blue #{$important};
-				background: #fff #{$important};
+				background: $color__hover-table #{$important};
 				&::before {
 					border-color: $color--blue;
 				}
@@ -44,7 +46,7 @@
 	bottom: 0;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	transition: $transition;
-	padding: 15px 24px;
+    padding: 15px 24px;
 	font-size: 14px;
 	user-select: none;
 

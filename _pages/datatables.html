@@ -179,17 +179,19 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 leftColumns: 0,
                 rightColumns: 1,
             },
-            buttons: [
-                'copy',
-                'csv',
-                'print',
-                {
-                    text: 'Do Something',
-                    action: function (dt) {
-                        alert('Something done!');
+            buttons: {
+                buttons: [
+                    { extend: 'copy', className: 'mb-button--stroke' },
+                    { extend: 'csv', className: 'mb-button--stroke' },
+                    { extend: 'print', className: 'mb-button--stroke' },
+                    {
+                        text: 'Do Something',
+                        action: function (dt) {
+                            alert('Something done!');
+                        }
                     }
-                }
-            ],
+                ]
+            },
         });
     });
 

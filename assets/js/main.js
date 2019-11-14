@@ -13,7 +13,13 @@ $(document).ready(function () {
 $.extend(true, $.fn.dataTable.defaults, {
     scrollX: true,
     dom: "tpB",
-    buttons: [],
+    buttons: {
+        dom: {
+            button: {
+                className: 'mb-button mb-button--small'
+            }
+        }
+    },
     language: {
         "lengthMenu":
             "<div class='form__field field--select field--small'>" +
@@ -29,11 +35,15 @@ $.extend(true, $.fn.dataTable.defaults, {
         setTimeout(function () {
             dataTable.columns.adjust();
         }, 0);
-
-        console.log($(this).attr("id"));
-
     },
     "lengthMenu": [10, 20, 50]
+});
+$.extend(true, $.fn.dataTable.Buttons.defaults, {
+    dom: {
+        button: {
+            className: 'mb-button mb-button--small'
+        }
+    }
 });
 
 // Below from https://stackoverflow.com/a/31410149
@@ -264,7 +274,7 @@ function datatableStatusTooltips() {
     $(".mb-datatable").tooltip({
         selector: ".datatable__status",
         title: tooltipTitle,
-        delay: {"show": 300, "hide": 100},
+        delay: { "show": 300, "hide": 100 },
         boundary: "viewport"
     });
 }
