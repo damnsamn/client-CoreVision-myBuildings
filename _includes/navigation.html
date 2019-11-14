@@ -3,7 +3,7 @@
     <div class="nav-panel">
 
         <div class="nav__logo">
-            <a href="{{ site.url | relative_url }}"><img width="175" src="/assets/images/myBuildings-logo.svg"></a>
+            <a href="/"><img width="175" src="/assets/images/myBuildings-logo.svg"></a>
         </div>
 
         <div class="nav__button" tabindex="0">
@@ -16,7 +16,7 @@
                 <ul>
                     {% assign sorted_pages = site.pages | sort:"navOrder" %}
                     {% for node in sorted_pages %}
-                    {% if node.title %}
+                    {% if node.title and node.navOrder %}
                     <li class="nav__item {% if page.url == node.url %}nav__item--active{% endif %}">
                         <a href="{{ node.url | relative_url }}">{{node.title}}</a>
                     </li>
@@ -115,12 +115,14 @@
             </div>
 
             <div class="nav__footer">
+                <!-- Leasing information when logged out -->
                 <!-- <h5>Leasing Information</h5>
                 <span class="nav__footer__label">Email</span>
                 <a href="mailto:leasing@mylocus.com.au" class="nav__footer__value">leasing@mylocus.com.au</a>
                 <span class="nav__footer__label">Phone</span>
                 <a href="tel:0893644836" class="nav__footer__value">(08) 9364 4836</a> -->
 
+                <!-- Logout button when logged in -->
                 <a href="/" class="action-link action-link--logout">Logout</a>
             </div>
         </div>
