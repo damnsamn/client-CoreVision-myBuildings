@@ -68,23 +68,34 @@
 		@include make-col(12);
 		// flex-direction: row-reverse;
 		display: flex;
-        margin-top: $margin__panel-TB - $margin__form-field;
-        align-items: center;
-		// margin-bottom: $margin__form-field;
+		margin-top: $margin__panel-TB - $margin__form-field;
+		align-items: center;
 
 		> .action--left {
-            margin-right: auto;
-            margin-top: 0;
-            margin-bottom: 0;
+			margin: 0 auto 0 0;
 		}
 		> .action--right {
-            margin-left: auto;
-            margin-top: 0;
-            margin-bottom: 0;
+			margin: 0 0 0 auto;
 
-            + .action--right {
-                margin-left: 1.5em;
-            }
+			+ .action--right {
+				margin-left: 1.5em;
+			}
+		}
+
+		@each $br, $px in $grid-breakpoints {
+			@include media-breakpoint-up($br) {
+				> .action--#{$br}-left {
+					margin: 0 auto 0 0;
+				}
+				> .action--#{$br}-right {
+					margin: 0 0 0 auto;
+
+                    + .action--#{$br}-right,
+                    + .action--right {
+						margin-left: 1.5em;
+					}
+				}
+			}
 		}
 	}
 
