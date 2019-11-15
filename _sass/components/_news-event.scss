@@ -5,7 +5,11 @@
 	padding: 0;
 	flex-wrap: nowrap;
 	overflow: hidden;
-	text-decoration: none;
+    text-decoration: none;
+
+    & + & {
+        margin-top: -1em;
+    }
 
 	&__image {
 		display: inline-block;
@@ -58,7 +62,8 @@
 	}
 
 	&__heading {
-		margin: 0;
+        margin: 0;
+        padding-right: 1.5em;
 	}
 
 	&__date {

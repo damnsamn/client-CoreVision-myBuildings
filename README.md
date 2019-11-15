@@ -4,6 +4,7 @@ Below are the technologies and dependencies the myBuildings framework will requi
 * [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/) v4.3.1
 * [jQuery DataTables](https://datatables.net/) v1.10.20
     * FixedColumns v3.3.0 extension
+    * Buttons v1.6.1 extension
 * [Font Awesome](https://fontawesome.com/icons?d=gallery) v5.11
 * **[Jekyll](https://jekyllrb.com/) v4.0.0 (static templating)**
 	* Jekyll is used as an analog for any equivalent templating method (myBuildings ASP.NET)

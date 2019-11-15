@@ -1,0 +1,110 @@
+.comment {
+	&-list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	align-items: flex-start;
+	font-size: 14px;
+
+	& + & {
+		margin-top: 1em;
+	}
+
+	&__author {
+		font-weight: $roboto-bold;
+		display: block;
+		//  margin-bottom: 0.2em;
+	}
+
+	&__date-time {
+		font-size: 12px;
+		display: block;
+		color: $color__text-light;
+		font-weight: $roboto-regular;
+		text-transform: uppercase;
+	}
+
+	&__content {
+		margin-top: 0.25em;
+		padding: 0.5em 0.75em;
+		background-color: $color__background;
+		border-top: 1px solid $color__field-border;
+		line-height: 1.25;
+		display: inline-block;
+	}
+
+	&__attachment-list {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -1.5em;
+	}
+
+	&__attachment {
+		margin-top: 0.5em;
+		margin-left: 1.5em;
+		font-size: 12px;
+
+		&::before {
+			@include fa("regular", "f0c6");
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 0.25em;
+		}
+
+		& + & {
+		}
+	}
+
+	&-list + &-form {
+		margin-top: $margin__panel-TB;
+	}
+
+	&-form {
+		&__label {
+			@include field-label-style;
+		}
+
+		&__attachment-list {
+			border-top: 1px solid $color__field-border;
+			display: flex;
+			flex-direction: column;
+			font-size: 14px;
+			padding-top: 1em;
+		}
+
+		&__attachment {
+            margin-bottom: 0.5em;
+			a::before {
+				@include fa("regular", "f0c6");
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 0.25em;
+			}
+		}
+
+		&__remove {
+			background: transparent;
+			margin-left: 1em;
+            color: $color--red;
+            padding: 0;
+			&:before {
+				@include fa("solid", "f057");
+			}
+
+			@include hover-focus {
+				color: $color--blue;
+			}
+		}
+
+		&__placeholder {
+			display: inline-block;
+			color: $color__text-light;
+			font-size: 12px;
+		}
+
+		&__button {
+			margin-top: 1em;
+		}
+	}
+}

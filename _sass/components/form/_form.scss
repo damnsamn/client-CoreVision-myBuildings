@@ -1,27 +1,9 @@
-// Applies field label font styles
-@mixin label-style {
-	font-size: 16px;
-	font-weight: $roboto-medium;
-}
-
-// Applies field value font styles
-@mixin value-style {
-	font-size: 16px;
-    line-height: 17px;
-    @include media-breakpoint-up($bp-tablet) {
-        font-size: 14px;
-    }
-}
-
 // General mixin for styling focussed form elements
 @mixin input-focus {
 	&,
 	* {
-        transition: color $transition,
-        border-color $transition,
-        background-color $transition,
-        background $transition,
-        box-shadow $transition;
+		transition: color $transition, border-color $transition, background-color $transition, background $transition,
+			box-shadow $transition;
 	}
 
 	.field__input:focus + .field__label {
@@ -37,12 +19,12 @@
 		box-shadow: $box-shadow__field;
 	}
 
-    .field__input:checked:focus + .field__label {
-        &::before,
-        &::after {
-            border-color: $color--blue;
-        }
-    }
+	.field__input:checked:focus + .field__label {
+		&::before,
+		&::after {
+			border-color: $color--blue;
+		}
+	}
 
 	&:focus-within {
 		.field__label {
@@ -59,22 +41,21 @@
 		}
 
 		.input-group {
-            box-shadow: $box-shadow__field;
+			box-shadow: $box-shadow__field;
 
 			&-text {
 				color: $color--blue;
 				border-color: $color--blue;
-            }
+			}
 
-            .field__input {
-                box-shadow: none;
-            }
+			.field__input {
+				box-shadow: none;
+			}
 		}
 	}
 }
 
 .form {
-
 	&__field {
 		display: flex;
 		flex-direction: column;
@@ -86,86 +67,88 @@
 		@include make-col-ready();
 		@include make-col(12);
 		// flex-direction: row-reverse;
-        display: flex;
+		display: flex;
         margin-top: $margin__panel-TB - $margin__form-field;
+        align-items: center;
 		// margin-bottom: $margin__form-field;
 
-        > .mb-button {
-            &.action--left {
-                margin-right: auto;
+		> .action--left {
+            margin-right: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+		}
+		> .action--right {
+            margin-left: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+
+            + .action--right {
+                margin-left: 1.5em;
             }
-            &.action--right {
-                margin-left: auto;
-            }
-        }
+		}
 	}
 
-    // Labelled box around related fields
-    &__fieldset {
-        $block: ".fieldset";
+	// Labelled box around related fields
+	&__fieldset {
+		$block: ".fieldset";
 		margin-bottom: $margin__form-field;
 
-        #{$block}__label {
-            @include label-style;
-            line-height: 1;
-            position: absolute;
-            top: 0;
-            padding: 0 0.5em 0.25em 0;
-            background-color: #fff;
-            // margin-left: 0.5em;
+		#{$block}__label {
+			@include field-label-style;
+			line-height: 1;
+			position: absolute;
+			top: 0;
+			padding: 0 0.5em 0.25em 0;
+			background-color: #fff;
+			// margin-left: 0.5em;
 
-            + #{$block}__box {
-                margin-top: 0.5em;
-            }
-        }
+			+ #{$block}__box {
+				margin-top: 0.5em;
+			}
+		}
 
-        #{$block}__box {
-            @include make-row();
-            margin: 0;
-            padding-top: $margin__form-field;
-            padding: $margin__form-field calc(#{$margin__form-field} - 15px) 0;
-            border: 1px solid $color__field-border;
-        }
-    }
+		#{$block}__box {
+			@include make-row();
+			margin: 0;
+			padding-top: $margin__form-field;
+			padding: $margin__form-field calc(#{$margin__form-field} - 15px) 0;
+			border: 1px solid $color__field-border;
+		}
+	}
 
-    // If links need to display in forms without .col definitions, apply padding to make it fit with other .cols
-    &__link {
-        &:not([class*="col"]) {
-            padding: 0 $grid-gutter-width/2;
-        }
+	// If links need to display in forms without .col definitions, apply padding to make it fit with other .cols
+	&__link {
+		&:not([class*="col"]) {
+			padding: 0 $grid-gutter-width/2;
+		}
 
-        font-size: 14px;
-
-    }
+		font-size: 14px;
+	}
 }
 
 // Field Elements
 .field {
 	$block: #{&};
 	&__label {
-		@include label-style;
-		margin-bottom: 0.5em;
-		user-select: none;
-		margin-right: auto;
+		@include field-label-style;
 	}
 
 	&__input {
-		@include value-style;
+		@include field-value-style;
 		border: 1px solid $color__field-border;
-    }
+	}
 
-    &__readonly {
-        @include value-style;
-        border-top: 1px solid $color__field-border;
-    }
+	&__readonly {
+		@include field-value-style;
+		border-top: 1px solid $color__field-border;
+	}
 
-    &__help {
-        font-size: 12px;
-        margin-top: 8px;
-        color: $color__text-light;
-    }
+	&__help {
+		font-size: 12px;
+		margin-top: 8px;
+		color: $color__text-light;
+	}
 }
-
 
 // Overriding Bootstrap Input-group
 .input-group {
@@ -186,7 +169,7 @@
 	}
 
 	&-text {
-		@include value-style;
+		@include field-value-style;
 		background-color: $color__background;
 		color: $color__text-light;
 		border-color: $color__field-border;
@@ -196,6 +179,6 @@
 
 	.field__input {
 		flex: 1 0 auto;
-        width: 1%;
+		width: 1%;
 	}
 }

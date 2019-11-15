@@ -18,6 +18,25 @@ If you have other mixins which are component specific, they belong at the top of
     }
 }
 
+// Applies field label font styles
+@mixin field-label-style {
+	font-size: 16px;
+	font-weight: $roboto-medium;
+    margin-bottom: 0.5em;
+    user-select: none;
+    margin-right: auto;
+    display: inline-block;
+}
+
+// Applies field value font styles
+@mixin field-value-style {
+	font-size: 16px;
+    line-height: 17px;
+    @include media-breakpoint-up($bp-tablet) {
+        font-size: 14px;
+    }
+}
+
 // Selects elements that are EITHER hovered or focused
 @mixin hover-focus {
 

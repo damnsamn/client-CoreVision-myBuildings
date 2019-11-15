@@ -485,7 +485,7 @@
 @include body-not-tabbing {
 	.nav__item,
 	.subnav__item {
-		&:focus {
+		a:focus {
 			outline: none;
 		}
 	}

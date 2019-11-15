@@ -4,7 +4,7 @@
 	.field__#{$location} {
 		&::before {
 			@include fa($fa-style, $fa-code);
-			@include value-style;
+			@include field-value-style;
 			font-size: 1.1em;
 			margin-right: 0.5em;
 			color: $color__field-border !important;
@@ -87,7 +87,7 @@ button {
 	&--radio {
 		flex-direction: row;
 		align-items: flex-start;
-		@include value-style;
+		@include field-value-style;
 
 		.field__input {
 			opacity: 0;
@@ -114,7 +114,7 @@ button {
 			padding-left: calc(#{$height__checkbox-radio} + 0.75em);
 			line-height: 1.25;
 			cursor: pointer;
-			@include value-style;
+			@include field-value-style;
 
 			&::before {
 				content: "";
@@ -215,7 +215,7 @@ button {
 
 		@include ms-only {
 			@include field-icon("label", "regular", "f073");
-		}
+        }
 	}
 
 	&--search {
