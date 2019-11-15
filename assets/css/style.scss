@@ -1,19 +1,19 @@
 ---
 ---
 // Required Bootstrap
-@import "vendor/bootstrap-4.3.1/functions";
-@import "vendor/bootstrap-4.3.1/variables";
-@import "vendor/bootstrap-4.3.1/mixins";
-@import "vendor/bootstrap-4.3.1/utilities";
+@import "../assets/vendor/Bootstrap-4.3.1/scss/functions";
+@import "../assets/vendor/Bootstrap-4.3.1/scss/variables";
+@import "../assets/vendor/Bootstrap-4.3.1/scss/mixins";
+@import "../assets/vendor/Bootstrap-4.3.1/scss/utilities";
 
 // The following bootstrap files are imported in overrides.scss
 // vendor/bootstrap-4.3.1/grid
 // vendor/bootstrap-4.3.1/reboot
 
 // Optional Bootstrap
-@import "vendor/bootstrap-4.3.1/input-group";
-@import "vendor/bootstrap-4.3.1/dropdown";
-@import "vendor/bootstrap-4.3.1/tooltip";
+@import "../assets/vendor/Bootstrap-4.3.1/scss/input-group";
+@import "../assets/vendor/Bootstrap-4.3.1/scss/dropdown";
+@import "../assets/vendor/Bootstrap-4.3.1/scss/tooltip";
 
 // myBuildings global scope
 @import 'variables';
