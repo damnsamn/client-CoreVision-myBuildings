@@ -110,14 +110,22 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
 <script>
     var data = [
-        ["<i class='document-library__icon document-library__icon--word'></i>Insurance-sample.docx", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--word'></i><a href='#'>Document-example.docx</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--ppt'></i><a href='#'>Document-example.pptx</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--pdf'></i><a href='#'>Document-example.pdf</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--excel'></i><a href='#'>Document-example.xlsx</a>", "CapitaLand - Marine Blue", "Licenses/Permits", "Work Permit", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--archive'></i><a href='#'>Document-example.zip</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--file'></i><a href='#'>Document-example.psd</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--image'></i><a href='#'>Document-example.jpeg</a>", "CapitaLand - Marine Blue", "Licenses/Permits", "Work Permit", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--video'></i><a href='#'>Document-example.mp4</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--audio'></i><a href='#'>Document-example.wav</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
     ]
 
     var columns = [
-        { title: "Name" },
+        {title: "Name", className: "document-library__icon-col"},
         { title: "Building" },
         { title: "Type" },
-        { title: "Sub Type"},
+        { title: "Sub Type" },
         { title: "Expires" },
         { title: "Action", orderable: false, className: "text-center" }
     ];

@@ -1,11 +1,51 @@
+td.document-library__icon-col {
+	padding-left: calc(15px + 1.5em * 1.25) !important;
+}
 .document-library {
-    &__icon {
-        opacity: 0.75;
-        margin-right: 0.75em;
-        color: $color--primary;
+	&__icon {
+		margin-right: 0.75em;
+		color: $color__document--grey;
+		font-size: 1.5em;
+		position: absolute;
+		left: 15px;
+		top: 50%;
+		transform: translateY(-50%);
 
-        &--word::before {
-            @include fa("regular", "f1c2");
-        }
-    }
+		&--file::before {
+			@include fa("regular", "f15c");
+			color: $color__document--grey;
+		}
+		&--word::before {
+			@include fa("regular", "f1c2");
+			color: $color__document--blue;
+		}
+		&--ppt::before {
+			@include fa("regular", "f1c4");
+			color: $color__document--red;
+		}
+		&--excel::before {
+			@include fa("regular", "f1c3");
+			color: $color__document--green;
+		}
+		&--pdf::before {
+			@include fa("regular", "f1c1");
+			color: $color__document--red;
+		}
+		&--archive::before {
+			@include fa("regular", "f1c6");
+			color: $color__document--yellow;
+		}
+		&--image::before {
+			@include fa("regular", "f1c5");
+			color: $color__document--grey;
+		}
+		&--audio::before {
+			@include fa("regular", "f1c7");
+			color: $color__document--grey;
+		}
+		&--video::before {
+			@include fa("regular", "f1c8");
+			color: $color__document--grey;
+		}
+	}
 }

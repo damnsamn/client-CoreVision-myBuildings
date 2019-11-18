@@ -3,6 +3,7 @@
 }
 
 table.mb-datatable {
+	width: 100% !important;
 	$border-radius: 3px;
 
 	overflow: hidden;
@@ -139,7 +140,9 @@ table.mb-datatable {
 
 			&:last-child:not(:only-child) {
 				border-right: $border__table;
-			}
+            }
+
+            position: relative;
 		}
 
 		tr:first-child {
