@@ -1,0 +1,142 @@
+---
+title: Document Library
+navOrder: 6
+bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
+---
+<section class="panel-col col-12">
+    <div class="panel">
+        <!-- <div class="panel panel--closed-xxl-down"> -->
+        <h3 class="panel__heading">Quick Filters</h3>
+        <div class="panel__button">
+            <button class="panel__toggle"><span class="sr-only">Toggle "Quick Filters" panel</span></button>
+        </div>
+        <div class="panel__content">
+            <form class="row">
+
+                <div class="form__field field--search col-12 col-xl-6 col-xxl-4">
+                    <label class="field__label" for="filter-search">Search by Name</label>
+                    <input class="field__input" id="filter-search" type="text">
+                </div>
+
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-2">
+                    <label class="field__label" for="filter-site">Site</label>
+                    <select class="field__input" id="filter-site">
+                        <option value="value-1">Show All</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-2">
+                    <label class="field__label" for="filter-region">Region</label>
+                    <select class="field__input" id="filter-region">
+                        <option value="value-1">Show All</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-2">
+                    <label class="field__label" for="filter-building">Building</label>
+                    <select class="field__input" id="filter-building">
+                        <option value="value-1">CapitaLand - Marine Blue</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-2">
+                    <label class="field__label" for="filter-level">Level</label>
+                    <select class="field__input" id="filter-level">
+                        <option value="value-1">Show All</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-2">
+                    <label class="field__label" for="filter-status">Status</label>
+                    <select class="field__input" id="filter-status">
+                        <option value="value-1">Show All</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-2">
+                    <label class="field__label" for="filter-type">Type</label>
+                    <select class="field__input" id="filter-type">
+                        <option value="value-1">Show All</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--select col-12 col-sm-6 col-xl-3 col-xxl-2">
+                    <label class="field__label" for="filter-user">Specific to User</label>
+                    <select class="field__input" id="filter-user">
+                        <option value="value-1">Show All</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--date col-12 col-sm-6 col-xl-3 col-xxl-2">
+                    <label class="field__label" for="filter-expire-after">Expires After</label>
+                    <input class="field__input" id="filter-expire-after" type="date" placeholder="DD/MM/YYYY">
+                </div>
+
+                <div class="form__field field--date col-12 col-sm-6 col-xl-3 col-xl-2">
+                    <label class="field__label" for="filter-expire-before">Expires Before</label>
+                    <input class="field__input" id="filter-expire-before" type="date" placeholder="DD/MM/YYYY">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<section class="panel-col col-12">
+    <div class="panel">
+        <h3 class="panel__heading">Document Library</h3>
+        <div class="panel__content">
+            <form class="row">
+                <table id="document-library" class="mb-datatable"></table>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    var data = [
+        ["<i class='document-library__icon document-library__icon--word'></i>Insurance-sample.docx", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+    ]
+
+    var columns = [
+        { title: "Name" },
+        { title: "Building" },
+        { title: "Type" },
+        { title: "Sub Type"},
+        { title: "Expires" },
+        { title: "Action", orderable: false, className: "text-center" }
+    ];
+    $(document).ready(function () {
+
+        $('#document-library').DataTable({
+            data: data,
+            columns: columns,
+            buttons: {
+                buttons: [
+                    {
+                        text: 'Add New Document',
+                        action: function (dt) {
+                            alert('Upload a file');
+                        }
+                    }
+                ]
+            },
+        });
+    });
+
+</script>

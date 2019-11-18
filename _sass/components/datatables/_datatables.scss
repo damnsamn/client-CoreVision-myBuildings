@@ -1,3 +1,7 @@
+.dataTables_wrapper {
+	width: 100% !important;
+}
+
 table.mb-datatable {
 	$border-radius: 3px;
 
@@ -157,25 +161,25 @@ table.mb-datatable {
 				}
 			}
 		}
-    }
+	}
 
 	.datatable-hover {
 		background: $color__hover-table;
-    }
+	}
 
-    // Per-row action-links
-    .action-link {
-        font-size: 12px;
+	// Per-row action-links
+	.action-link {
+		font-size: 12px;
 
-        @include hover-focus {
-            opacity: 1;
-        }
-    }
-    tr:not(.datatable-hover) {
-        .action-link {
-            opacity: 0.8;
-        }
-    }
+		@include hover-focus {
+			opacity: 1;
+		}
+	}
+	tr:not(.datatable-hover) {
+		.action-link {
+			opacity: 0.8;
+		}
+	}
 }
 
 // The HTML markup for non-scrolling, scrolling and FixedColumn scrolling datatables is different for each setting.
@@ -190,7 +194,7 @@ table.mb-datatable {
 	margin-bottom: $margin__form-field;
 }
 
-.dataTables_scrollBody thead th::before,{
+.dataTables_scrollBody thead th::before {
 	content: none !important;
 }
 

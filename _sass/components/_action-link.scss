@@ -40,6 +40,12 @@
 	&--edit {
 		@include action-link("solid", "f044");
 	}
+	&--email {
+		@include action-link("regular", "f0e0");
+	}
+	&--copy {
+		@include action-link("regular", "f328", $color--highlight);
+	}
 	&--delete {
 		@include action-link("regular", "f057", $color--red);
 	}
