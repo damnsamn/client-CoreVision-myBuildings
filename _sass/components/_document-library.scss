@@ -1,7 +1,28 @@
 td.document-library__icon-col {
 	padding-left: calc(15px + 1.5em * 1.25) !important;
 }
+
+// Selecting wrapper element created by DataTables
+// Hide DataTable on mobile
+#document-library_wrapper {
+	display: none;
+	@include media-breakpoint-up($bp-laptop) {
+		display: flex;
+	}
+}
+
 .document-library {
+	$block: #{&};
+	font-size: 14px;
+	width: 100%;
+
+	// Hide mobile doc library wider than mobile
+	display: flex;
+	flex-direction: column;
+	@include media-breakpoint-up($bp-laptop) {
+		display: none;
+	}
+
 	&__icon {
 		margin-right: 0.75em;
 		color: $color__document--grey;
@@ -47,5 +68,101 @@ td.document-library__icon-col {
 			@include fa("regular", "f1c8");
 			color: $color__document--grey;
 		}
+	}
+
+	&__file {
+	}
+
+	&__top {
+		padding: 0.75em 1.5em;
+		background: $color--grey-light;
+		border-bottom: 1px solid $color__table-row-border;
+		display: flex;
+		align-items: center;
+
+		#{$block}__icon {
+			position: relative;
+			top: auto;
+			left: auto;
+			transform: none;
+			font-size: 1.75em;
+		}
+	}
+
+	&__link {
+		flex: 1 1 auto;
+		text-decoration: none;
+	}
+
+	&__name,
+	&__type {
+		display: block;
+	}
+
+	&__name {
+		color: $color__text;
+		@include hover-focus {
+			color: $color__text;
+		}
+	}
+
+	&__type {
+		font-size: 12px;
+		color: $color__text-light;
+		@include hover-focus {
+			color: $color__text-light;
+		}
+	}
+
+	&__toggle {
+		background: none;
+		padding: 15px;
+		margin: -15px;
+
+		&::before {
+			@include fa("solid", "f077");
+			transition: 0.3s ease;
+		}
+	}
+
+	&__info {
+		background: $color__background;
+		border-bottom: 1px solid $color__table-row-border;
+		padding: 15px;
+		display: flex;
+		flex-wrap: wrap;
+
+		> * {
+			flex: 1 1 50%;
+			max-width: 50%;
+
+			&:nth-child(odd) {
+				padding-right: 15px;
+				text-align: left;
+			}
+
+			&:nth-child(even) {
+				padding-left: 15px;
+				// text-align: right;
+			}
+		}
+	}
+
+	&__field {
+		margin-bottom: 0.25em;
+		font-size: 12px;
+	}
+
+	&__field-label {
+		display: block;
+		margin-bottom: 0;
+		font-weight: $roboto-medium;
+	}
+	&__field-value {
+		display: block;
+		color: $color__text-light;
+		padding-top: 0.2em;
+		border-top: 1px solid $color__field-border;
+		font-weight: $roboto-regular;
 	}
 }

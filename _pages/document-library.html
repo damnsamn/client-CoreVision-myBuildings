@@ -86,7 +86,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                     <input class="field__input" id="filter-expire-after" type="date" placeholder="DD/MM/YYYY">
                 </div>
 
-                <div class="form__field field--date col-12 col-sm-6 col-xl-3 col-xl-2">
+                <div class="form__field field--date col-12 col-sm-6 col-xl-3 col-xxl-2">
                     <label class="field__label" for="filter-expire-before">Expires Before</label>
                     <input class="field__input" id="filter-expire-before" type="date" placeholder="DD/MM/YYYY">
                 </div>
@@ -101,9 +101,62 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
     <div class="panel">
         <h3 class="panel__heading">Document Library</h3>
         <div class="panel__content">
-            <form class="row">
+            <div class="row">
                 <table id="document-library" class="mb-datatable"></table>
-            </form>
+
+                <!-- Mobile Document Library -->
+                <!--
+                    ├─○ <div> .form__field .field--[TYPE] .field--[MODIFIER] [COL]
+                    │ ├─● <input id="[ID]" type="[TYPE]" [DISABLED] [REQUIRED]> .field__input
+                    │ ├─● <label for="[ID]"> .field__label
+                    │ └─● <span> .field__help (OPTIONAL)
+                -->
+                <div class="document-library">
+
+                    <div class="document-library__file">
+                        <div class="document-library__top">
+                                <i class="document-library__icon document-library__icon--word"></i>
+                                <a href="#" class="document-library__link">
+                                    <span class="document-library__name">Document-example.docx</span>
+                                    <span class="document-library__type">Development Application</span>
+                                </a>
+                                <button class="document-library__toggle"></button>
+                        </div>
+                        <div class="document-library__info">
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Sub Type</span>
+                                <span class="document-library__field-value">N/A</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Expired</span>
+                                <span class="document-library__field-value">31 Dec 2019</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Building</span>
+                                <span class="document-library__field-value">CapitaLand - Marine Blue</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Applies to</span>
+                                <span class="document-library__field-value">Jade Smith</span>
+                            </div>
+
+                            <div class="document-library__action">
+                                <button class="action-link action-link--copy">Copy Link</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--details">See Details</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--email">Email</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--delete">Delete</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -122,7 +175,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
     ]
 
     var columns = [
-        {title: "Name", className: "document-library__icon-col"},
+        { title: "Name", className: "document-library__icon-col" },
         { title: "Building" },
         { title: "Type" },
         { title: "Sub Type" },
