@@ -71,6 +71,20 @@ td.document-library__icon-col {
 	}
 
 	&__file {
+		&--open {
+			#{$block}__toggle {
+				opacity: 1;
+				transform: rotate(0);
+			}
+		}
+
+		&--enabled {
+			#{$block}__info {
+				position: relative;
+				opacity: 1;
+				pointer-events: auto;
+			}
+		}
 	}
 
 	&__top {
@@ -101,13 +115,14 @@ td.document-library__icon-col {
 
 	&__name {
 		color: $color__text;
+		font-size: 16px;
 		@include hover-focus {
 			color: $color__text;
 		}
 	}
 
 	&__type {
-		font-size: 12px;
+		font-size: 14px;
 		color: $color__text-light;
 		@include hover-focus {
 			color: $color__text-light;
@@ -115,9 +130,17 @@ td.document-library__icon-col {
 	}
 
 	&__toggle {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		border: none;
 		background: none;
 		padding: 15px;
 		margin: -15px;
+		color: $color--primary;
+		opacity: 0.5;
+		transform: rotate(-180deg);
+		transition: $transition;
 
 		&::before {
 			@include fa("solid", "f077");
@@ -138,19 +161,24 @@ td.document-library__icon-col {
 
 			&:nth-child(odd) {
 				padding-right: 15px;
-				text-align: left;
 			}
 
 			&:nth-child(even) {
 				padding-left: 15px;
-				// text-align: right;
+				text-align: right;
 			}
 		}
+
+		// Visually hide until js can catch up and catch its original height
+		// These styles are undone in .document-library__file--enabled above
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	&__field {
-		margin-bottom: 0.25em;
-		font-size: 12px;
+		margin-bottom: 0.5em;
+		font-size: 14px;
 	}
 
 	&__field-label {
@@ -164,5 +192,21 @@ td.document-library__icon-col {
 		padding-top: 0.2em;
 		border-top: 1px solid $color__field-border;
 		font-weight: $roboto-regular;
+	}
+
+	&__action {
+        margin-top: 0.5em;
+		.action-link {
+			padding: 0.25em 0;
+		}
+	}
+}
+
+@include body-not-tabbing {
+	.document-library__toggle {
+		&,
+		&:focus {
+			outline: none;
+		}
 	}
 }

@@ -1,12 +1,13 @@
 $(document).ready(function () {
-    tabbingBehaviour();
     responsiveVariables();
+    tabbingBehaviour();
     desktopSubNavigation();
     mobileSubNavigation();
     navScrollIndicators();
     customDataTablesHover();
     datatableStatusTooltips();
     enablePanelToggle();
+    enableDocumentLibraryToggle()
 });
 
 // Overriding DataTables default options
@@ -86,6 +87,28 @@ function responsiveVariables() {
         }
     }
     $(window).resize();
+}
+
+// Add class to <body> when user is tabbing
+function tabbingBehaviour() {
+
+    function handleFirstTab(e) {
+        if (e.keyCode === 9) {
+            document.body.classList.add('user-is-tabbing');
+
+            window.removeEventListener('keydown', handleFirstTab);
+            window.addEventListener('mousedown', handleMouseDownOnce);
+        }
+    }
+
+    function handleMouseDownOnce() {
+        document.body.classList.remove('user-is-tabbing');
+
+        window.removeEventListener('mousedown', handleMouseDownOnce);
+        window.addEventListener('keydown', handleFirstTab);
+    }
+
+    window.addEventListener('keydown', handleFirstTab);
 }
 
 // Desktop navigation/subnavigation behaviour
@@ -224,28 +247,6 @@ function navScrollIndicators() {
     }
 }
 
-// Adds optional toggle functionality for panels
-function enablePanelToggle() {
-    $(".panel__toggle").click(function () {
-        $panel = $(this).parents(".panel");
-        $content = $(this).parent().next();
-
-        if ($panel.hasClass("panel--opening") || $panel.hasClass("panel--closing"))
-            $panel.toggleClass("panel--opening").toggleClass("panel--closing");
-        else if ($content.is(":visible"))
-            $panel.addClass("panel--closing");
-        else
-            $panel.addClass("panel--opening");
-
-        $content.stop().slideToggle(300, function () {
-            if ($panel.hasClass("panel--opening"))
-                $panel.removeClass("panel--opening").addClass("panel--open").removeClass("panel--closed");
-            if ($panel.hasClass("panel--closing"))
-                $panel.removeClass("panel--closing").addClass("panel--closed").removeClass("panel--open");
-        });
-    })
-}
-
 // Custom hover classes for DataTables
 // Adds hover class to entire row, as well as corresponding row in FixedColumns wrapper.
 function customDataTablesHover() {
@@ -291,24 +292,44 @@ function datatableStatusTooltips() {
     });
 }
 
-// Add class to <body> when user is tabbing
-function tabbingBehaviour() {
+// Adds optional toggle functionality for panels
+function enablePanelToggle() {
+    $(".panel__toggle").click(function () {
+        $panel = $(this).parents(".panel");
+        $content = $(this).parent().next();
 
-    function handleFirstTab(e) {
-        if (e.keyCode === 9) {
-            document.body.classList.add('user-is-tabbing');
+        if ($panel.hasClass("panel--opening") || $panel.hasClass("panel--closing"))
+            $panel.toggleClass("panel--opening").toggleClass("panel--closing");
+        else if ($content.is(":visible"))
+            $panel.addClass("panel--closing");
+        else
+            $panel.addClass("panel--opening");
 
-            window.removeEventListener('keydown', handleFirstTab);
-            window.addEventListener('mousedown', handleMouseDownOnce);
-        }
-    }
+        $content.stop().slideToggle(300, function () {
+            if ($panel.hasClass("panel--opening"))
+                $panel.removeClass("panel--opening").addClass("panel--open").removeClass("panel--closed");
+            if ($panel.hasClass("panel--closing"))
+                $panel.removeClass("panel--closing").addClass("panel--closed").removeClass("panel--open");
+        });
+    })
+}
 
-    function handleMouseDownOnce() {
-        document.body.classList.remove('user-is-tabbing');
+// Enables toggle functionality for document-library
+function enableDocumentLibraryToggle() {
+    // Component starts visually hidden, relying on JS to .hide() it
+    // This is a workaround for slideToggle() behaving weirdly for display: flex elements, overshooting its first slideDown
+    $(".document-library__file").addClass("document-library__file--enabled").find(".document-library__info").hide();
 
-        window.removeEventListener('mousedown', handleMouseDownOnce);
-        window.addEventListener('keydown', handleFirstTab);
-    }
+    $(".document-library__toggle").click(function () {
+        $file = $(this).parents(".document-library__file");
+        $info = $file.find(".document-library__info");
 
-    window.addEventListener('keydown', handleFirstTab);
+        $file.toggleClass("document-library__file--open");
+        $info.stop();
+        $info.slideToggle(300, function () {
+            if ($(this).is(':visible'))
+                $(this).css('display', 'flex');
+        });
+    })
+
 }

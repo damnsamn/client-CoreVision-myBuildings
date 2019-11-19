@@ -4,8 +4,7 @@ navOrder: 6
 bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 ---
 <section class="panel-col col-12">
-    <div class="panel">
-        <!-- <div class="panel panel--closed-xxl-down"> -->
+    <div class="panel panel--closed-xxl-down">
         <h3 class="panel__heading">Quick Filters</h3>
         <div class="panel__button">
             <button class="panel__toggle"><span class="sr-only">Toggle "Quick Filters" panel</span></button>
@@ -102,25 +101,41 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         <h3 class="panel__heading">Document Library</h3>
         <div class="panel__content">
             <div class="row">
+
+
+                <!-- Document Library -->
+                <!--
+                    ├─○ <table> #document-library .mb-datatable // This will not display on Mobile
+                    │
+                    ├─○ <div> .document-library  // This will only display on Mobile
+                    │ ├─○ <div> .document-library__file
+                    │ │ ├─○ <div> .document-library__top
+                    │ │ │ ├─● <i> .document-library__icon .document-library__icon--[ICON TYPE]
+                    │ │ │ ├─○ <a href="[DOCUMENT DOWNLOAD]"> .document-library__link
+                    │ │ │ │ ├─● <span> .document-library__name
+                    │ │ │ │ └─● <span> .document-library__type
+                    │ │ │ └─● <button> .document-library__toggle
+                    │ │ └─○ <div> .document-library__info
+                    │ │   ├─○ <div> .document-library__field
+                    │ │   │ ├─● <span> .document-library__field-label
+                    │ │   │ └─● <span> .document-library__field-value
+                    │ │   │ // Above fields x 4
+                    │ │   └─○ <div> .document-library__action
+                    │ │     └─● <button> .action-link action-link--[ACTION-LINK TYPE]
+                    │ │     // Above actions x 4
+                -->
                 <table id="document-library" class="mb-datatable"></table>
 
-                <!-- Mobile Document Library -->
-                <!--
-                    ├─○ <div> .form__field .field--[TYPE] .field--[MODIFIER] [COL]
-                    │ ├─● <input id="[ID]" type="[TYPE]" [DISABLED] [REQUIRED]> .field__input
-                    │ ├─● <label for="[ID]"> .field__label
-                    │ └─● <span> .field__help (OPTIONAL)
-                -->
                 <div class="document-library">
 
                     <div class="document-library__file">
                         <div class="document-library__top">
-                                <i class="document-library__icon document-library__icon--word"></i>
-                                <a href="#" class="document-library__link">
-                                    <span class="document-library__name">Document-example.docx</span>
-                                    <span class="document-library__type">Development Application</span>
-                                </a>
-                                <button class="document-library__toggle"></button>
+                            <i class="document-library__icon document-library__icon--word"></i>
+                            <a href="#" class="document-library__link">
+                                <span class="document-library__name">Document-example.docx</span>
+                                <span class="document-library__type">Development Application</span>
+                            </a>
+                            <button class="document-library__toggle"></button>
                         </div>
                         <div class="document-library__info">
                             <div class="document-library__field">
@@ -152,9 +167,93 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                             <div class="document-library__action">
                                 <button class="action-link action-link--delete">Delete</button>
                             </div>
-
                         </div>
                     </div>
+
+                    <div class="document-library__file">
+                        <div class="document-library__top">
+                            <i class="document-library__icon document-library__icon--excel"></i>
+                            <a href="#" class="document-library__link">
+                                <span class="document-library__name">Document-example.xlsx</span>
+                                <span class="document-library__type">Licenses/Permits</span>
+                            </a>
+                            <button class="document-library__toggle"></button>
+                        </div>
+                        <div class="document-library__info">
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Sub Type</span>
+                                <span class="document-library__field-value">Work Permit</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Expired</span>
+                                <span class="document-library__field-value">31 Dec 2019</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Building</span>
+                                <span class="document-library__field-value">CapitaLand - Marine Blue</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Applies to</span>
+                                <span class="document-library__field-value">David Anderson</span>
+                            </div>
+
+                            <div class="document-library__action">
+                                <button class="action-link action-link--copy">Copy Link</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--details">See Details</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--email">Email</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--delete">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="document-library__file">
+                        <div class="document-library__top">
+                            <i class="document-library__icon document-library__icon--ppt"></i>
+                            <a href="#" class="document-library__link">
+                                <span class="document-library__name">Document-example.pptx</span>
+                                <span class="document-library__type">Procedures</span>
+                            </a>
+                            <button class="document-library__toggle"></button>
+                        </div>
+                        <div class="document-library__info">
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Sub Type</span>
+                                <span class="document-library__field-value">N/A</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Expired</span>
+                                <span class="document-library__field-value">31 Dec 2019</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Building</span>
+                                <span class="document-library__field-value">CapitaLand - Marine Blue</span>
+                            </div>
+                            <div class="document-library__field">
+                                <span class="document-library__field-label">Applies to</span>
+                                <span class="document-library__field-value">David Anderson</span>
+                            </div>
+
+                            <div class="document-library__action">
+                                <button class="action-link action-link--copy">Copy Link</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--details">See Details</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--email">Email</button>
+                            </div>
+                            <div class="document-library__action">
+                                <button class="action-link action-link--delete">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
