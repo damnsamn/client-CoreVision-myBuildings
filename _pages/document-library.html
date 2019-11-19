@@ -121,7 +121,9 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                     │ │   │ └─● <span> .document-library__field-value
                     │ │   │ // Above fields x 4
                     │ │   └─○ <div> .document-library__action
-                    │ │     └─● <button> .action-link action-link--[ACTION-LINK TYPE]
+                    │ │     ├─● <button> .action-link action-link--[ACTION-LINK TYPE]
+                    │ │     │   // or
+                    │ │     └─● <a href="[URL]"> .action-link action-link--[ACTION-LINK TYPE]
                     │ │     // Above actions x 4
                 -->
             <table id="document-library" class="mb-datatable"></table>
@@ -131,7 +133,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 <div class="document-library__file">
                     <div class="document-library__top">
                         <i class="document-library__icon document-library__icon--word"></i>
-                        <a href="#" class="document-library__link">
+                        <a href="#file-url" class="document-library__link">
                             <span class="document-library__name">Document-example.docx</span>
                             <span class="document-library__type">Development Application</span>
                         </a>
@@ -159,7 +161,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                             <button class="action-link action-link--copy">Copy Link</button>
                         </div>
                         <div class="document-library__action">
-                            <button class="action-link action-link--details">See Details</button>
+                            <a href="#edit-this-row" class="action-link action-link--details">See Details</a>
                         </div>
                         <div class="document-library__action">
                             <button class="action-link action-link--email">Email</button>
@@ -173,7 +175,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 <div class="document-library__file">
                     <div class="document-library__top">
                         <i class="document-library__icon document-library__icon--excel"></i>
-                        <a href="#" class="document-library__link">
+                        <a href="#file-url" class="document-library__link">
                             <span class="document-library__name">Document-example.xlsx</span>
                             <span class="document-library__type">Licenses/Permits</span>
                         </a>
@@ -201,7 +203,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                             <button class="action-link action-link--copy">Copy Link</button>
                         </div>
                         <div class="document-library__action">
-                            <button class="action-link action-link--details">See Details</button>
+                            <a href="#edit-this-row" class="action-link action-link--details">See Details</a>
                         </div>
                         <div class="document-library__action">
                             <button class="action-link action-link--email">Email</button>
@@ -215,7 +217,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 <div class="document-library__file">
                     <div class="document-library__top">
                         <i class="document-library__icon document-library__icon--ppt"></i>
-                        <a href="#" class="document-library__link">
+                        <a href="#file-url" class="document-library__link">
                             <span class="document-library__name">Document-example.pptx</span>
                             <span class="document-library__type">Procedures</span>
                         </a>
@@ -243,7 +245,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                             <button class="action-link action-link--copy">Copy Link</button>
                         </div>
                         <div class="document-library__action">
-                            <button class="action-link action-link--details">See Details</button>
+                            <a href="#edit-this-row" class="action-link action-link--details">See Details</a>
                         </div>
                         <div class="document-library__action">
                             <button class="action-link action-link--email">Email</button>
@@ -262,15 +264,15 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
 <script>
     var data = [
-        ["<i class='document-library__icon document-library__icon--word'></i><a href='#'>Document-example.docx</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
-        ["<i class='document-library__icon document-library__icon--ppt'></i><a href='#'>Document-example.pptx</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
-        ["<i class='document-library__icon document-library__icon--pdf'></i><a href='#'>Document-example.pdf</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
-        ["<i class='document-library__icon document-library__icon--excel'></i><a href='#'>Document-example.xlsx</a>", "CapitaLand - Marine Blue", "Licenses/Permits", "Work Permit", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
-        ["<i class='document-library__icon document-library__icon--archive'></i><a href='#'>Document-example.zip</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
-        ["<i class='document-library__icon document-library__icon--file'></i><a href='#'>Document-example.psd</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
-        ["<i class='document-library__icon document-library__icon--image'></i><a href='#'>Document-example.jpeg</a>", "CapitaLand - Marine Blue", "Licenses/Permits", "Work Permit", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
-        ["<i class='document-library__icon document-library__icon--video'></i><a href='#'>Document-example.mp4</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
-        ["<i class='document-library__icon document-library__icon--audio'></i><a href='#'>Document-example.wav</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#' class='action-link action-link--copy'>Copy Link</a> <a href='#' class='action-link action-link--email'>Email</a> <a href='#' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--word'></i><a href='#file-url'>Document-example.docx</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--ppt'></i><a href='#file-url'>Document-example.pptx</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--pdf'></i><a href='#file-url'>Document-example.pdf</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--excel'></i><a href='#file-url'>Document-example.xlsx</a>", "CapitaLand - Marine Blue", "Licenses/Permits", "Work Permit", "31 Dec 2019", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--archive'></i><a href='#file-url'>Document-example.zip</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--file'></i><a href='#file-url'>Document-example.psd</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--image'></i><a href='#file-url'>Document-example.jpeg</a>", "CapitaLand - Marine Blue", "Licenses/Permits", "Work Permit", "31 Dec 2019", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--video'></i><a href='#file-url'>Document-example.mp4</a>", "CapitaLand - Marine Blue", "Procedures", " ", " ", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
+        ["<i class='document-library__icon document-library__icon--audio'></i><a href='#file-url'>Document-example.wav</a>", "CapitaLand - Marine Blue", "Development Application", " ", "31 Dec 2019", "<a href='#file-url' class='action-link action-link--copy'>Copy Link</a> <a href='#file-url' class='action-link action-link--email'>Email</a> <a href='#file-url' class='action-link action-link--delete'>Delete</a>"],
     ]
 
     var columns = [
@@ -302,7 +304,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
             createdRow: function (row, data, dataIndex) {
                 // Set data-href to given value of row's data
                 // $(row).attr('data-href', data[2]);
-                $(row).attr('data-href', "#");
+                $(row).attr('data-href', "#edit-this-row");
             }
         });
     });
