@@ -7,7 +7,7 @@ $(document).ready(function () {
     customDataTablesHover();
     datatableStatusTooltips();
     enablePanelToggle();
-    enableDocumentLibraryToggle()
+    enableDocumentLibraryToggle();
 });
 
 // Overriding DataTables default options
@@ -29,12 +29,26 @@ $.extend(true, $.fn.dataTable.defaults, {
     },
     initComplete: function () {
         let $table = $(this).parents(".dataTables_wrapper");
+
+        // Style page selects
         $table.find(".dataTables_length select").addClass("field__input");
+
+        // Add custom sorting arrows
         $table.find("thead th").append("<i></i>");
 
+
+        // Recalculate column sizes once all data is initialised
         let dataTable = $(this).DataTable();
         setTimeout(function () {
             dataTable.columns.adjust();
+
+            // If DataTable <tr> has data-href, navigate there on click
+            let $linkRows = $table.find("tbody tr[data-href]");
+            $linkRows.click(function (e) {
+                if (e.target.tagName == "TD" || e.target.tagName == "TR")
+                    window.location.href = $(this).data("href");
+            });
+
         }, 0);
     },
     "lengthMenu": [10, 20, 50]
@@ -248,12 +262,12 @@ function navScrollIndicators() {
 }
 
 // Custom hover classes for DataTables
-// Adds hover class to entire row, as well as corresponding row in FixedColumns wrapper.
+// Adds hover class to entire row (only if it is clickable with [data-href]), as well as corresponding row in FixedColumns wrapper.
 function customDataTablesHover() {
     let hoverClass = "datatable-hover";
     let $hoveredRow = $();
 
-    $(".mb-datatable").on("mouseenter", "tbody tr", function () {
+    $(".mb-datatable").on("mouseenter", "tbody tr[data-href]", function () {
         let $table = $(this).parents(".dataTables_wrapper");
         let index = $(this).parent().children().index(this);
         $hoveredRow = $()
@@ -262,7 +276,7 @@ function customDataTablesHover() {
             $hoveredRow.push($(this).children(":eq(" + index + ")")[0]);
         });
         $hoveredRow.addClass(hoverClass);
-    }).on("mouseleave", "tbody tr", function () {
+    }).on("mouseleave", "tbody tr[data-href]", function () {
         $hoveredRow.removeClass(hoverClass);
         $hoveredRow = $();
     });
@@ -295,8 +309,8 @@ function datatableStatusTooltips() {
 // Adds optional toggle functionality for panels
 function enablePanelToggle() {
     $(".panel__toggle").click(function () {
-        $panel = $(this).parents(".panel");
-        $content = $(this).parent().next();
+        let $panel = $(this).parents(".panel");
+        let $content = $(this).parent().next();
 
         if ($panel.hasClass("panel--opening") || $panel.hasClass("panel--closing"))
             $panel.toggleClass("panel--opening").toggleClass("panel--closing");
@@ -321,8 +335,8 @@ function enableDocumentLibraryToggle() {
     $(".document-library__file").addClass("document-library__file--enabled").find(".document-library__info").hide();
 
     $(".document-library__toggle").click(function () {
-        $file = $(this).parents(".document-library__file");
-        $info = $file.find(".document-library__info");
+        let $file = $(this).parents(".document-library__file");
+        let $info = $file.find(".document-library__info");
 
         $file.toggleClass("document-library__file--open");
         $info.stop();
@@ -331,5 +345,4 @@ function enableDocumentLibraryToggle() {
                 $(this).css('display', 'flex');
         });
     })
-
 }
