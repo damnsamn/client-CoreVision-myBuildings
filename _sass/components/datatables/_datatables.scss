@@ -163,7 +163,11 @@ table.mb-datatable {
 					border-bottom-right-radius: $border-radius;
 				}
 			}
-		}
+        }
+
+        tr[data-href] {
+            cursor: pointer;
+        }
 	}
 
 	.datatable-hover {
