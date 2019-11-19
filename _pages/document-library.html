@@ -286,6 +286,9 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
         $('#document-library').DataTable({
             data: data,
             columns: columns,
+            fixedColumns: {
+                leftColumns: 1
+            },
             buttons: {
                 buttons: [
                     {
