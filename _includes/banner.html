@@ -1,5 +1,5 @@
 <div class="banner">
-    <div class="banner__image" style="background-image: url('{{ page.bannerImage }}')">
+    <div class="banner__image" style="background-image: url('{{ site.baseurl | relative_url }}{{ page.bannerImage }}')">
     </div>
     <h2 class="banner__heading">{{ page.title }}</h2>
 </div>
