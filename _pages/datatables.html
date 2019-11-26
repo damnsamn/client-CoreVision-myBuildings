@@ -170,8 +170,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
             columns: columns,
             fixedColumns: {
                 leftColumns: 1,
-            },
-            dom: "tpl"
+            }
         });
 
         $('#dataTable3').DataTable({
@@ -181,9 +180,9 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 leftColumns: 0,
                 rightColumns: 1,
             },
+            dom: "tpB",
             buttons: {
                 buttons: [
-                    { extend: 'copy', className: 'mb-button--stroke' },
                     { extend: 'csv', className: 'mb-button--stroke' },
                     { extend: 'print', className: 'mb-button--stroke' },
                     {

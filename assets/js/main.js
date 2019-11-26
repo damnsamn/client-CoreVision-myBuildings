@@ -13,14 +13,7 @@ $(document).ready(function () {
 // Overriding DataTables default options
 $.extend(true, $.fn.dataTable.defaults, {
     scrollX: true,
-    dom: "tpB",
-    buttons: {
-        dom: {
-            button: {
-                className: 'mb-button mb-button--small'
-            }
-        }
-    },
+    dom: "tpl",
     language: {
         "lengthMenu":
             "<div class='form__field field--select field--small'>" +
