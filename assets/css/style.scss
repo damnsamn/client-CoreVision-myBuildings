@@ -20,7 +20,6 @@
 @import 'overrides';
 @import 'mixins';
 @import 'animations';
-@import 'helpers';
 @import 'global';
 @import 'layout';
 
@@ -43,3 +42,6 @@
 @import 'components/news-event';
 @import 'components/navigation';
 @import 'components/tooltip';
+
+// Helpers come last, to ensure they override other single-level selectors
+@import 'helpers';
