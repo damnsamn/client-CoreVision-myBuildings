@@ -291,36 +291,53 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 <!-- Fieldset -->
                 <fieldset class="form__fieldset col-12">
                     <legend class="fieldset__label">Fieldset Example</legend>
+
                     <div class="fieldset__box">
-
-                        <!-- Readonly fields - can sit alongside other editable fields -->
-                        <!--
-                            ├─○ <div> .form__field .field--readonly [COL]
-                            │ ├─● <label for="[ID]"> .field__label
-                            │ └─● <span id="[ID]"> .field__readonly
-                        -->
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
+                        <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                            <input class="field__input" id="radio-fieldset1" name="fieldset-radios" type="radio">
+                            <label class="field__label" for="radio-fieldset1">Option 1</label>
                         </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
+                        <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                            <input class="field__input" id="radio-fieldset2" name="fieldset-radios" type="radio">
+                            <label class="field__label" for="radio-fieldset2">Option 2</label>
                         </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
+                        <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                            <input class="field__input" id="radio-fieldset3" name="fieldset-radios" type="radio">
+                            <label class="field__label" for="radio-fieldset3">Option 3</label>
                         </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
+                        <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                            <input class="field__input" id="radio-fieldset4" name="fieldset-radios" type="radio">
+                            <label class="field__label" for="radio-fieldset4">Option 4</label>
                         </div>
-
                     </div>
+
                 </fieldset>
+
+                <!-- Readonly fields - can sit alongside other editable fields -->
+                <!--
+                    ├─○ <div> .form__field .field--readonly [COL]
+                    │ ├─● <label for="[ID]"> .field__label
+                    │ └─● <span id="[ID]"> .field__readonly
+                -->
+                <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
+                    <label class="field__label" for="field-readonly1">Readonly Field</label>
+                    <span class="field__readonly" id="field-readonly1">This readonly field is not editable</span>
+                </div>
+
+                <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
+                    <label class="field__label" for="field-readonly2">Readonly Field</label>
+                    <span class="field__readonly" id="field-readonly2">This readonly field is not editable</span>
+                </div>
+
+                <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
+                    <label class="field__label" for="field-readonly3">Readonly Field</label>
+                    <span class="field__readonly" id="field-readonly3">This readonly field is not editable</span>
+                </div>
+
+                <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
+                    <label class="field__label" for="field-readonly4">Readonly Field</label>
+                    <span class="field__readonly" id="field-readonly4">This readonly field is not editable</span>
+                </div>
 
                 <div class="form__actions">
                     <button class="mb-button mb-button--stroke action--left">Back</button>
@@ -450,10 +467,10 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
 
                 <div class="form__actions">
-                        <div class="form__field field--checkbox action--left action--xl-right">
-                            <input class="field__input" id="checkbox-attachment" type="checkbox">
-                            <label class="field__label" for="checkbox-attachment">Show to All Users</label>
-                        </div>
+                    <div class="form__field field--checkbox action--left action--xl-right">
+                        <input class="field__input" id="checkbox-attachment" type="checkbox">
+                        <label class="field__label" for="checkbox-attachment">Show to All Users</label>
+                    </div>
                     <button class="mb-button action--right">Submit</button>
                 </div>
 
