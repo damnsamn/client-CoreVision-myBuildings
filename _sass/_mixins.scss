@@ -65,8 +65,10 @@ If you have other mixins which are component specific, they belong at the top of
     max-height: calc(1em * #{$line-height} * #{$n});
 }
 
-// Apply fontawesome to ::before or ::after
-@mixin fa($style: solid, $icon: f100) {
+// Apply fontawesome icon to ::before or ::after
+// This mixin mimics the styles fontawesome will apply to <i class="fa(r/s/l/b) fa-(icon-name)"></i>
+// Find an icon at https://fontawesome.com/icons?d=gallery and grab its style ($style) and unicode ($icon)
+@mixin fa($style: "solid", $icon: "f100") {
     display: inline-block;
     font-style: normal;
     font-variant: normal;
@@ -75,20 +77,20 @@ If you have other mixins which are component specific, they belong at the top of
     font-family: "Font Awesome 5 Pro" !important;
     color: inherit;
 
-    @if ($style == brand) {
+    @if ($style == "brand") {
         font-weight: 400 !important;
         font-family: "Font Awesome 5 Brands" !important;
     }
 
-    @if ($style == light) {
+    @if ($style == "light") {
         font-weight: 300 !important;
     }
 
-    @if ($style == regular) {
+    @if ($style == "regular") {
         font-weight: 400 !important;
     }
 
-    @if ($style == solid) {
+    @if ($style == "solid") {
         font-weight: 900 !important;
     }
 
