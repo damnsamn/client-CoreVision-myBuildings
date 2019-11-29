@@ -68,14 +68,24 @@
 		@include make-col(12);
 		// flex-direction: row-reverse;
 		display: flex;
+		flex-wrap: wrap;
 		margin-top: $margin__panel-TB - $margin__form-field;
 		align-items: center;
+		margin-bottom: -0.5em;
+
+		> * {
+			margin-bottom: 0.5em;
+		}
 
 		> .action--left {
-			margin: 0 auto 0 0;
+			margin-left: 0;
+
+			+ .action--left {
+				margin-left: 1.5em;
+			}
 		}
 		> .action--right {
-			margin: 0 0 0 auto;
+			margin-left: auto;
 
 			+ .action--right {
 				margin-left: 1.5em;
@@ -85,13 +95,16 @@
 		@each $br, $px in $grid-breakpoints {
 			@include media-breakpoint-up($br) {
 				> .action--#{$br}-left {
-					margin: 0 auto 0 0;
+					margin-left: 0;
+
+					+ .action--#{$br}-left {
+						margin-left: 1.5em;
+					}
 				}
 				> .action--#{$br}-right {
-					margin: 0 0 0 auto;
+					margin-left: auto;
 
-                    + .action--#{$br}-right,
-                    + .action--right {
+					+ .action--#{$br}-right {
 						margin-left: 1.5em;
 					}
 				}
@@ -110,8 +123,8 @@
 			position: absolute;
 			top: 0;
 			padding: 0 0.5em 0.25em 0;
-            background-color: #fff;
-            width: auto;
+			background-color: #fff;
+			width: auto;
 
 			+ #{$block}__box {
 				margin-top: 0.5em;
