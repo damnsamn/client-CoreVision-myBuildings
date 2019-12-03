@@ -139,8 +139,8 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
     ];
 
     var columns = [
-        { title: "Date" },
         { title: "Code" },
+        { title: "Date" },
         { title: "Priority" },
         { title: "Tenancy" },
         { title: "Area/Level" },
@@ -170,8 +170,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
             columns: columns,
             fixedColumns: {
                 leftColumns: 1,
-            },
-            dom: "tpl"
+            }
         });
 
         $('#dataTable3').DataTable({
@@ -181,9 +180,9 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 leftColumns: 0,
                 rightColumns: 1,
             },
+            dom: "tpB",
             buttons: {
                 buttons: [
-                    { extend: 'copy', className: 'mb-button--stroke' },
                     { extend: 'csv', className: 'mb-button--stroke' },
                     { extend: 'print', className: 'mb-button--stroke' },
                     {
@@ -195,6 +194,23 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 ]
             },
         });
+
+        // Simple example of searching all tables using the Keyword Search field
+        var searchTimeout;
+        var tables = $("#dataTable, #dataTable2, #dataTable3").DataTable();
+
+        $("#filter-search").on("keyup", function () {
+            let val = this.value;
+
+            // If there's input before 1s ends, restart the timer
+            clearTimeout(searchTimeout);
+
+            // After 1s without input, search tables for input's value
+            searchTimeout = setTimeout(function () {
+                tables.search(val).draw();
+            }, 1000)
+        });
+
     });
 
 </script>

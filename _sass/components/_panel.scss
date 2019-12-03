@@ -52,9 +52,6 @@
 		position: relative;
 		margin-right: -16px;
 
-		// @
-		// align-self: flex-start;
-
 		&.show #{$block}__ellipsis::before {
 			opacity: 1;
 		}
@@ -159,6 +156,8 @@
 			transform: rotate(180deg);
 		}
 
+        // Responsive &--closed classes
+        // Eg. .panel--closed-lg-down
 		@each $br, $px in $grid-breakpoints {
 			&-#{$br}-down {
 				#{$block}__content {

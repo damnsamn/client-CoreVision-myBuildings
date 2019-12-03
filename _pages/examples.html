@@ -64,7 +64,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 <!-- Panel sections -->
 <!--
     ├─○ <section> .panel-col [COL]
-    │ └─○ <div> .panel
+    │ └─○ <div> .panel .panel--[MODIFIER]
     │   ├─● <h3> .panel__heading
     │   ├─○ <div> .panel__button (OPTIONAL)
     │   │ └─○ <button> .panel__toggle (.closed if starting closed)
@@ -110,7 +110,7 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
                 </div>
 
                 <!-- Disabled text field - .field--disabled -->
-                <div class="form__field field--text field--disabled  col-12 col-sm-6 col-xl-4 col-xxl-3col-12 col-sm-6 col-xl-4 col-xxl-3">
+                <div class="form__field field--text field--disabled col-12 col-sm-6 col-xl-4 col-xxl-3">
                     <label class="field__label" for="text-disabled">Text - Disabled</label>
                     <input class="field__input" id="text-disabled" type="text" value="Disabled" disabled>
                 </div>
@@ -184,9 +184,9 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
                 <!-- Append -->
                 <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="group-prepend">Input-group - Append</label>
+                    <label class="field__label" for="group-append">Input-group - Append</label>
                     <div class="input-group">
-                        <input class="field__input" id="group-prepend" type="text" placeholder="Email">
+                        <input class="field__input" id="group-append" type="text" placeholder="Email">
                         <div class="input-group-append">
                             <span class="input-group-text">@corevision.com.au</span>
                         </div>
@@ -195,12 +195,12 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
                 <!-- Append AND Prepend -->
                 <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="group-prepend">Input-group - Both Ends</label>
+                    <label class="field__label" for="group-both">Input-group - Both Ends</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        <input class="field__input" id="group-prepend" type="text" placeholder="Value">
+                        <input class="field__input" id="group-both" type="text" placeholder="Value">
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
                         </div>
@@ -209,13 +209,13 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
                 <!-- Multiple -->
                 <div class="form__field field--text col-12 col-sm-6 col-xl-4 col-xxl-3">
-                    <label class="field__label" for="group-prepend">Input-group - Multiple</label>
+                    <label class="field__label" for="group-multiple">Input-group - Multiple</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                             <span class="input-group-text">10.</span>
                         </div>
-                        <input class="field__input" id="group-prepend" type="text" placeholder="Value">
+                        <input class="field__input" id="group-multiple" type="text" placeholder="Value">
                         <div class="input-group-append">
                             <span class="input-group-text">AUD</span>
                         </div>
@@ -235,92 +235,108 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
                 <!-- Checkbox Regular -->
                 <div class="form__field field--checkbox col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="checkbox-regular" type="checkbox">
+                    <input class="field__input" id="checkbox-regular" type="checkbox">
                     <label class="field__label" for="checkbox-regular">Regular</label>
                 </div>
 
                 <!-- Radio Regular -->
                 <div class="form__field field--radio col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="radio-regular" type="radio">
+                    <input class="field__input" id="radio-regular" type="radio">
                     <label class="field__label" for="radio-regular">Regular</label>
                 </div>
 
                 <!-- Checkbox Required -->
                 <div class="form__field field--checkbox field--required col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="checkbox-required" type="checkbox" required>
+                    <input class="field__input" id="checkbox-required" type="checkbox" required>
                     <label class="field__label" for="checkbox-required">Required</label>
                 </div>
 
                 <!-- Radio Required -->
                 <div class="form__field field--radio field--required col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="radio-required" type="radio" required>
+                    <input class="field__input" id="radio-required" type="radio" required>
                     <label class="field__label" for="radio-required">Required</label>
                 </div>
 
                 <!-- Checkbox Invalid -->
                 <div class="form__field field--checkbox field--required field--invalid col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="checkbox-invalid" type="checkbox" required>
+                    <input class="field__input" id="checkbox-invalid" type="checkbox" required>
                     <label class="field__label" for="checkbox-invalid">Invalid</label>
                 </div>
 
                 <!-- Radio Invalid -->
                 <div class="form__field field--radio field--required field--invalid col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="radio-invalid" type="radio" required>
+                    <input class="field__input" id="radio-invalid" type="radio" required>
                     <label class="field__label" for="radio-invalid">Invalid</label>
                 </div>
 
                 <!-- Checkbox Disabled -->
                 <div class="form__field field--checkbox field--disabled col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="checkbox-disabled" type="checkbox" disabled>
+                    <input class="field__input" id="checkbox-disabled" type="checkbox" disabled>
                     <label class="field__label" for="checkbox-disabled">Disabled</label>
                 </div>
 
                 <!-- Radio Disabled -->
                 <div class="form__field field--radio field--disabled col-6 col-sm-3 col-lg">
-                    <input class="field__input field__input" id="radio-disabled" type="radio" disabled>
+                    <input class="field__input" id="radio-disabled" type="radio" disabled>
                     <label class="field__label" for="radio-disabled">Disabled</label>
                 </div>
 
 
                 <!-- Textarea -->
-                <!-- Regular text field - with optional help text -->
                 <div class="form__field field--textarea col-12">
-                    <label class="field__label" for="text-regular">Textarea</label>
-                    <textarea class="field__input" id="text-regular" rows="4"></textarea>
+                    <label class="field__label" for="textarea">Textarea</label>
+                    <textarea class="field__input" id="textarea" rows="4"></textarea>
                 </div>
 
                 <!-- Fieldset -->
-                <div class="form__fieldset col-12">
-                    <label class="fieldset__label">Fieldset Example</label>
+                <fieldset class="form__fieldset col-12">
+                    <legend class="fieldset__label">Fieldset Example</legend>
+
                     <div class="fieldset__box">
-
-                        <!-- Readonly fields - can sit alongside other editable fields -->
-                        <!--
-                            ├─○ <div> .form__field .field--readonly [COL]
-                            │ ├─● <label for="[ID]"> .field__label
-                            │ └─● <span id="[ID]"> .field__readonly
-                        -->
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
+                        <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                            <input class="field__input" id="radio-fieldset1" name="fieldset-radios" type="radio">
+                            <label class="field__label" for="radio-fieldset1">Option 1</label>
                         </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
+                        <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                            <input class="field__input" id="radio-fieldset2" name="fieldset-radios" type="radio">
+                            <label class="field__label" for="radio-fieldset2">Option 2</label>
                         </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
+                        <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                            <input class="field__input" id="radio-fieldset3" name="fieldset-radios" type="radio">
+                            <label class="field__label" for="radio-fieldset3">Option 3</label>
                         </div>
-
-                        <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
-                            <label class="field__label" for="field-readonly">Readonly Field</label>
-                            <span class="field__readonly" id="field-readonly">This readonly field is not editable</span>
+                        <div class="form__field field--radio col-6 col-sm-3 col-lg">
+                            <input class="field__input" id="radio-fieldset4" name="fieldset-radios" type="radio">
+                            <label class="field__label" for="radio-fieldset4">Option 4</label>
                         </div>
-
                     </div>
+
+                </fieldset>
+
+                <!-- Readonly fields - can sit alongside other editable fields -->
+                <!--
+                    ├─○ <div> .form__field .field--readonly [COL]
+                    │ ├─● <label for="[ID]"> .field__label
+                    │ └─● <span id="[ID]"> .field__readonly
+                -->
+                <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
+                    <label class="field__label" for="field-readonly1">Readonly Field</label>
+                    <span class="field__readonly" id="field-readonly1">This readonly field is not editable</span>
+                </div>
+
+                <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
+                    <label class="field__label" for="field-readonly2">Readonly Field</label>
+                    <span class="field__readonly" id="field-readonly2">This readonly field is not editable</span>
+                </div>
+
+                <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
+                    <label class="field__label" for="field-readonly3">Readonly Field</label>
+                    <span class="field__readonly" id="field-readonly3">This readonly field is not editable</span>
+                </div>
+
+                <div class="form__field field--readonly col-12 col-sm-6 col-xl-4 col-xxl-3">
+                    <label class="field__label" for="field-readonly4">Readonly Field</label>
+                    <span class="field__readonly" id="field-readonly4">This readonly field is not editable</span>
                 </div>
 
                 <div class="form__actions">
@@ -451,11 +467,30 @@ bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
 
 
                 <div class="form__actions">
-                        <div class="form__field field--checkbox action--left action--xl-right">
-                            <input class="field__input field__input" id="checkbox-attachment" type="checkbox">
-                            <label class="field__label" for="checkbox-attachment">Show to All Users</label>
-                        </div>
-                    <button class="mb-button action--right">Submit</button>
+                    <div class="form__field field--checkbox action--left action--xl-right">
+                        <input class="field__input" id="checkbox-attachment" type="checkbox">
+                        <label class="field__label" for="checkbox-attachment">Show to All Users</label>
+                    </div>
+                    <button class="mb-button action--right action--xl-right">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<section class="panel-col col-12">
+    <div class="panel">
+        <h3 class="panel__heading">Form Actions</h3>
+        <div class="panel__content">
+            <form class="row">
+
+                ...
+
+                <div class="form__actions">
+                    <button class="mb-button mb-button--stroke action--left">Back</button>
+                    <button class="mb-button action--right">Save</button>
                 </div>
 
             </form>

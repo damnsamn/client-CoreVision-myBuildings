@@ -4,6 +4,7 @@ $(document).ready(function () {
     desktopSubNavigation();
     mobileSubNavigation();
     navScrollIndicators();
+    customDataTablesClickableRows();
     customDataTablesHover();
     datatableStatusTooltips();
     enablePanelToggle();
@@ -13,14 +14,7 @@ $(document).ready(function () {
 // Overriding DataTables default options
 $.extend(true, $.fn.dataTable.defaults, {
     scrollX: true,
-    dom: "tpB",
-    buttons: {
-        dom: {
-            button: {
-                className: 'mb-button mb-button--small'
-            }
-        }
-    },
+    dom: "tpl",
     language: {
         "lengthMenu":
             "<div class='form__field field--select field--small'>" +
@@ -41,14 +35,6 @@ $.extend(true, $.fn.dataTable.defaults, {
         let dataTable = $(this).DataTable();
         setTimeout(function () {
             dataTable.columns.adjust();
-
-            // If DataTable <tr> has data-href, navigate there on click
-            let $linkRows = $table.find("tbody tr[data-href]");
-            $linkRows.click(function (e) {
-                if (e.target.tagName == "TD" || e.target.tagName == "TR")
-                    window.location.href = $(this).data("href");
-            });
-
         }, 0);
     },
     "lengthMenu": [10, 20, 50]
@@ -261,6 +247,14 @@ function navScrollIndicators() {
     }
 }
 
+function customDataTablesClickableRows() {
+    // If DataTable <tr> has data-href, navigate there on click
+    $(".mb-datatable").on("click", "tbody tr[data-href]", function (e) {
+        if (e.target.tagName == "TD" || e.target.tagName == "TR")
+            window.location.href = $(this).data("href");
+    });
+}
+
 // Custom hover classes for DataTables
 // Adds hover class to entire row (only if it is clickable with [data-href]), as well as corresponding row in FixedColumns wrapper.
 function customDataTablesHover() {
@@ -280,7 +274,6 @@ function customDataTablesHover() {
         $hoveredRow.removeClass(hoverClass);
         $hoveredRow = $();
     });
-
 }
 
 // Initialises tooltips for datatable status indicators
