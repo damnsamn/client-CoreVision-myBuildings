@@ -51,7 +51,6 @@
 				position: absolute;
 				font-size: 24px;
 				top: 0.2em;
-				// transform: translateY(-50%);
 				color: $color--tertiary;
 				transition: $transition;
 				right: 0;
@@ -106,7 +105,6 @@
 
 			@include hover-focus {
 				border-color: $color--highlight;
-				// font-weight: $roboto-medium;
 				text-shadow: 0 0 0 $color--highlight;
 				color: $color--highlight;
 				&::before {

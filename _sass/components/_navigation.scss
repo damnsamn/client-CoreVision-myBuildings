@@ -3,7 +3,6 @@
 	display: block;
 	line-height: 1.25;
 	transition: $transition;
-	// text-transform: uppercase;
 	text-decoration: none;
 
 	@include hover-focus {
@@ -63,8 +62,6 @@
 		background-color: #fff;
 		display: flex;
 		flex-direction: column;
-
-		// overflow-y: hidden;
 	}
 
 	@include media-breakpoint-up($bp-laptop) {
@@ -109,7 +106,6 @@
 
 		@include media-breakpoint-up($bp-laptop) {
 			height: $height__banner-desktop;
-			// flex: 0;
 			a {
 				width: 100%;
 			}
@@ -172,7 +168,6 @@
 
 	&__menu {
 		font-size: 16px;
-		// display: none;
 		display: flex;
 		flex: 1 1 100%;
 		flex-direction: column;
@@ -439,9 +434,6 @@
 	}
 
 	&__footer {
-		// height: 150px;
-		// background: $color--highlight;
-		// display: none;
 		flex: 1 0 auto;
         padding: $padding__panel-LR $padding__panel-LR $padding__panel-LR*2 $padding__panel-LR;
         display: flex;
