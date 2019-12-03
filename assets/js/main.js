@@ -226,15 +226,11 @@ function navScrollIndicators() {
     let $nav = $("nav");
     let $wrapper = $nav.find(".simplebar-content-wrapper");
     let $content = $wrapper.children(".simplebar-content");
-    let visibleHeight = Math.round($content.outerHeight(true) - $wrapper.outerHeight(true));
     let buffer = 10;
 
-    showIndicators();
-    $wrapper.on("scroll", function () {
-        showIndicators();
-    })
-
     function showIndicators() {
+        let visibleHeight = Math.round($content.outerHeight(true) - $wrapper.outerHeight(true));
+
         if (Math.round($wrapper.scrollTop()) > buffer)
             $nav.addClass("more-above")
         else
@@ -245,6 +241,14 @@ function navScrollIndicators() {
         else
             $nav.removeClass("more-below")
     }
+
+    showIndicators();
+    $wrapper.on("scroll", function () {
+        showIndicators();
+    })
+    $(window).resize(function () {
+        showIndicators();
+    })
 }
 
 function customDataTablesClickableRows() {
