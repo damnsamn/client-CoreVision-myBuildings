@@ -23,14 +23,6 @@
 	}
 
 	&--required {
-		// .field__input,
-		// .field__label::before {
-		//     border-color: $color--red;
-		// }
-
-		// .field__input {
-		//     background-color: $color--red-light;
-		// }
 		&.field--checkbox,
 		&.field--radio {
 			&::after {

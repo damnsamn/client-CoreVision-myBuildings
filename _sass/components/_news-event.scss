@@ -54,7 +54,6 @@
 			position: absolute;
 			font-size: 24px;
 			top: 0.2em;
-			// transform: translateY(-50%);
 			color: $color--tertiary;
 			transition: $transition;
 			right: 0;
@@ -68,7 +67,6 @@
 
 	&__date {
 		text-transform: uppercase;
-		// font-weight: $roboto-medium;
 		font-size: 14px;
 		color: $color--primary;
 		opacity: 0.5;
