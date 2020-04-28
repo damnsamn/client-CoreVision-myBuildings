@@ -1,0 +1,208 @@
+---
+layout: default
+title: April Additions
+navOrder: 5
+bannerImage: /assets/images/banners/sean-pollock-203658-unsplash.jpg
+---
+
+<!-- Panel sections -->
+<!--
+    ├─○ <section> .panel-col [COL]
+    │ └─○ <div> .panel .panel--[MODIFIER]
+    │   ├─● <h3> .panel__heading
+    │   ├─○ <div> .panel__button (OPTIONAL)
+    │   │ └─○ <button> .panel__toggle (.closed if starting closed)
+    │   │   └─● <span> .sr-only
+    │   └─○ <div> .panel__content (.closed if starting closed)
+-->
+<section class="panel-col col-12">
+    <div class="panel">
+        <h3 class="panel__heading">Gridview</h3>
+        <div class="panel__content">
+            <div>
+                <table class="dataTable mb-datatable-gridview" cellspacing="0" border="0" id="PageContent_gv" style="border-collapse:collapse;">
+                    <tbody>
+                        <tr class="dataTable_thead">
+                            <th class="sort-active-asc" scope="col"><a href="javascript:__doPostBack('ctl00$PageContent$gv','Sort$colID')">Column 1</a></th>
+                            <th scope="col"><a href="javascript:__doPostBack('ctl00$PageContent$gv','Sort$col2')">Column 2</a></th>
+                            <th scope="col"><a href="javascript:__doPostBack('ctl00$PageContent$gv','Sort$col3')">Column 3</a></th>
+                            <th scope="col"><a href="javascript:__doPostBack('ctl00$PageContent$gv','Sort$col4')">Column 4</a></th>
+                            <th scope="col"><a href="javascript:__doPostBack('ctl00$PageContent$gv','Sort$col5')">Column 5</a></th>
+                            <th scope="col">&nbsp;</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>46</td>
+                            <td>4bd</td>
+                            <td>3a19</td>
+                            <td>db1c2</td>
+                            <td class="text-right">
+                                <a href="#" class="action-icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a onclick="javascript:return confirm('Are you sure that you wish to delete this item?');" id="PageContent_gv_btnCancelChecklist_0" class="action-icon" href="javascript:__doPostBack('ctl00$PageContent$gv$ctl02$btnCancelChecklist','')"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+                                <a href="#" class="action-icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>73</td>
+                            <td>ae8</td>
+                            <td>df9b</td>
+                            <td>e6c3b</td>
+                            <td class="text-right">
+                                <a href="#" class="action-icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a onclick="javascript:return confirm('Are you sure that you wish to delete this item?');" id="PageContent_gv_btnCancelChecklist_1" class="action-icon" href="javascript:__doPostBack('ctl00$PageContent$gv$ctl03$btnCancelChecklist','')"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+                                <a href="#" class="action-icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>ae</td>
+                            <td>38f</td>
+                            <td>698e</td>
+                            <td>632c7</td>
+                            <td class="text-right">
+                                <a href="#" class="action-icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a onclick="javascript:return confirm('Are you sure that you wish to delete this item?');" id="PageContent_gv_btnCancelChecklist_2" class="action-icon" href="javascript:__doPostBack('ctl00$PageContent$gv$ctl04$btnCancelChecklist','')"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+                                <a href="#" class="action-icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="dataTable_footer">
+                            <td colspan="6">
+                                <table border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td><span>1</span></td>
+                                            <td><a href="javascript:__doPostBack('ctl00$PageContent$gv','Page$2')">2</a></td>
+                                            <td><a href="javascript:__doPostBack('ctl00$PageContent$gv','Page$3')">3</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="panel-col col-12">
+    <div class="panel">
+        <h3 class="panel__heading">Radio/CheckboxList</h3>
+        <div class="panel__content">
+            <form class="row">
+
+                <fieldset class="form__fieldset col-12">
+                    <legend class="fieldset__label">Checkboxes</legend>
+                    <div class="fieldset__box">
+                        <span id="PageContent_chkCheckboxList" class="col-12 row">
+                            <!-- Below .col definitions should be changed depending on the radio list at the dev's discretion. If the Bootstrap grid layout isn't desirable in certain cases, remove the .col classes entirely -->
+                            <span class="form__field field--checkbox col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_chkCheckboxList_0" type="checkbox" name="ctl00$PageContent$chkCheckboxList$0">
+                                <label for="PageContent_chkCheckboxList_0">Option 1</label>
+                            </span>
+                            <span class="form__field field--checkbox col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_chkCheckboxList_1" type="checkbox" name="ctl00$PageContent$chkCheckboxList$1">
+                                <label for="PageContent_chkCheckboxList_1">Option 2</label>
+                            </span>
+                            <span class="form__field field--checkbox col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_chkCheckboxList_2" type="checkbox" name="ctl00$PageContent$chkCheckboxList$2">
+                                <label for="PageContent_chkCheckboxList_2">Option 3</label>
+                            </span>
+                            <!-- In lieu of a new .row, we can use a .w-100 div to force a line break -->
+                            <!-- We can apply this responsively using Bootstrap's responsive display utilities: ie "w-100 d-none d-md-block d-lg-none" -->
+                            <div class="w-100"></div>
+                            <span class="form__field field--checkbox col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_chkCheckboxList_3" type="checkbox" name="ctl00$PageContent$chkCheckboxList$3">
+                                <label for="PageContent_chkCheckboxList_3">Option 4</label>
+                            </span>
+                            <span class="form__field field--checkbox col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_chkCheckboxList_4" type="checkbox" name="ctl00$PageContent$chkCheckboxList$4">
+                                <label for="PageContent_chkCheckboxList_4">Option 5</label>
+                            </span>
+                        </span>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__fieldset col-12">
+                    <legend class="fieldset__label">Radio</legend>
+                    <div class="fieldset__box">
+                        <span id="PageContent_chkCheckboxList" class="col-12 row">
+                            <!-- Below .col definitions should be changed depending on the radio list at the dev's discretion. If the Bootstrap grid layout isn't desirable in certain cases, remove the .col classes entirely -->
+                            <span class="form__field field--radio col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_RadioButtonList1_0" type="radio" name="ctl00$PageContent$RadioButtonList1" value="Option 1">
+                                <label for="PageContent_RadioButtonList1_0">Option 1</label>
+                            </span>
+                            <span class="form__field field--radio col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_RadioButtonList1_1" type="radio" name="ctl00$PageContent$RadioButtonList1" value="Option 2">
+                                <label for="PageContent_RadioButtonList1_1">Option 2</label>
+                            </span>
+                            <span class="form__field field--radio col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_RadioButtonList1_2" type="radio" name="ctl00$PageContent$RadioButtonList1" value="Option 3">
+                                <label for="PageContent_RadioButtonList1_2">Option 3</label></span>
+                            <!-- In lieu of a new .row, we can use a .w-100 div to force a line break -->
+                            <!-- We can apply this responsively using Bootstrap's responsive display utilities: ie "w-100 d-none d-md-block d-lg-none" -->
+                            <div class="w-100"></div>
+                            <span class="form__field field--radio col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_RadioButtonList1_3" type="radio" name="ctl00$PageContent$RadioButtonList1" value="Option 4">
+                                <label for="PageContent_RadioButtonList1_3">Option 4</label>
+                            </span>
+                            <span class="form__field field--radio col-12 col-sm-6 col-lg-4 col-xl-3">
+                                <input id="PageContent_RadioButtonList1_4" type="radio" name="ctl00$PageContent$RadioButtonList1" value="Option 5">
+                                <label for="PageContent_RadioButtonList1_4">Option 5</label>
+                            </span>
+
+                        </span>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="panel-col col-12">
+    <div class="panel">
+        <h3 class="panel__heading">Select2</h3>
+        <div class="panel__content">
+            <form class="row">
+
+                <div class="form__field field--select col-12">
+                    <label class="field__label" for="select-regular">Regular Select</label>
+                    <select class="field__input" id="select-regular">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--select2 col-12">
+                    <label class="field__label" for="select2-single">Select2 Single</label>
+                    <select class="field__input" id="select2-single">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <div class="form__field field--select2 col-12">
+                    <label class="field__label" for="select2-multi">Select2 Multi</label>
+                    <select class="field__input" id="select2-multi" multiple="multiple">
+                        <option value="value-1">Value 1</option>
+                        <option value="value-2">Value 2</option>
+                        <option value="value-3">Value 3</option>
+                    </select>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#select2-single').select2();
+                        $('#select2-multi').select2();
+                    });
+                </script>
+
+            </form>
+        </div>
+    </div>
+</section>

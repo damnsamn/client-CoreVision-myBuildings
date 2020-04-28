@@ -1,48 +1,48 @@
 @mixin field-icon($location: "input", $fa-style: "regular", $fa-code: "f100") {
-	// // $location can be either "label" or "input"
-	// Some <input> will allow pseudo-elements, some will not. $location: "label" with instead attach the icon to .field__label, and absolutely position it over the .field__input
-	.field__#{$location} {
-		&::before {
-			@include fa($fa-style, $fa-code);
-			@include field-value-style;
-			font-size: 1.1em;
-			margin-right: 0.5em;
-			color: $color__field-border !important;
-			transition: $transition;
-			pointer-events: none;
-			box-shadow: none !important;
-		}
+    // // $location can be either "label" or "input"
+    // Some <input> will allow pseudo-elements, some will not. $location: "label" with instead attach the icon to .field__label, and absolutely position it over the .field__input
+    .field__#{$location} {
+        &::before {
+            @include fa($fa-style, $fa-code);
+            @include field-value-style;
+            font-size: 1.1em;
+            margin-right: 0.5em;
+            color: $color__field-border !important;
+            transition: $transition;
+            pointer-events: none;
+            box-shadow: none !important;
+        }
 
-		@if $location == "input" {
-			&:focus {
-				&::before {
-					color: $color--blue !important;
-					opacity: 0.8 !important;
-				}
-			}
-		}
-	}
+        @if $location == "input" {
+            &:focus {
+                &::before {
+                    color: $color--blue !important;
+                    opacity: 0.8 !important;
+                }
+            }
+        }
+    }
 
-	@if $location == "label" {
-		.field__label::before {
-			position: absolute;
-			bottom: $padding__field-TB + 17px/2;
-			width: 1em;
-			left: $grid-gutter-width/2 + $padding__field-LR;
-			transform: translateY(50%);
-		}
+    @if $location == "label" {
+        .field__label::before {
+            position: absolute;
+            bottom: $padding__field-TB + 17px/2;
+            width: 1em;
+            left: $grid-gutter-width/2 + $padding__field-LR;
+            transform: translateY(50%);
+        }
 
-		.field__input {
-			padding-left: calc(#{$padding__field-LR} + 1.5em);
-		}
-	}
+        .field__input {
+            padding-left: calc(#{$padding__field-LR} + 1.5em);
+        }
+    }
 
-	&:focus-within {
-		.field__#{$location}::before {
-			color: $color--blue !important;
-			opacity: 0.8;
-		}
-	}
+    &:focus-within {
+        .field__#{$location}::before {
+            color: $color--blue !important;
+            opacity: 0.8;
+        }
+    }
 }
 
 // Override default iOS input styles
@@ -50,196 +50,264 @@ select,
 textarea,
 input,
 button {
-	-webkit-appearance: none;
-	border-radius: 0;
-	border: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border: none;
 }
 
 .field {
-	$block: #{&};
+    $block: #{&};
 
-	&--text,
-	&--select,
-	&--date,
-	&--search,
-	&--textarea {
-		.field__input {
-			padding: $padding__field-TB $padding__field-LR;
-			background-color: #fff;
-			height: calc(2px + #{$padding__field-TB}* 2 + 17px);
-		}
-	}
-
-	&--readonly {
-		.field__readonly {
-			padding: $padding__field-TB 0;
-		}
-	}
-
-	&--textarea {
-		.field__input {
-			height: auto;
-			resize: none;
-		}
-	}
-
-	&--checkbox,
-	&--radio {
-		flex-direction: row;
-		align-items: flex-start;
-		@include field-value-style;
-
-		.field__input {
-			opacity: 0;
-			height: 0;
-			width: 0;
-			position: absolute;
-
-			&:checked + .field__label {
-				font-weight: $roboto-medium;
-
-				&::before {
-					border-color: $color--primary;
-					border-width: 2px;
-				}
-			}
-		}
-
-		.field__label {
-			display: flex;
-			position: relative;
-			align-items: flex-start;
-			margin: 0;
-			font-weight: normal;
-			padding-left: calc(#{$height__checkbox-radio} + 0.75em);
-			line-height: 1.25;
-			cursor: pointer;
-			@include field-value-style;
-
-			&::before {
-				content: "";
-				position: absolute;
-				left: 0;
-				top: 50%;
-				transform: translateY(-50%);
-				display: inline-block;
-				height: $height__checkbox-radio;
-				width: $height__checkbox-radio;
-				border: 1px solid $color__field-border;
-			}
-		}
-	}
-
-	&--checkbox {
-		.field__input:checked + .field__label {
-			&::after {
-				content: "";
-				display: inline-block;
-				height: 6px;
-				width: 10px;
-				border-left: 2.5px solid;
-				border-bottom: 2.5px solid;
-				border-color: $color--primary;
-				position: absolute;
-				top: 50%;
-				left: 10px;
-				transform: translate(-50%, -70%) rotate(-45deg);
-			}
-		}
-
-		.field__label::before {
-			border-radius: 1px;
-		}
-	}
-
-	&--radio {
-		.field__input:checked + .field__label {
-			&::after {
-				content: "";
-				display: inline-block;
-				height: 1px;
-				width: 1px;
-				border: 4px solid $color__text;
-				position: absolute;
-				top: 50%;
-				left: $height__checkbox-radio/2 + 0.5px;
-				transform: translate(-50%, -50%);
-				border-radius: 100%;
-			}
-		}
-
-		.field__label::before {
-			border-radius: 100%;
-		}
-	}
-
-	&--select {
-		select {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-
-			&::-ms-expand {
-				display: none;
-			}
-		}
-
-		.field__input {
-			padding-right: calc(15px + 1em);
-			margin-bottom: -4px;
-		}
-
-		position: relative;
-
-		&::after {
-			content: "";
-			position: relative;
-			display: inline-block;
-			border-top: 0.25em solid;
-			border-right: 0.25em solid transparent;
-			border-bottom: 0;
-			border-radius: 0;
-			border-left: 0.25em solid transparent;
-			left: calc(100% - #{$padding__field-LR});
-			border-radius: 0.25em;
-			bottom: 12px;
-			transform: translate(-100%, -100%);
-			color: $color__text;
-			pointer-events: none;
-			width: 0.25em;
-		}
-	}
-
-	&--date {
-		@include field-icon("input", "regular", "f073");
-
-		@include ms-only {
-			@include field-icon("label", "regular", "f073");
+    &--text,
+    &--select,
+    &--date,
+    &--search,
+    &--textarea {
+        .field__input {
+            padding: $padding__field-TB $padding__field-LR;
+            background-color: #fff;
+            height: calc(2px + #{$padding__field-TB}* 2 + 17px);
         }
-	}
+    }
 
-	&--search {
-		@include field-icon("label", "regular", "f002");
-	}
+    &--readonly {
+        .field__readonly {
+            padding: $padding__field-TB 0;
+        }
+    }
 
-	&--small {
-		.field__label {
-			font-size: 14px;
-			line-height: 1;
-			margin-bottom: 0.5em;
-		}
+    &--textarea {
+        .field__input {
+            height: auto;
+            resize: none;
+        }
+    }
 
-		.field__input {
-			height: auto;
-			font-size: 12px;
+    &--checkbox,
+    &--radio {
+        flex-direction: row;
+        align-items: flex-start;
+        @include field-value-style;
+
+        .field__input,
+        input {
+            opacity: 0;
+            height: 0;
+            width: 0;
+            position: absolute;
+
+            &:checked + .field__label,
+            &:checked + label {
+                font-weight: $roboto-medium;
+
+                &::before {
+                    border-color: $color--primary;
+                    border-width: 2px;
+                }
+            }
+        }
+
+        .field__label,
+        label {
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            margin: 0;
+            font-weight: normal;
+            padding-left: calc(#{$height__checkbox-radio} + 0.75em);
+            line-height: 1.25;
+            cursor: pointer;
+            @include field-value-style;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                display: inline-block;
+                height: $height__checkbox-radio;
+                width: $height__checkbox-radio;
+                border: 1px solid $color__field-border;
+            }
+        }
+    }
+
+    &--checkbox {
+        .field__input:checked + .field__label,
+        input:checked + label {
+            &::after {
+                content: "";
+                display: inline-block;
+                height: 6px;
+                width: 10px;
+                border-left: 2.5px solid;
+                border-bottom: 2.5px solid;
+                border-color: $color--primary;
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translate(-50%, -70%) rotate(-45deg);
+            }
+        }
+
+        .field__label::before,
+        label::before {
+            border-radius: 1px;
+        }
+    }
+
+    &--radio {
+        .field__input:checked + .field__label,
+        input:checked + label {
+            &::after {
+                content: "";
+                display: inline-block;
+                height: 1px;
+                width: 1px;
+                border: 4px solid $color__text;
+                position: absolute;
+                top: 50%;
+                left: $height__checkbox-radio/2 + 0.5px;
+                transform: translate(-50%, -50%);
+                border-radius: 100%;
+            }
+        }
+
+        .field__label::before,
+        label::before {
+            border-radius: 100%;
+        }
+    }
+
+    &--select2 {
+        .select2.select2-container {
+            width: auto !important;
+
+            .select2-selection {
+                padding: $padding__field-TB $padding__field-LR;
+                border-color: $color__field-border;
+                padding-right: calc(15px + 1em);
+                background-color: #fff;
+                min-height: calc(2px + #{$padding__field-TB}* 2 + 17px);
+                border-radius: 0;
+                position: relative;
+
+                @include field-value-style(true);
+
+                .select2-selection__rendered {
+                    @include field-value-style(true);
+                    padding: 0;
+                }
+            }
+
+            .select2-selection__rendered {
+                @include field-value-style(true);
+                padding: 0;
+            }
+
+            .select2-selection--multiple {
+                .select2-selection__rendered {
+                    margin-top: -5px;
+                    margin-bottom: -5px;
+                }
+            }
+
+            .select2-selection__arrow {
+                right: $padding__field-LR;
+                top: 50%;
+                transform: translateY(-50%);
+                width: auto;
+                height: auto;
+                font-size: 16px;
+                line-height: 0;
+                b {
+                    position: relative;
+                    display: inline-block;
+                    border-top: 0.25em solid;
+                    border-right: 0.25em solid transparent;
+                    border-bottom: 0;
+                    border-radius: 0;
+                    border-left: 0.25em solid transparent;
+                    border-radius: 0.25em;
+                    color: $color__text;
+                    pointer-events: none;
+                    width: 0.25em;
+                    top: auto;
+                    left: auto;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    &--select {
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            &::-ms-expand {
+                display: none;
+            }
+        }
+
+        .field__input {
+            padding-right: calc(15px + 1em);
+            margin-bottom: -4px;
+        }
+
+        position: relative;
+
+        &::after {
+            content: "";
+            position: relative;
+            display: inline-block;
+            border-top: 0.25em solid;
+            border-right: 0.25em solid transparent;
+            border-bottom: 0;
+            border-radius: 0;
+            border-left: 0.25em solid transparent;
+            left: calc(100% - #{$padding__field-LR});
+            border-radius: 0.25em;
+            bottom: 12px;
+            transform: translate(-100%, -100%);
+            color: $color__text;
+            pointer-events: none;
+            width: 0.25em;
+        }
+    }
+
+    &--date {
+        @include field-icon("input", "regular", "f073");
+
+        @include ms-only {
+            @include field-icon("label", "regular", "f073");
+        }
+    }
+
+    &--search {
+        @include field-icon("label", "regular", "f002");
+    }
+
+    &--small {
+        .field__label {
+            font-size: 14px;
+            line-height: 1;
+            margin-bottom: 0.5em;
+        }
+
+        .field__input {
+            height: auto;
+            font-size: 12px;
             padding: 0.666em 1em;
             line-height: 1;
-		}
+        }
 
-		&#{$block}--select {
-			&::after {
-				bottom: 0.5em;
-			}
-		}
-	}
+        &#{$block}--select {
+            &::after {
+                bottom: 0.5em;
+            }
+        }
+    }
 }
